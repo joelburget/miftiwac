@@ -10,7 +10,7 @@ public class Miftiwac {
         engine.reset();
 
         // Load the pricing rules
-        engine.batch("rules.clp");
+        engine.batch("src/miftiwac/rules.clp");
 
         // Mark end of catalog data for later
         //WorkingMemoryMarker marker = engine.mark();
