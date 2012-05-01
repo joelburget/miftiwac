@@ -79,12 +79,15 @@
 	(working-memory {obvious-tempo == TRUE})
     =>
     (printout t "What is the bpm?")
-	(assert (working-memory (bpm (integer (read t)))))
+    (bind ?bpm (integer (read)))
+    (printout t ?bpm crlf)
+	;(assert (working-memory (bpm (integer (read)))))
+	(assert (working-memory (bpm ?bpm)))
     )
 
 
 (defrule bpm-input
     (working-memory (bpm ?bpm&:(> 0 ?bpm)))
-    ?sg <- (subgenre {subgenre-min-bpm >= ?bpm && subgenre-max-bpm <= ?bpm})
+    ?sg <- (subgenre {subgenre-min-bpm <= ?bpm && subgenre-max-bpm >= ?bpm})
     =>
     (printout t "One possible subgenre is " ?sg.name " at " ?bpm "bpm."crlf))
