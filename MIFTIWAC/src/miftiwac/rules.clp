@@ -1,7 +1,4 @@
-(deftemplate genre
-    (slot name)
-    (slot min-bpm)
-    (slot max-bpm))
+(require src/miftiwac/templates.clp)
 
 ; startup vs deffacts
 (defrule startup ""
