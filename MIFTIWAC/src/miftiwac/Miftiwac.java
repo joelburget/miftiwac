@@ -19,5 +19,8 @@ public class Miftiwac {
 		} catch (JessException e) {
 			System.out.println(e);
 		}
+		
+		if (true);  
+		
 	}
 }
