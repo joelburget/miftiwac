@@ -68,7 +68,7 @@
     =>
 	(printout t "Is there an obvious tempo?  (Can you tap your hand to the beat?) Y or N)" crlf)
     (bind ?obvious-tempo (read))
-    (if (eq ?obvious-tempo "Y") then
+    (if (str-compare ?obvious-tempo "Y") then
     	(assert (working-memory (obvious-tempo TRUE)))
      else
         (assert (working-memory (obvious-tempo FALSE)))
@@ -78,8 +78,8 @@
 (defrule obvious-tempo-rule
 	(working-memory {obvious-tempo == TRUE})
     =>
-      (printout t "What is the bpm?")
-    	(assert (working-memory (bpm (integer (read t)))))
+    (printout t "What is the bpm?")
+	(assert (working-memory (bpm (integer (read t)))))
     )
 
 
