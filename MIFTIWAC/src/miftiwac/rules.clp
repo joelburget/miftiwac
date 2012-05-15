@@ -87,8 +87,8 @@
 (defrule bpm-input
     (working-memory (bpm ?bpm))
     (subgenre (subgenre-min-bpm ?smin) (subgenre-max-bpm ?smax) (name ?name))
-    (test (and (neq nil ?bpm) (> ?bpm 0) (neq nil ?smin) (neq nil ?smax)))
-    (test (and (<= ?smin ?bpm) (<= ?smax ?bpm)))
+    (test (and (neq nil ?bpm) (neq nil ?smin) (neq nil ?smax)))
+    (test (and (> ?bpm 0)(<= ?smin ?bpm) (<= ?smax ?bpm)))
     =>
     (printout t ?bpm " " ?smin " " ?smax crlf)
     (printout t ?bpm crlf)
