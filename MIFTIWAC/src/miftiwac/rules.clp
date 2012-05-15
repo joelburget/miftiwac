@@ -66,6 +66,7 @@
     ; Initialize working memory
     ; ?wm <- (working-memory) 
     =>
+    (reset)
 	(printout t "Is there an obvious tempo?  (Can you tap your hand to the beat?) Y or N)" crlf)
     (bind ?obvious-tempo (read))
     (if (str-compare ?obvious-tempo "Y") then
@@ -83,15 +84,18 @@
     (printout t ?bpm crlf)
 	;(assert (working-memory (bpm (integer (read)))))
 	;(assert (working-memory (bpm ?bpm)))
-    (modify ?wm (bpm ?bpm))
+    
     (facts)
+    (modify ?wm (bpm ?bpm))
     )
 
 
 (defrule bpm-input
     ;(working-memory (bpm ?bpm&:(> 0 ?bpm)))
-    ?wm <- (working-memory {bpm == 120})
-    ?sg <- (subgenre {subgenre-min-bpm <= ?wm.bpm && subgenre-max-bpm >= ?wm.bpm})
+    (working-memory (bpm ?bpm))
+    (subgenre (subgenre-min-bpm ?smin) (subgenre-max-bpm ?smax) (name ?name))
+    (test (> ?bpm 0))
+    (test (and (<= ?smin ?bpm) (<= ?smax ?bpm)))
     =>
-    (printout t ?wm.bpm crlf)
-    (printout t "One possible subgenre is " ?sg.name " at " ?bpm "bpm."crlf))
+    (printout t ?bpm crlf)
+    (printout t "One possible subgenre is " ?name " at " ?bpm "bpm."crlf))
