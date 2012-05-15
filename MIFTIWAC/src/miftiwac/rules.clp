@@ -62,9 +62,6 @@
 ; startup vs deffacts
 (defrule startup 
     "Takes care of necessary initializations."
-  
-    ; Initialize working memory
-    ; ?wm <- (working-memory) 
     =>
     (reset)
 	(printout t "Is there an obvious tempo?  (Can you tap your hand to the beat?) Y or N)" crlf)
@@ -82,20 +79,17 @@
     (printout t "What is the bpm?")
     (bind ?bpm (integer (read)))
     (printout t ?bpm crlf)
-	;(assert (working-memory (bpm (integer (read)))))
-	;(assert (working-memory (bpm ?bpm)))
-    
     (facts)
     (modify ?wm (bpm ?bpm))
     )
 
 
 (defrule bpm-input
-    ;(working-memory (bpm ?bpm&:(> 0 ?bpm)))
     (working-memory (bpm ?bpm))
     (subgenre (subgenre-min-bpm ?smin) (subgenre-max-bpm ?smax) (name ?name))
-    (test (> ?bpm 0))
+    (test (and (neq nil ?bpm) (> ?bpm 0) (neq nil ?smin) (neq nil ?smax)))
     (test (and (<= ?smin ?bpm) (<= ?smax ?bpm)))
     =>
+    (printout t ?bpm " " ?smin " " ?smax crlf)
     (printout t ?bpm crlf)
     (printout t "One possible subgenre is " ?name " at " ?bpm "bpm."crlf))
