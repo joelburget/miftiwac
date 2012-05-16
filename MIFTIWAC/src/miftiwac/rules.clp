@@ -78,15 +78,13 @@
     =>
     (printout t "What is the bpm?" crlf)
     (bind ?bpm (integer (read)))
-    (printout t ?bpm crlf)
-    (facts)
     (modify ?wm (bpm ?bpm))
     )
 
 
 (defrule bpm-input
     (working-memory (bpm ?bpm))
-    (subgenre (subgenre-min-bpm ?smin) (subgenre-max-bpm ?smax) (name ?name))
+    (subgenre (subgenre-min-bpm ?smin) (subgenre-max-bpm ?smax) (subgenre-name ?name))
     (test (and (neq ?bpm nil) (neq ?smin nil) (neq ?smax nil)))
     (test (and (> ?bpm 0)     (<= ?smin ?bpm) (>= ?smax ?bpm)))
     =>
