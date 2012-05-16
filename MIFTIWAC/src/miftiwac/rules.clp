@@ -76,7 +76,7 @@
 (defrule obvious-tempo-rule
 	?wm <- (working-memory {obvious-tempo == TRUE && bpm == 0})
     =>
-    (printout t "What is the bpm?")
+    (printout t "What is the bpm?" crlf)
     (bind ?bpm (integer (read)))
     (printout t ?bpm crlf)
     (facts)
@@ -87,9 +87,7 @@
 (defrule bpm-input
     (working-memory (bpm ?bpm))
     (subgenre (subgenre-min-bpm ?smin) (subgenre-max-bpm ?smax) (name ?name))
-    (test (and (neq nil ?bpm) (neq nil ?smin) (neq nil ?smax)))
-    (test (and (> ?bpm 0)(<= ?smin ?bpm) (<= ?smax ?bpm)))
+    (test (and (neq ?bpm nil) (neq ?smin nil) (neq ?smax nil)))
+    (test (and (> ?bpm 0)     (<= ?smin ?bpm) (>= ?smax ?bpm)))
     =>
-    (printout t ?bpm " " ?smin " " ?smax crlf)
-    (printout t ?bpm crlf)
     (printout t "One possible subgenre is " ?name " at " ?bpm "bpm."crlf))
