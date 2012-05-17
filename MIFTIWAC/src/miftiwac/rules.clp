@@ -3,7 +3,7 @@
 ;-----------------------------------------------------------------------------
 
 (deftemplate attributes
-    (multislot feel 			(type STRING) (allowed-values soulful funky warm ambient cold uplifting dystopian hypnotic aggressive angry happy sad calming abrasive pleasant cheesy danceable not-danceable))
+    (multislot feel 			(type STRING) (allowed-values soulful funky warm ambient cold uplifting dystopian hypnotic aggressive angry happy sad calming abrasive pleasant cheesy danceable not-danceable))    
     (multislot percussion 		(type STRING) (allowed-values four-on-the-floor breakbeat none sampled-breaks drum-machine live-drummer))
     (multislot arrangement 		(type STRING) (allowed-values verse-chorus buildup-breakdown repetitive minimalist))
     (multislot rhythm-meter 	(type STRING) (allowed-values four-four non-four-four heavily-syncopated unsyncopated intricate-rhythms simple-rhythms groovy-feel straight-feel))
@@ -31,6 +31,8 @@
     extends subgenre
     (slot obvious-tempo (allowed-values TRUE FALSE) (default FALSE))
     (slot bpm (type INTEGER) (default 0))
+    (slot current-step (type STRING) (allowed-values obvious-tempo bpm vocals))
+    (slot question (allowed-values TRUE FALSE))
 )
 
 ;-----------------------------------------------------------------------------
@@ -52,9 +54,8 @@
     (slot question-text (type STRING))
     (slot explanation (type STRING))
     (multislot choices (type STRING))
+    (slot current-step (type STRING) (allowed-values obvious-tempo bpm vocals))
     )
-
-
 
 ;-----------------------------------------------------------------------------
 ; Rules
@@ -64,28 +65,87 @@
     "Takes care of necessary initializations."
     =>
     (reset)
-	(printout t "Is there an obvious tempo?  (Can you tap your hand to the beat?) Y or N)" crlf)
-    (bind ?obvious-tempo (read))
-    (if (str-compare ?obvious-tempo "Y") then
-    	(assert (working-memory (obvious-tempo TRUE)))
-     else
-        (assert (working-memory (obvious-tempo FALSE)))
-    )
+	(assert (working-memory (current-step obvious-tempo)))
 )
 
-(defrule obvious-tempo-rule
-	?wm <- (working-memory {obvious-tempo == TRUE && bpm == 0})
+(deffunction streq (?a ?b) (= (str-compare ?a ?b) 0))
+
+; first step
+(defrule obvious-tempo-question
+    ?wm <- (working-memory (current-step ?step) (question ?question))
+    (test (streq ?step "obvious-tempo"))
+    (test (= ?question TRUE))
+    =>
+    (printout t "Is there an obvious tempo?  (Can you tap your hand to the beat?) Y or N)" crlf)
+    (bind ?obvious-tempo (streq (read) "Y"))
+    (modify ?wm (obvious-tempo ?obvious-tempo)
+        		(current-step (if ?obvious-tempo then bpm else vocals)))
+)
+
+/*(defrule obvious-tempo-filter
+    ?wm <- (working-memory (current-step ?step) (question ?question) (obvious-tempo ?wm-obvious))
+    (test (streq ?step "obvious-tempo"))
+    (test (= ?question FALSE))
+    ?subgenre <- (subgenre (obvious-tempo ?subgenre-obvious))
+    (test (neq ?wm-obvious ?subgenre-obvious))
+    =>
+    (retract ?subgenre)
+)*/
+
+; second step
+(defrule bpm-question
+    ?wm <- (working-memory (current-step ?step) (obvious-tempo TRUE) (question ?question))
+    (test (streq ?step "bpm"))
+    (test (= ?question TRUE))
     =>
     (printout t "What is the bpm?" crlf)
     (bind ?bpm (integer (read)))
-    (modify ?wm (bpm ?bpm))
-    )
+    (modify ?wm (bpm ?bpm) (question FALSE))
+)
 
-
-(defrule bpm-input
-    (working-memory (bpm ?bpm))
-    (subgenre (subgenre-min-bpm ?smin) (subgenre-max-bpm ?smax) (subgenre-name ?name))
-    (test (and (neq ?bpm nil) (neq ?smin nil) (neq ?smax nil)))
-    (test (and (> ?bpm 0)     (<= ?smin ?bpm) (>= ?smax ?bpm)))
+(defrule bpm-filter
+    ?wm <- (working-memory (current-step ?step) (obvious-tempo TRUE) (question ?question) (bpm ?bpm))
+    (test (streq ?step "bpm"))
+    (test (= ?question FALSE))
+    ?subgenre <- (subgenre (subgenre-min-bpm ?smin) (subgenre-max-bpm ?smax) (subgenre-name ?name))
+    (test (or (< ?bpm ?smin) (> ?bpm ?smax)))
     =>
-    (printout t "One possible subgenre is " ?name " at " ?bpm "bpm."crlf))
+    (retract ?subgenre)
+    (modify ?wm (current-step vocals) (question TRUE))
+)
+
+; third step
+; TODO a song could easily fit multiple categories
+(defrule vocals-question
+    ?wm <- (working-memory (current-step ?step) (question ?question))
+    (test (streq ?step "vocals"))
+    (test (= ?question TRUE))
+    =>
+    (printout t "What type of vocals does the song have? (present absent sampled studio-recording male female heavily-effected lightly-effected dry autotuned not-autotuned breathy diva-style rap-style soulful melodic unpitched english non-english harmonies)" crlf)
+    (bind ?vocals (read))
+    (modify ?wm (vocals ?vocals) (question FALSE))
+)
+
+(defrule vocals-filter
+    ?wm <- (working-memory (current-step ?step) (question ?question) (vocals ?wm-vocals))
+    (test (streq ?step "vocals"))
+    (test (= ?question FALSE))
+    ?subgenre <- (subgenre (vocals ?subgenre-vocals))
+    (not (streq ?wm-vocals ?subgenre-vocals))
+    =>
+    (modify ?wm (vocals ?vocals) (question FALSE))
+)
+
+/*(defrule question (declare (salience 100))
+	?wm <- (working-memory (current-step ?step) (question TRUE)) ;TODO(joel) maybe fix this
+    ?q <- (question (current-step ?step))
+    =>
+    (printout t ?q.question-text crlf)
+    (bind ?input (read))
+    (modify ?wm (question FALSE))
+    (if (str-compare ?q.type "boolean") then
+        (boolean-answer ?input)
+     elif (str-compare ?q.type "multiple-choice") then
+        (multiple-choice ?input)
+     else (user-input-integer ?input))
+    )*/
