@@ -65,7 +65,7 @@
     "Takes care of necessary initializations."
     =>
     (reset)
-	(assert (working-memory (current-step obvious-tempo)))
+	(assert (working-memory (current-step obvious-tempo) (question TRUE)))
 )
 
 (deffunction streq (?a ?b) (= (str-compare ?a ?b) 0))
@@ -101,17 +101,26 @@
     (printout t "What is the bpm?" crlf)
     (bind ?bpm (integer (read)))
     (modify ?wm (bpm ?bpm) (question FALSE))
+    (facts)
 )
 
 (defrule bpm-filter
+    (declare (salience 50))
     ?wm <- (working-memory (current-step ?step) (obvious-tempo TRUE) (question ?question) (bpm ?bpm))
-    (test (streq ?step "bpm"))
-    (test (= ?question FALSE))
-    ?subgenre <- (subgenre (subgenre-min-bpm ?smin) (subgenre-max-bpm ?smax) (subgenre-name ?name))
+    (test (and (streq ?step "bpm") (= ?question FALSE)))
+    ?subgenre <- (subgenre (subgenre-min-bpm ?smin) (subgenre-max-bpm ?smax))
+    (test (neq ?wm ?subgenre))
     (test (or (< ?bpm ?smin) (> ?bpm ?smax)))
     =>
     (retract ?subgenre)
+)
+
+(defrule bpm-finished
+    ?wm <- (working-memory (current-step ?step) (question ?question))
+    (test (and (streq ?step "bpm") (= ?question FALSE)))
+    =>
     (modify ?wm (current-step vocals) (question TRUE))
+    (printout t "bpm-finished" crlf)
 )
 
 ; third step
@@ -127,15 +136,24 @@
 )
 
 (defrule vocals-filter
+    (declare (salience 50))
     ?wm <- (working-memory (current-step ?step) (question ?question) (vocals ?wm-vocals))
     (test (streq ?step "vocals"))
     (test (= ?question FALSE))
     ?subgenre <- (subgenre (vocals ?subgenre-vocals))
+    (test (neq ?wm ?subgenre))
     (not (streq ?wm-vocals ?subgenre-vocals))
     =>
-    (modify ?wm (vocals ?vocals) (question FALSE))
+    (retract ?subgenre)
 )
 
+(defrule bpm-finished
+    ?wm <- (working-memory (current-step ?step) (question ?question))
+    (test (streq ?step "vocals"))
+    (test (= ?question FALSE))
+    =>
+    (printout t "done" crlf)
+)
 /*(defrule question (declare (salience 100))
 	?wm <- (working-memory (current-step ?step) (question TRUE)) ;TODO(joel) maybe fix this
     ?q <- (question (current-step ?step))
