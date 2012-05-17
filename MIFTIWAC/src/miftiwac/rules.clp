@@ -23,8 +23,8 @@
 (deftemplate subgenre
     extends genre
     (slot subgenre-name 	(type STRING))
-    (slot subgenre-min-bpm 	(type INTEGER))
-    (slot subgenre-max-bpm 	(type INTEGER))
+    (slot subgenre-min-bpm 	(type INTEGER) (default -1))
+    (slot subgenre-max-bpm 	(type INTEGER) (default -1))
 )
 
 (deftemplate working-memory
@@ -101,10 +101,22 @@
     (printout t "What is the bpm?" crlf)
     (bind ?bpm (integer (read)))
     (modify ?wm (bpm ?bpm) (question FALSE))
-    (facts)
 )
 
+(defquery bpm-reverse-search
+    (declare (variables ?bpm))
+    (subgenre {(subgenre-min-bpm > -1 && subgenre-max-bpm > -1) && (subgenre-min-bpm > ?bpm || subgenre-max-bpm < ?bpm)}))
+
 (defrule bpm-filter
+    ?wm <- (working-memory (current-step ?step) (obvious-tempo TRUE) (question ?question) (bpm ?bpm))
+    (test (and (streq ?step "bpm") (= ?question FALSE)))
+    =>
+    (bind ?result (run-query* bpm-reverse-search ?bpm))
+    (while (?result next) (printout t (?result.name))(retract ?result))
+    (modify ?wm (current-step vocals) (question TRUE))
+)
+
+/*(defrule bpm-filter
     (declare (salience 50))
     ?wm <- (working-memory (current-step ?step) (obvious-tempo TRUE) (question ?question) (bpm ?bpm))
     (test (and (streq ?step "bpm") (= ?question FALSE)))
@@ -113,7 +125,7 @@
     (test (or (< ?bpm ?smin) (> ?bpm ?smax)))
     =>
     (retract ?subgenre)
-)
+)*/
 
 (defrule bpm-finished
     ?wm <- (working-memory (current-step ?step) (question ?question))
