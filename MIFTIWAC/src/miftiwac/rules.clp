@@ -1,3 +1,5 @@
+
+
 ;-----------------------------------------------------------------------------
 ; Templates
 ;-----------------------------------------------------------------------------
@@ -58,24 +60,44 @@
 ;-----------------------------------------------------------------------------
 ; Questions
 ;-----------------------------------------------------------------------------
+
+
+
+;(call Controller prepQuestion [the value from the OBJECT slot for the Question you just made])
+
+
+(deftemplate Question
+    (declare (from-class Question)
+             (include-variables TRUE)))
+
+/*
 (deftemplate question
     (slot name (type STRING))
     (slot type (type STRING) (allowed-values boolean multiple-choice user-input-integer))
     (slot question-text (type STRING))
     (slot explanation (type STRING))
     (multislot choices (type STRING))
+    (slot user-answer (type INTEGER))
     (slot current-step (type STRING) (allowed-values obvious-tempo bpm vocals finished))
     )
-
+*/
 ;-----------------------------------------------------------------------------
 ; Rules
 ;-----------------------------------------------------------------------------
 ; startup vs deffacts
+/*
 (defrule startup 
     "Takes care of necessary initializations."
     =>
     (reset)
 	(assert (working-memory (current-step obvious-tempo) (question TRUE)))
+)
+*/
+(defrule debug-start
+    
+    =>
+    (reset)
+    (assert (Question (questionText "This is a sample shared memory question")))
 )
 
 (deffunction streq (?a ?b) (= (str-compare ?a ?b) 0))
@@ -91,16 +113,6 @@
     (modify ?wm (obvious-tempo ?obvious-tempo)
         		(current-step (if ?obvious-tempo then bpm else finished)))
 )
-
-/*(defrule obvious-tempo-filter
-    ?wm <- (working-memory (current-step ?step) (question ?question) (obvious-tempo ?wm-obvious))
-    (test (streq ?step "obvious-tempo"))
-    (test (= ?question FALSE))
-    ?subgenre <- (subgenre (obvious-tempo ?subgenre-obvious))
-    (test (neq ?wm-obvious ?subgenre-obvious))
-    =>
-    (retract ?subgenre)
-)*/
 
 ; second step
 (defrule bpm-question
@@ -130,17 +142,6 @@
     (modify ?wm (current-step vocals) (question TRUE))
 )
 
-/*(defrule bpm-filter
-    (declare (salience 50))
-    ?wm <- (working-memory (current-step ?step) (obvious-tempo TRUE) (question ?question) (bpm ?bpm))
-    (test (and (streq ?step "bpm") (= ?question FALSE)))
-    ?subgenre <- (subgenre (subgenre-min-bpm ?smin) (subgenre-max-bpm ?smax))
-    (test (neq ?wm ?subgenre))
-    (test (or (< ?bpm ?smin) (> ?bpm ?smax)))
-    =>
-    (retract ?subgenre)
-)*/
-
 (defrule bpm-finished
     ?wm <- (working-memory (current-step ?step) (question ?question))
     (test (and (streq ?step "bpm") (= ?question FALSE)))
@@ -161,6 +162,7 @@
     (modify ?wm (vocals ?vocals) (question FALSE))
 )
 
+/*
 (defrule vocals-filter
     (declare (salience 50))
     ?wm <- (working-memory (current-step ?step) (question ?question) (vocals ?wm-vocals))
@@ -172,6 +174,7 @@
     =>
     (retract ?subgenre)
 )
+*/
 
 (defrule finished
     ?wm <- (working-memory (current-step ?step) (question ?question))
@@ -180,16 +183,4 @@
     (printout t "Finished, dumping current memory" crlf)
     (facts)
 )
-/*(defrule question (declare (salience 100))
-	?wm <- (working-memory (current-step ?step) (question TRUE)) ;TODO(joel) maybe fix this
-    ?q <- (question (current-step ?step))
-    =>
-    (printout t ?q.question-text crlf)
-    (bind ?input (read))
-    (modify ?wm (question FALSE))
-    (if (str-compare ?q.type "boolean") then
-        (boolean-answer ?input)
-     elif (str-compare ?q.type "multiple-choice") then
-        (multiple-choice ?input)
-     else (user-input-integer ?input))
-    )*/
+

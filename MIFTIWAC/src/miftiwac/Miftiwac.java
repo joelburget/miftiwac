@@ -20,7 +20,7 @@ public class Miftiwac {
 			System.out.println(e);
 		}
 		
-		//if (true);  
+		if (true);  
 		
 	}
 }
