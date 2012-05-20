@@ -70,6 +70,9 @@
     (declare (from-class Question)
              (include-variables TRUE)))
 
+;(defclass Question Question)
+
+
 /*
 (deftemplate question
     (slot name (type STRING))
