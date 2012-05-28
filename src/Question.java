@@ -3,14 +3,16 @@ public class Question {
 	private int type;
 	private String[] answerTexts;
 	private int answer;
+	private String explanation;
 
 	public Question() {
 		this.questionText = "";
 		this.type = 0;
 		this.answerTexts = new String[0];
 		this.answer = 0;
+		this.explanation = "";
 	}
-	
+
 	public String getQuestionText() {
 		return questionText;
 	}
@@ -41,5 +43,13 @@ public class Question {
 
 	public void setAnswer(int answer) {
 		this.answer = answer;
+	}
+	
+	public String getExplanation() {
+		return explanation;
+	}
+
+	public void setExplanation(String explanation) {
+		this.explanation = explanation;
 	}
 }
