@@ -128,6 +128,13 @@ public class MIFTIWAC extends Application implements Initializable {
     }
 
 	public static void questionReady() {
+		try {
+			// stop execution of Jess engine until engine.run is called
+			MIFTIWAC.engine.halt();
+		} catch (JessException e) {
+			e.printStackTrace();
+		}
+		
 		// Sets the type of the question for the GUI.
 		MIFTIWAC.questionText.add(MIFTIWAC.question.getQuestionText());
 		switch (MIFTIWAC.question.getType()) {
@@ -154,12 +161,6 @@ public class MIFTIWAC extends Application implements Initializable {
 		
 		System.out.println("This is questionTest: " + MIFTIWAC.questionText);
 
-		try {
-			// stop execution of Jess engine until engine.run is called
-			MIFTIWAC.engine.halt();
-		} catch (JessException e) {
-			e.printStackTrace();
-		}
 		// Tells the GUI it's ready to display.
 		MIFTIWAC.questionPage.display();
 		

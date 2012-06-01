@@ -1,7 +1,7 @@
 import jess.JessException;
 import jess.Rete;
 
-public class Miftiwac {
+public class MiftiwacM {
 	// Pointers to used objects.
 	private static Question question;
 	private static GUIFace GUIused;
@@ -10,56 +10,56 @@ public class Miftiwac {
 	public static int dynamicPageType;
 	public static String[] text;
 	public static int answer;
-	public static boolean solutionFound;
 
 	// Lets JESS pass the reference for shadow facts object.
 	public static void prepQuestion(Object o) {
-		Miftiwac.question = (Question) o;
+		MiftiwacM.question = (Question) o;
 	}
 
 	// Lets JESS tell the controller the question is ready.
 	public static void questionReady() {
 		// Sets the type of the question for the GUI.
-		switch (Miftiwac.question.getType()) {
+		switch (MiftiwacM.question.getType()) {
 		case 0: // boolean
-			Miftiwac.dynamicPageType = 1;
+			MiftiwacM.dynamicPageType = 1;
 			break;
 		case 1: // integer
-			Miftiwac.dynamicPageType = 2;
+			MiftiwacM.dynamicPageType = 2;
 			break;
 		case 2: // radio
-			Miftiwac.dynamicPageType = 3;
+			MiftiwacM.dynamicPageType = 3;
 			break;
 		case 3: // answer
-			Miftiwac.dynamicPageType = 4;
+			MiftiwacM.dynamicPageType = 4;
 		}
 
 		// Creates the array of texts for the GUI, where 0 is question, 1-n are
 		// answers.
-		if (Miftiwac.question.getType() == 2) {
-			Miftiwac.text = new String[Miftiwac.question.getAnswerTexts().length + 2];
-		} else if (Miftiwac.question.getType() == 3) {
-			Miftiwac.text = new String[3];
+		if (MiftiwacM.question.getType() == 2) {
+			MiftiwacM.text = new String[MiftiwacM.question.getAnswerTexts().length + 2];
+		} else if (MiftiwacM.question.getType() == 3) {
+			MiftiwacM.text = new String[3];
 		} else {
-			Miftiwac.text = new String[2];
+			MiftiwacM.text = new String[2];
 		}
 
 		// Put in question text.
-		if (Miftiwac.question.getType() == 3) {
+		if (MiftiwacM.question.getType() == 3) {
 			for (int i = 0; i < 3; i++) {
-				Miftiwac.text[i] = question.getAnswerTexts()[i];
+				MiftiwacM.text[i] = question.getAnswerTexts()[i];
 			}
 		} else {
 			// Put in question text.
-			Miftiwac.text[0] = Miftiwac.question.getQuestionText();
+			MiftiwacM.text[0] = MiftiwacM.question.getQuestionText();
 
 			// Put in answer text.
-			Miftiwac.text[1] = Miftiwac.question.getExplanation();
+			MiftiwacM.text[1] = MiftiwacM.question.getExplanation();
 
 			// Put in answer texts if radio or explanation.
-			if (Miftiwac.question.getType() == 2) {
+			if (MiftiwacM.question.getType() == 2) {
 				for (int i = 2; i < 2 + question.getAnswerTexts().length; i++) {
-					Miftiwac.text[i] = question.getAnswerTexts()[i - 1];
+					//System.out.println(question.getAnswerTexts()[i - 2]);
+					MiftiwacM.text[i] = question.getAnswerTexts()[i - 2];
 				}
 			}
 		}
@@ -68,12 +68,12 @@ public class Miftiwac {
 		GUIused.display();
 
 		// If radio, subtract 2 for offset between two arrays.
-		if (Miftiwac.question.getType() == 2) {
-			Miftiwac.answer -= 2;
+		if (MiftiwacM.question.getType() == 2) {
+			MiftiwacM.answer -= 1;
 		}
 
 		// Put answer into question.
-		Miftiwac.question.setAnswer(Miftiwac.answer);
+		MiftiwacM.question.setAnswer(MiftiwacM.answer);
 		
 		
 		
@@ -82,13 +82,12 @@ public class Miftiwac {
 
 	public static void main(String[] args) {
 		// Prep GUI.
-		Miftiwac.GUIused = new GUIText();
+		MiftiwacM.GUIused = new GUIText();
 
 		// Prep shared memory with GUI.
-		Miftiwac.dynamicPageType = 0;
-		Miftiwac.text = new String[0];
-		Miftiwac.answer = 0;
-		Miftiwac.solutionFound = false;
+		MiftiwacM.dynamicPageType = 0;
+		MiftiwacM.text = new String[0];
+		MiftiwacM.answer = 0;
 
 		try {
 			// Create a Jess rule engine.
