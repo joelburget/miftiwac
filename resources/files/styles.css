@@ -1,0 +1,97 @@
+.favoritedToggleButton{
+	-fx-base: white;
+	-fx-background-color: white;
+	-fx-background-image: url("file:../pictures/favorite_unselected.png");
+	 -fx-background-repeat: no-repeat;
+	-fx-background-position: center;
+}
+.favoritedToggleButton:selected{
+	-fx-background-image: url("file:../pictures/favorite_selected.png");
+}
+
+.testButton{
+	-fx-background-color: red;
+	-fx-font-size: 25px;
+	-fx-border-color: green;
+	-fx-border-width: 10;
+	-fx-border-radius: 90;
+}
+
+.accordion1{
+	-fx-border-style: none;
+}
+
+.titledPane1{
+	-fx-background-color: yellow;
+}
+
+.genreImagePanel{
+	-fx-background-image: url("file:../pictures/house_music_icon.png");
+}
+	
+.root{
+    -fx-base: #4C4C4C;
+    -fx-background: #F4F4F4;
+    -fx-focus-color: #0093FF;
+    -fx-control-inner-background: #FFFFFF;
+    -fx-inner-border: linear-gradient(to bottom, derive(-fx-color,73.6%) 0%, derive(-fx-color,29.200000000000003%) 100%);
+    -fx-body-color: linear-gradient( to bottom, derive(-fx-color, 34.0%) 0%, derive(-fx-color, -18.0%) 100%);
+    -fx-shadow-highlight-color: derive(-fx-background,100.0%);
+    -fx-text-box-border: derive(-fx-background,100.0%);
+	-fx-focus-color: #0595FF;
+}
+
+
+.testButton{
+	-fx-background-color: red;
+	-fx-font-size: 25px;
+	-fx-border-color: green;
+	-fx-border-width: 10;
+	-fx-border-radius: 90;
+}
+
+.textArea{
+	-fx-text-box-border: derive(-fx-background,100.0%);
+}
+
+.separatorHorizontal{
+	-fx-background: #33b5e5;
+}
+
+.accordion1{
+    -fx-base: #4C4C4C;
+    -fx-background: #F4F4F4;
+    -fx-focus-color: #0093FF;
+    -fx-control-inner-background: #FFFFFF;
+    -fx-inner-border: linear-gradient(to bottom, derive(-fx-color,73.6%) 0%, derive(-fx-color,29.200000000000003%) 100%);
+    -fx-body-color: linear-gradient( to bottom, derive(-fx-color, 34.0%) 0%, derive(-fx-color, -18.0%) 100%);
+    -fx-shadow-highlight-color: derive(-fx-background,100.0%);
+    -fx-text-box-border: derive(-fx-background,100.0%);
+	-fx-focus-color: #0595FF;
+}
+
+.titledPane1{
+    -fx-base: #4C4C4C;
+    -fx-background: #F4F4F4;
+    -fx-focus-color: #0093FF;
+    -fx-control-inner-background: #FFFFFF;
+    -fx-inner-border: linear-gradient(to bottom, derive(-fx-color,73.6%) 0%, derive(-fx-color,29.200000000000003%) 100%);
+    -fx-body-color: linear-gradient( to bottom, derive(-fx-color, 34.0%) 0%, derive(-fx-color, -18.0%) 100%);
+    -fx-shadow-highlight-color: derive(-fx-background,100.0%);
+    -fx-text-box-border: derive(-fx-background,100.0%);
+	-fx-focus-color: #0595FF;
+}
+
+
+.relatedAnchorPane{
+    -fx-base: #4C4C4C;
+    -fx-background: #F4F4F4;
+    -fx-focus-color: #0093FF;
+    -fx-control-inner-background: #FFFFFF;
+    -fx-inner-border: linear-gradient(to bottom, derive(-fx-color,73.6%) 0%, derive(-fx-color,29.200000000000003%) 100%);
+    -fx-body-color: linear-gradient( to bottom, derive(-fx-color, 34.0%) 0%, derive(-fx-color, -18.0%) 100%);
+    -fx-shadow-highlight-color: derive(-fx-background,100.0%);
+    -fx-text-box-border: derive(-fx-background,100.0%);
+	-fx-focus-color: #0595FF;
+}
+

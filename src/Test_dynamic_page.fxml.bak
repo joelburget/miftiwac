@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="rootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" snapToPixel="false" xmlns:fx="http://javafx.com/fxml" fx:controller="miftiwac.Test_dynamic_page">
+  <children>
+    <MenuBar fx:id="menuBar1" prefHeight="30.0" prefWidth="1200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <menus>
+        <Menu id="fileMenu1" text="File">
+          <items>
+            <MenuItem id="close1" text="Close" />
+          </items>
+        </Menu>
+        <Menu id="helpMenu1" text="Help">
+          <items>
+            <MenuItem id="about1" text="About" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <Button id="button1" fx:id="submitButton" defaultButton="true" layoutX="530.0" layoutY="670.0" onAction="#submitButtonAction" prefHeight="47.0" prefWidth="140.0" text="Submit">
+      <font>
+        <Font name="System Bold Italic" size="20.0" />
+      </font>
+    </Button>
+    <Label fx:id="questionBox" layoutX="20.0" layoutY="50.0" prefHeight="286.0" prefWidth="1166.0" wrapText="true">
+      <font>
+        <Font size="35.0" />
+      </font>
+    </Label>
+    <Separator fx:id="separatorHorizontal1" layoutX="15.0" layoutY="348.0" prefHeight="4.0" prefWidth="1171.0" />
+    <RadioButton fx:id="radioButton1" layoutX="186.0" layoutY="390.0" prefHeight="50.0" prefWidth="750.0" text="radioButton1">
+      <font>
+        <Font size="20.0" fx:id="x1" />
+      </font>
+      <toggleGroup>
+        <ToggleGroup fx:id="radioButtonOptions" />
+      </toggleGroup>
+    </RadioButton>
+    <RadioButton fx:id="radioButton2" font="$x1" layoutX="186.0" layoutY="440.0" prefHeight="50.0" prefWidth="750.0" text="radioButton2" toggleGroup="$radioButtonOptions" />
+    <RadioButton fx:id="radioButton3" font="$x1" layoutX="186.0" layoutY="490.0" prefHeight="50.0" prefWidth="750.0" text="radioButton3" toggleGroup="$radioButtonOptions" />
+    <RadioButton fx:id="radioButton4" font="$x1" layoutX="186.0" layoutY="540.0" prefHeight="50.0" prefWidth="750.0" text="radioButton4" toggleGroup="$radioButtonOptions" />
+    <RadioButton fx:id="radioButton5" font="$x1" layoutX="186.0" layoutY="590.0" prefHeight="50.0" prefWidth="750.0" text="radioButton5" toggleGroup="$radioButtonOptions" />
+    <Button fx:id="backButton" layoutX="470.0" layoutY="669.0" prefHeight="48.0" prefWidth="48.0" />
+    <Button fx:id="forwardButton" layoutX="682.0" layoutY="669.0" prefHeight="48.0" prefWidth="48.0" />
+  </children>
+</AnchorPane>

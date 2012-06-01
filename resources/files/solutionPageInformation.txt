@@ -1,0 +1,22 @@
+----------------------------
+ 
+ 
+ 
+ 
+ 
+----------------------------
+----------------------------
+Classic
+House
+-fx-background-image: url('file:resources/pictures/house_music_icon.png')
+This is where the description would obviously go.... but I'll leave it up to you all if you even want to have a short description of EVERY sub-genre, lol.(<---*I like the idea of having a picture that goes with the genre placed here.  Gives a nicer feel to the user interface.*)
+Test 1
+Test 2
+Test 3
+Test 4
+Test 5
+Test 6
+Test 7
+Test 8
+----------------------------
+----------------------------

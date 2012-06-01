@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="root" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml" fx:controller="miftiwac.Solution_page">
+  <children>
+    <MenuBar id="menuBar1" prefHeight="30.0" prefWidth="1200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <menus>
+        <Menu id="fileMenu1" text="File">
+          <items>
+            <MenuItem id="close1" text="Close" />
+          </items>
+        </Menu>
+        <Menu id="helpMenu1" text="Help">
+          <items>
+            <MenuItem id="about1" text="About" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <SplitPane fx:id="splitPaneHorizontal1" dividerPositions="0.7003338898163606" prefHeight="770.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <items>
+        <AnchorPane id="leftSideAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <children>
+            <AnchorPane fx:id="genreImagePanel" layoutY="14.0" prefHeight="300.0" prefWidth="300.0" styleClass="houseGenreImagePanel" AnchorPane.leftAnchor="14.0" />
+            <Label id="descriptionLabel" focusTraversable="true" layoutY="67.0" prefHeight="30.0" prefWidth="144.0" text="DESCRIPTION" AnchorPane.leftAnchor="340.0">
+              <font>
+                <Font name="System Bold" size="18.0" fx:id="x1" />
+              </font>
+              <textFill>
+                <Color blue="0.898" green="0.710" red="0.200" fx:id="x2" />
+              </textFill>
+            </Label>
+            <Separator id="separatorHorizontal" layoutY="97.0" prefHeight="4.0" prefWidth="491.0" styleClass="separatorHorizontal" AnchorPane.leftAnchor="331.0" AnchorPane.rightAnchor="14.0" />
+            <Label fx:id="genreNameLabel" focusTraversable="true" layoutY="4.0" prefHeight="34.0" prefWidth="139.0" text="House" AnchorPane.leftAnchor="331.0" AnchorPane.rightAnchor="366.0">
+              <font>
+                <Font name="System Bold" size="25.0" />
+              </font>
+            </Label>
+            <Label fx:id="genreDescription" alignment="TOP_LEFT" layoutY="108.0" prefHeight="242.0" prefWidth="491.0" text="This is where the description would obviously go.... but I'll leave it up to you all if you even want to have a short description of EVERY sub-genre, lol.(&lt;---*I like the idea of having a picture that goes with the genre placed here.  Gives a nicer feel to the user interface.*)" wrapText="true" AnchorPane.leftAnchor="331.0" AnchorPane.rightAnchor="14.0">
+              <font>
+                <Font size="18.0" />
+              </font>
+            </Label>
+            <TextArea id="textArea" fx:id="reasoningTextArea" editable="false" prefHeight="399.0" prefWidth="836.0" styleClass="textArea" text="This is where our code would generate the reasoning behind why the program chose the genre it did.&#10;&#10;This would hopefully include all of the user's selected choices and then next to that selected choice we could state why it impacted the genre result.&#10;&#10;We asked this: ....&#10;You answered with this: ....&#10;*insert reason for why that impacts the genre result.*&#10;&#10;Rinse...&#10;&#10;Repeat...&#10;&#10;Rinse...&#10;&#10;Repeat....&#10;&#10;Rinse...&#10;&#10;Repeat...&#10;&#10;Rinse...&#10;&#10;Repeat...." wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+            <Label id="descriptionLabel" font="$x1" layoutX="28.0" layoutY="335.0" prefHeight="30.0" prefWidth="144.00009999999747" text="REASONING" textFill="$x2" />
+            <Separator id="separatorHorizontal" layoutY="365.0" prefHeight="4.0" prefWidth="807.0" styleClass="separatorHorizontal" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="14.0" />
+            <Label fx:id="subGenreNameLabel" focusTraversable="true" layoutX="360.0" layoutY="38.0" prefHeight="34.0" prefWidth="182.0" text="Classic">
+              <font>
+                <Font name="System Italic" size="25.0" fx:id="x3" />
+              </font>
+            </Label>
+            <Label id="label1" font="$x3" layoutX="340.0" layoutY="38.0" prefHeight="34.0" prefWidth="20.0" text="-" />
+          </children>
+        </AnchorPane>
+        <AnchorPane id="relatedAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="679.0" prefWidth="543.9998779296875" styleClass="relatedAnchorPane">
+          <children>
+            <Accordion id="accordion1" fx:id="relatedArtistAccordion" prefHeight="714.0" prefWidth="381.0" styleClass="accordion1" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+              <panes>
+                <TitledPane id="titledPane2" expanded="false" styleClass="first-titled-pane" text="untitled">
+                  <content>
+                    <TextArea id="textArea" editable="false" prefWidth="200.0" styleClass="textArea" text="TextArea" wrapText="true" />
+                  </content>
+                </TitledPane>
+                <TitledPane id="titledPane1" expanded="false" styleClass="titledPane1" text="untitled">
+                  <content>
+                    <TextArea id="textArea" editable="false" prefWidth="200.0" styleClass="textArea" text="TextArea" wrapText="true" />
+                  </content>
+                </TitledPane>
+              </panes>
+            </Accordion>
+            <Label id="relatedArtistsLabel" alignment="BOTTOM_LEFT" font="$x1" prefHeight="50.0" prefWidth="356.0" text="  RELATED ARTISTS" textFill="$x2" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+          </children>
+        </AnchorPane>
+      </items>
+    </SplitPane>
+  </children>
+  <stylesheets>
+  	<!--URL value="file:/C:/Users/Idle_Thought/Google%20Drive/Workspaces/workspace/MIFTIWAC/resources/files/styles.css" /-->
+    <URL value="file:/C:/Users/Jon%20Martin/Google%20Drive/Workspaces/workspace/MIFTIWAC/resources/files/styles.css" />
+  </stylesheets>
+</AnchorPane>
