@@ -265,3 +265,114 @@ Flutlicht
 The Generator
 ----------------------------
 ----------------------------
+Futurepop
+Trance
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+Futurepop seems at once impersonal and harsh, a product of the dark, brooding Industrial scene that is disdainful to their sensitive, trance attuned ears.
+Icon of Coil
+VNV Nation
+Apoptygma Bezerk
+Decoded Feedback
+Melotron
+Covenant
+Aghast View
+Neurotic Fish
+----------------------------
+----------------------------
+Epic
+Trance
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+Description
+Ian van Dahl
+Kayestone
+Ayla
+Alice Deejay
+Fragma
+Paul van Dyk
+The Thrillseekers
+Kamaya Painters
+Vincent de Moor
+----------------------------
+----------------------------
+Psychedelic
+Trance
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+Description
+Man Made Man
+Pleiadians
+GMS vs Alien Project
+The Delta
+Blue Vortex
+Process
+Penta
+Digital Talk
+Infected Mushroom
+----------------------------
+----------------------------
+Ragga
+Jungle
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+Ragga has its roots in the 70s with Dancehall Reggae, Dub, and other Jamaican music.
+Barrington Levi
+Shy FX & UK Apache
+Remark
+Bounty Killer
+Beenie Man
+Congo Natty
+Frankie Paul
+Buju Banton
+Tribe of Issachar
+Freestylers
+M-Beat
+----------------------------
+----------------------------
+Drum-n-Bass
+Jungle
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+Jungle made acceptable for mass consumption.
+Photek
+Grooverider
+DJ Krust
+Decoder
+Substance
+Juju
+Calibre
+Baron
+Nightwalker
+Capone
+----------------------------
+----------------------------
+Jazzstep
+Jungle
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+Jungle with an emphasis on Jazz and orchestrations.
+Goldie
+EZ Rollers
+Amorphouse
+Roni Size Reprazent
+DJ Pulse
+Marcus Intalex
+ST Files
+Carlito
+DJ Addiction
+DJ Marky
+Uncut
+----------------------------
+----------------------------
+Darkstep
+Jungle
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+Description
+Dieselboy
+Usual Suspects
+Dillinja
+Lemon D
+Technical Itch
+Dom
+Roland
+DJ Trace
+Faith in Chaos
+Leon Switch
+Rawthang
+----------------------------
+----------------------------
