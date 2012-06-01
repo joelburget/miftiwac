@@ -93,8 +93,14 @@ public class MIFTIWAC extends Application implements Initializable {
 				}
 				
 				try {
+					// If radio, subtract 2 for offset between two arrays.
+					if (MIFTIWAC.dynamicPageType == 3) {
+						MIFTIWAC.answer -= 1;
+					}
+					
 					// resume execution of Jess code
 					MIFTIWAC.engine.run();
+					
 				} catch (JessException e) {
 					e.printStackTrace();
 				}
@@ -131,6 +137,7 @@ public class MIFTIWAC extends Application implements Initializable {
 		try {
 			// stop execution of Jess engine until engine.run is called
 			MIFTIWAC.engine.halt();
+			System.out.println("I AM HERE");
 		} catch (JessException e) {
 			e.printStackTrace();
 		}
@@ -165,9 +172,9 @@ public class MIFTIWAC extends Application implements Initializable {
 		MIFTIWAC.questionPage.display();
 		
 		// If radio, subtract 2 for offset between two arrays.
-		if (MIFTIWAC.dynamicPageType == 3) {
+		/*if (MIFTIWAC.dynamicPageType == 3) {
 			MIFTIWAC.answer -= 1;
-		}
+		}*/
 
 		// Put answer into question.
 		MIFTIWAC.question.setAnswer(MIFTIWAC.answer);
