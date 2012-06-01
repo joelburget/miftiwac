@@ -9,14 +9,259 @@
 Classic
 House
 -fx-background-image: url('file:resources/pictures/house_music_icon.png')
-This is where the description would obviously go.... but I'll leave it up to you all if you even want to have a short description of EVERY sub-genre, lol.(<---*I like the idea of having a picture that goes with the genre placed here.  Gives a nicer feel to the user interface.*)
-Test 1
-Test 2
-Test 3
-Test 4
-Test 5
-Test 6
-Test 7
-Test 8
+Its antecedents include funk, soul, blues, jazz, disco, dub, and sometimes even hip hop, but none of that is here because it isn't electronic (unless specified specifically).
+Larry Heard AKA Mr. Fingers
+Marshall Jefferson
+Steve 'Silk' Hurley
+Lil Louis
+Robert Owens
+Ecstasy
+Mixmasters
+----------------------------
+----------------------------
+Disco
+House
+-fx-background-image: url('file:resources/pictures/house_music_icon.png')
+Description
+Lipps, Inc.
+Donna Summer
+Claudja Barry
+Amanda Lear
+Patrick Hernandez
+Patrick Cowley
+Divine
+Sylvester
+----------------------------
+----------------------------
+Italo
+House
+-fx-background-image: url('file:resources/pictures/house_music_icon.png')
+There was a big backlash to everything Disco in America in 1980. In Europe, this didn't happen, so Disco naturally progressed over there to what it had been hinting at for several years: a stripped down, mechanical version of itself dubbed Italo Disco for reasons unknown as very few of the artists were actual Italians.
+Miko Mission
+MC Brain
+Hypnosis
+Digital Emotion
+Cyber People
+Shy Rose
+Denise & Baby's Gang
+Sweet Connection
+Ken Laszlo
+Valerie Dore
+Proxyon
+----------------------------
+----------------------------
+Synthpop
+House
+-fx-background-image: url('file:resources/pictures/house_music_icon.png')
+Taking the explorations of New Wave and the feelgood rhythms of Italo Disco, Synthpop - in all its androgeny - makes as warm a sound as archaic 80s electronic instruments can get. Melodic hooks, pop lines, all the tools of the trade are there, only this time with synthesizers.
+Human League
+New Order
+Petshop Boys
+A Flock of Seaguls
+When in Rome
+Eurythmics
+Animotion
+Ultravox
+Information Society
+----------------------------
+----------------------------
+Garage
+House
+-fx-background-image: url('file:resources/pictures/house_music_icon.png')
+Description
+Aly-Us
+Masters at Work
+NYC Peech Boys
+Blaze
+Change
+Crown Heights Affair
+New Jersey Connection
+Oliver Cheatham
+----------------------------
+----------------------------
+Acid
+House
+-fx-background-image: url('file:resources/pictures/house_music_icon.png')
+Description
+Phuture
+D-Mob
+Fast Eddie
+Miss Nicky Trax
+Bam Bam
+Bobby Konders
+----------------------------
+----------------------------
+Progressive
+House
+-fx-background-image: url('file:resources/pictures/house_music_icon.png')
+Description
+CM
+Three Drives on a Vinyl
+LSG
+Lost Tribe
+Andy Ling
+BT
+Tekara
+Sasha
+SpacePunks
+----------------------------
+----------------------------
+Eurodance
+House
+-fx-background-image: url('file:resources/pictures/house_music_icon.png')
+Cheesy dance music, dedicated to silly, spastic fun.
+Capital Sound
+Acti-Vision
+Emjay
+YBZ
+Corona
+Reset
+Roxxy
+Antares
+Maxx
+----------------------------
+----------------------------
+Vocal
+House
+-fx-background-image: url('file:resources/pictures/house_music_icon.png')
+Loud, dominating, high-class crooning vocals by diva songstresses.
+49ers
+Murk vs. Kristine W.
+Black Box
+Ministers de la Funk
+Ce Ce Peniston
+Foreal People
+Chanelle
+Kym Mazelle
+Ultra Nate
+----------------------------
+----------------------------
+Anthem
+House
+-fx-background-image: url('file:resources/pictures/house_music_icon.png')
+Description
+Faithless
+Sash
+The KLF
+2 Unlimited
+The Immortals
+----------------------------
+----------------------------
+Jpop
+House
+-fx-background-image: url('file:resources/pictures/house_music_icon.png')
+Japan pop. There are two forms of Jpop.
+Ayumi Hamasaki
+Hirokai Anzai
+Masami Okui & Megumi Hayashibara
+Move
+Tommy February6
+Max
+Yukari Fresh
+Megumi Hayashibara
+Dream
+----------------------------
+----------------------------
+Eurobeat
+House
+-fx-background-image: url('file:resources/pictures/house_music_icon.png')
+Derived from Jpop and Eurodance.
+Dee Dee Wonder
+Nick Mansell
+Max Coveri
+Dave Rodgers
+Black Eva
+Live Music Gang
+Nikita Jr
+Princess F
+Tam Arrow
+----------------------------
+----------------------------
+Deep
+House
+-fx-background-image: url('file:resources/pictures/house_music_icon.png')
+This subgenre encapsulates everthing House music is supposed to sound like.
+Second Shift
+Kevin Yost & Peter Funk
+Sixteen Souls
+Blue Six
+Aaron Carl
+Miguel Migs
+Moodymann
+The Rurals
+Terry Lee Brown Jr.
+----------------------------
+----------------------------
+Funk
+House
+-fx-background-image: url('file:resources/pictures/house_music_icon.png')
+Description
+Avalanche
+Ian Pooley
+DJ Sneak
+Meccaheadz
+Fab Four
+Angel Alanis
+Basco
+MI presents Neon Lights
+DJ Roog
+----------------------------
+----------------------------
+Micro
+House
+-fx-background-image: url('file:resources/pictures/house_music_icon.png')
+A minimal version of House.
+Akufen
+Farben
+Losoul
+Matthew Dear
+Pantytec
+Ricardo Villalobos
+Fotec Foyamat
+Yomgaille
+----------------------------
+----------------------------
+Acid
+Trance
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+What real trance is supposed to feel like - trippy, fluid, hypnotic, very long and repetitive.
+Psychobabble
+Electric Skychurch
+Hardfloor
+Renegade Legion
+Union Jack
+Art of Trance
+Awex
+Balil
+----------------------------
+----------------------------
+Dream
+Trance
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+Description
+Robert Miles
+DJ Dado
+DJ Panda
+DJK
+Imperio
+Nylon Moon
+ZHI-Vago
+The Cynic Project
+WP Alex Remark
+----------------------------
+----------------------------
+Anthem
+Trance
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+Full of breakdowns, builds, and memorable melodies.
+Cascade
+Steve Morley
+Agnelli & Nelson
+Pulp Victim
+DJ Tandu
+Transa
+Sunflower
+Flutlicht
+The Generator
 ----------------------------
 ----------------------------
