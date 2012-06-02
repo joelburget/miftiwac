@@ -425,8 +425,8 @@
            	vocals-rap-style vocals-unpitched)
     (unknown))
     
-    ;-------------------- psychadelic --------------------
-    (subgenre (name trance)(subgenre-name psychadelic)(subgenre-min-bpm 142)(subgenre-max-bpm 150)
+    ;-------------------- psychedelic --------------------
+    (subgenre (name trance)(subgenre-name psychedelic)(subgenre-min-bpm 142)(subgenre-max-bpm 150)
     (true 
 			obvious-tempo cold dystopian hypnotic danceable four-on-the-floor drum-machine digital rhythmic-timbre intricate-rhythms minimalist )
     (false 

@@ -43,7 +43,8 @@ Hypnosis
 Digital Emotion
 Cyber People
 Shy Rose
-Denise & Baby's Gang
+Denise
+Baby's Gang
 Sweet Connection
 Ken Laszlo
 Valerie Dore
@@ -221,9 +222,34 @@ Fotec Foyamat
 Yomgaille
 ----------------------------
 ----------------------------
+Epic
+House
+-fx-background-image: url('file:resources/pictures/house_music_icon.png')
+Derivative dance mixes of 80s tunes and classic ballads.
+Mike Oldfield
+A-Ha
+Bryan Adams
+Don Henley
+Duran Duran
+----------------------------
+----------------------------
+French
+House
+-fx-background-image: url('file:resources/pictures/house_music_icon.png')
+Filtered, funky, fresh.
+Thomas Bangalter
+Together
+Daft Punk
+Cosmos
+Sebastian Leger
+Alan Braxe
+The Ones
+Dave Armstrong
+----------------------------
+----------------------------
 Acid
 Trance
--fx-background-image: url('file:resources/pictures/work_in_progress.png')
+-fx-background-image: url('file:resources/pictures/trance.jpg')
 What real trance is supposed to feel like - trippy, fluid, hypnotic, very long and repetitive.
 Psychobabble
 Electric Skychurch
@@ -237,7 +263,7 @@ Balil
 ----------------------------
 Dream
 Trance
--fx-background-image: url('file:resources/pictures/work_in_progress.png')
+-fx-background-image: url('file:resources/pictures/trance.jpg')
 Description
 Robert Miles
 DJ Dado
@@ -252,11 +278,12 @@ WP Alex Remark
 ----------------------------
 Anthem
 Trance
--fx-background-image: url('file:resources/pictures/work_in_progress.png')
+-fx-background-image: url('file:resources/pictures/trance.jpg')
 Full of breakdowns, builds, and memorable melodies.
 Cascade
 Steve Morley
-Agnelli & Nelson
+Agnelli
+Nelson
 Pulp Victim
 DJ Tandu
 Transa
@@ -267,7 +294,7 @@ The Generator
 ----------------------------
 Futurepop
 Trance
--fx-background-image: url('file:resources/pictures/work_in_progress.png')
+-fx-background-image: url('file:resources/pictures/trance.jpg')
 Futurepop seems at once impersonal and harsh, a product of the dark, brooding Industrial scene that is disdainful to their sensitive, trance attuned ears.
 Icon of Coil
 VNV Nation
@@ -281,7 +308,7 @@ Neurotic Fish
 ----------------------------
 Epic
 Trance
--fx-background-image: url('file:resources/pictures/work_in_progress.png')
+-fx-background-image: url('file:resources/pictures/trance.jpg')
 Description
 Ian van Dahl
 Kayestone
@@ -296,7 +323,7 @@ Vincent de Moor
 ----------------------------
 Psychedelic
 Trance
--fx-background-image: url('file:resources/pictures/work_in_progress.png')
+-fx-background-image: url('file:resources/pictures/trance.jpg')
 Description
 Man Made Man
 Pleiadians
@@ -311,7 +338,7 @@ Infected Mushroom
 ----------------------------
 Ragga
 Jungle
--fx-background-image: url('file:resources/pictures/work_in_progress.png')
+-fx-background-image: url('file:resources/pictures/jungle.jpg')
 Ragga has its roots in the 70s with Dancehall Reggae, Dub, and other Jamaican music.
 Barrington Levi
 Shy FX & UK Apache
@@ -328,7 +355,7 @@ M-Beat
 ----------------------------
 Drum-n-Bass
 Jungle
--fx-background-image: url('file:resources/pictures/work_in_progress.png')
+-fx-background-image: url('file:resources/pictures/jungle.jpg')
 Jungle made acceptable for mass consumption.
 Photek
 Grooverider
@@ -344,7 +371,7 @@ Capone
 ----------------------------
 Jazzstep
 Jungle
--fx-background-image: url('file:resources/pictures/work_in_progress.png')
+-fx-background-image: url('file:resources/pictures/jungle.jpg')
 Jungle with an emphasis on Jazz and orchestrations.
 Goldie
 EZ Rollers
@@ -361,7 +388,7 @@ Uncut
 ----------------------------
 Darkstep
 Jungle
--fx-background-image: url('file:resources/pictures/work_in_progress.png')
+-fx-background-image: url('file:resources/pictures/jungle.jpg')
 Description
 Dieselboy
 Usual Suspects
@@ -374,5 +401,19 @@ DJ Trace
 Faith in Chaos
 Leon Switch
 Rawthang
+----------------------------
+----------------------------
+IDM
+Jungle
+-fx-background-image: url('file:resources/pictures/jungle.jpg')
+"Intelligent Dance Music" aka Braindance
+Amon Tobin
+Autechre
+Plone
+Bauri
+CiM
+Hrvatski
+Stock, Hausen & Walkman
+Mouse on Mars
 ----------------------------
 ----------------------------
