@@ -2,7 +2,7 @@
 ; Global Variables
 ;-----------------------------------------------------------------------------
 ; Set TRUE to execute with GUI, set FALSE to execute with text-based UI
-;(defglobal ?*gui* = FALSE)
+(defglobal ?*gui* = FALSE)
 
 ;-----------------------------------------------------------------------------
 ; Templates
@@ -837,6 +837,7 @@
 ;creates question object and binds it for easy reference by ?q
 (defclass question Question)
 (bind ?q (definstance question (new Question)))
+(call MiftiwacM prepQuestion ?q.OBJECT)
 (call MIFTIWAC prepQuestion ?q.OBJECT)
 
 ;-----------------------------------------------------------------------------
@@ -882,12 +883,12 @@
 ; Functions
 ;-----------------------------------------------------------------------------
 (deffunction question-ready ()
-    ;(if ?*gui* then
+    (if ?*gui* then
      	(call MIFTIWAC questionReady)  
         (halt) 
-     ;else
-     ;   (call MiftiwacM questionReady)
-     ;)
+     else
+        (call MiftiwacM questionReady)
+     )
 )
 
 (deffunction int-to-bool (?a) 
