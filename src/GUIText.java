@@ -20,8 +20,8 @@ public class GUIText implements GUIFace {
 		} else if (MiftiwacM.dynamicPageType == 3) {
 			System.out.println(MiftiwacM.text[0]);
 			System.out.println("(" + MiftiwacM.text[1] + ")");
-			for (int i = 1; i < MiftiwacM.text.length; i++) {
-				System.out.println(i + ": " + MiftiwacM.text[i]);
+			for (int i = 2; i < MiftiwacM.text.length; i++) {
+				System.out.println(i-1 + ": " + MiftiwacM.text[i]);
 			}
 			System.out.print("Please enter the number of your selection: ");
 			ans = scanner.nextInt();

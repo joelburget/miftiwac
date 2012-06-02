@@ -2,7 +2,7 @@
 ; Global Variables
 ;-----------------------------------------------------------------------------
 ; Set TRUE to execute with GUI, set FALSE to execute with text-based UI
-(defglobal ?*gui* = TRUE)
+(defglobal ?*gui* = FALSE)
 
 ;-----------------------------------------------------------------------------
 ; Templates
@@ -539,6 +539,13 @@
         (explanation-text "breakbeat")
         (question-type 0)
      ) 
+     
+     (question-template (reference-attribute happy)
+        (membership-value 25)
+        (question-text "happy")
+        (explanation-text "Happy!")
+        (question-type 0)
+     ) 
     
     (question-template (reference-attribute obvious-tempo)
         (membership-value 15)
@@ -830,6 +837,7 @@
 ;creates question object and binds it for easy reference by ?q
 (defclass question Question)
 (bind ?q (definstance question (new Question)))
+(call MiftiwacM prepQuestion ?q.OBJECT)
 (call MIFTIWAC prepQuestion ?q.OBJECT)
 
 ;-----------------------------------------------------------------------------

@@ -18,6 +18,7 @@ public class MiftiwacM {
 
 	// Lets JESS tell the controller the question is ready.
 	public static void questionReady() {
+		try {
 		// Sets the type of the question for the GUI.
 		switch (MiftiwacM.question.getType()) {
 		case 0: // boolean
@@ -75,9 +76,12 @@ public class MiftiwacM {
 		// Put answer into question.
 		MiftiwacM.question.setAnswer(MiftiwacM.answer);
 		
-		
-		
 		return;
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			System.exit(0);
+		}
 	}
 
 	public static void main(String[] args) {
