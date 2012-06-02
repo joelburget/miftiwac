@@ -417,3 +417,121 @@ Stock, Hausen & Walkman
 Mouse on Mars
 ----------------------------
 ----------------------------
+Dubstep
+Breakbeat
+-fx-background-image: url('file:resources/pictures/breakbeat.jpg')
+"Tightly coiled productions with overwhelming bass lines and reverberant drum patterns, clipped samples, and occasional vocals" - Allmusic.
+Digital Mystikz
+Skream
+DJ Hatcha
+DJ Joe Nice
+Mary Anne Hobbs
+----------------------------
+----------------------------
+Hip-Hop
+Breakbeat
+-fx-background-image: url('file:resources/pictures/breakbeat.jpg')
+Hip-Hop originated in African-American and Hispanic-American communities in the 1970s and consists of peotry that is spoken - rather than sung - over instrumental recordings.
+Sugarhill Gang
+Grandmaster Flash
+Eric B and Rakim
+Run DMC
+Kurtis Blow
+Ultramagnetic MCS
+Maestro Fresh-Wes
+----------------------------
+----------------------------
+Crunk
+Breakbeat
+-fx-background-image: url('file:resources/pictures/breakbeat.jpg')
+The word "crunk" had been used by Dirty South rappers for years before being introduced to the world by Conan O'Brien in 1995.
+A-Team
+Lil Jon
+The Eastside Boys
+Ludacris
+Mystikal
+Method Man
+The 6 Mafia
+Lil Flip
+Usher
+Lil Scrappy
+----------------------------
+----------------------------
+Dirty South/Miami Bass
+Breakbeat
+-fx-background-image: url('file:resources/pictures/breakbeat.jpg')
+Gang vocals, raunchy choruses, and deep, throbbing bass.
+2 Live Crew
+Sir Mix-a-Lot
+Freak Nasty
+Splack Pack
+Soundmaster T
+Too Short
+Wreckx-N-Effect
+Gucci Crew
+----------------------------
+----------------------------
+Electro Funk
+Breakbeat
+-fx-background-image: url('file:resources/pictures/breakbeat.jpg')
+Robot funk.
+Zapp
+George Clinton
+One Way
+Laidback
+Roger
+Edwin Birdsong
+Funkadelic
+Vaughan Mason & Crew
+Rick James
+----------------------------
+----------------------------
+Turntablism
+Breakbeat
+-fx-background-image: url('file:resources/pictures/breakbeat.jpg')
+Music created using phonograph turntables and a DJ mixer.
+DJ Q-Bert
+Mix Master Mike
+Kid Koala
+Cut Chemist
+----------------------------
+----------------------------
+Big Beat
+Breakbeat
+-fx-background-image: url('file:resources/pictures/breakbeat.jpg')
+Driven by heaby breakbeats and synthesizer-generated loops and patterns in common with techno and acid house.
+Chemical Brothers
+Fatboy Slim
+Wildchild
+The Prodigy
+Cirrus
+Overseer
+----------------------------
+----------------------------
+Garage
+Breakbeat
+-fx-background-image: url('file:resources/pictures/breakbeat.jpg')
+Description
+----------------------------
+----------------------------
+Electro
+Breakbeat
+-fx-background-image: url('file:resources/pictures/breakbeat.jpg')
+Directly influenced by the TR-808 drum machine and funk sampling, with heavy electronic sounds and usually without vocals.
+Kraftwerk
+Afrika Bambaataa
+Freestyle
+Mantronix
+Herbie Hancock
+The Alliance
+B.O.S.E.
+Jonzun Crew
+Newcleus
+----------------------------
+----------------------------
+R & B
+Breakbeat
+-fx-background-image: url('file:resources/pictures/breakbeat.jpg')
+Description
+----------------------------
+----------------------------
