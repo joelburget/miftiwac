@@ -1,4 +1,8 @@
-
+;-----------------------------------------------------------------------------
+; Global Variables
+;-----------------------------------------------------------------------------
+; Set TRUE to execute with GUI, set FALSE to execute with text-based UI
+(defglobal ?*gui* = TRUE)
 
 ;-----------------------------------------------------------------------------
 ; Templates
@@ -49,7 +53,6 @@
 	            						vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
 	            						vocals-rap-style vocals-melodic vocals-unpitched vocals-english))
 )
-
 
 (deftemplate genre
     extends attributes
@@ -829,13 +832,6 @@
 (bind ?q (definstance question (new Question)))
 (call MIFTIWAC prepQuestion ?q.OBJECT)
 
-/*
-; (modify ?q (slotname value1 value2 value3 ...))
-(call MIFTIWAC questionReady)
-(update ?q.OBJECT)
-; continue
-*/
-
 ;-----------------------------------------------------------------------------
 ; Queries
 ;-----------------------------------------------------------------------------
@@ -878,6 +874,15 @@
 ;-----------------------------------------------------------------------------
 ; Functions
 ;-----------------------------------------------------------------------------
+(deffunction question-ready ()
+    (if ?*gui* then
+     	(call MIFTIWAC questionReady)  
+        (halt) 
+     else
+        (call MiftiwacM questionReady)
+     )
+)
+
 (deffunction int-to-bool (?a) 
     (eq ?a 1)
 )
@@ -917,7 +922,7 @@
 	    (modify ?q (explanation ?nqt.explanation-text))
 	    (modify ?q (type ?nqt.question-type))
 	    (modify ?q (answerTexts ?nqt.answers))
-	    (call MIFTIWAC questionReady)
+	    (question-ready)
 	    (update ?q.OBJECT)
 	    (if (int-to-bool ?q.answer) then
 	        (modify ?wm (true (union$ ?wm.true (create$ ?attr))))
@@ -1016,8 +1021,7 @@
     else
         (modify ?q (type 3))
         (modify ?q (answerTexts ?sg.name ?sg.subgenre-name (explanation-system ?sg ?wm)))
-        (call MIFTIWAC questionReady)
-        (halt)
+        (question-ready)
 	)
 )
 
@@ -1041,7 +1045,7 @@
     (modify ?q (type 0))
     (modify ?q (questionText "Is there an obvious tempo?"))
     (modify ?q (explanation "If you can tap your hand to the beat, then there is an obvious tempo."))
-    (call MIFTIWAC questionReady)
+    (question-ready)
     (update ?q.OBJECT)
 	(if (int-to-bool ?q.answer) then
         (modify ?wm (true $?t obvious-tempo))
@@ -1062,7 +1066,7 @@
     (modify ?q (type 1))
     (modify ?q (questionText "What is the BPM (Beats Per Minute)?"))
     (modify ?q (explanation "This is essentially how many times you would tap your hand to the beat per minute."))
-    (call MIFTIWAC questionReady)
+    (question-ready)
     (update ?q.OBJECT)
     (modify ?wm (bpm ?q.answer))
     (update-membership-bpm ?wm.bpm 20)
@@ -1077,7 +1081,7 @@
     (modify ?q (questionText "Which of the following two options best describes the kick (bass) drum in the song?"))
     (modify ?q (explanation "Four on the floor features a constant (pounding) kick drum on every downbeat.  Breakbeat has a  (broken beat) kick that is not constant, but falls on different beats."))    
     (modify ?q (answerTexts "Four on the Floor" "Breakbeat"))
-    (call MIFTIWAC questionReady)
+    (question-ready)
     (update ?q.OBJECT)
     (if (eq ?q.answer 0) then
     	(modify ?wm (true $?t four-on-the-floor))
@@ -1102,7 +1106,7 @@ Repetetive - often repeats the same motif, not clear A-B section distinction, mo
 Minimalist - either through-composed (no repeating sections) or complete disregard for song structure
 Buildup Breakdown - heavy emphasis on tension and release through anticipation of the drop, when either the drums or melody will become central after a long build."))
     (modify ?q (answerTexts "Verse Chorus" "Repetitive" "Minimalist" "Buildup Breakdown"))
-    (call MIFTIWAC questionReady)
+    (question-ready)
     (update ?q.OBJECT)
     (if (eq ?q.answer 0) then
 		(modify ?wm (true $?t verse-chorus))
@@ -1132,7 +1136,7 @@ Buildup Breakdown - heavy emphasis on tension and release through anticipation o
 	(modify ?q (type 0))
     (modify ?q (questionText "Are there vocals present in the song?"))
     (modify ?q (explanation "The vocals can either appear as vocal samples or studio recorded vocals."))
-    (call MIFTIWAC questionReady)
+    (question-ready)
     (update ?q.OBJECT)
     (if (int-to-bool ?q.answer) then
         (modify ?wm (true $?t vocals-present))
@@ -1159,7 +1163,7 @@ Buildup Breakdown - heavy emphasis on tension and release through anticipation o
     (modify ?q (questionText "Which of the following two options best describes the nature of the vocals?"))
     (modify ?q (explanation "Studio recorded vocals are extended passages, vocals sung specifically for use in the song.  Sampled vocals are often shorter clips, taken from other sources."))    
     (modify ?q (answerTexts "Studio Recorded" "Sampled"))
-    (call MIFTIWAC questionReady)
+    (question-ready)
     (update ?q.OBJECT)
     (if (eq ?q.answer 0) then
     	(modify ?wm (true $?ta vocals-studio-recorded $?tb))

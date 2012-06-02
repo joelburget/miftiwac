@@ -93,8 +93,14 @@ public class MIFTIWAC extends Application implements Initializable {
 				}
 				
 				try {
+					// If radio, subtract 2 for offset between two arrays.
+					if (MIFTIWAC.dynamicPageType == 3) {
+						MIFTIWAC.answer -= 1;
+					}
+					
 					// resume execution of Jess code
 					MIFTIWAC.engine.run();
+					
 				} catch (JessException e) {
 					e.printStackTrace();
 				}
@@ -128,6 +134,14 @@ public class MIFTIWAC extends Application implements Initializable {
     }
 
 	public static void questionReady() {
+		try {
+			// stop execution of Jess engine until engine.run is called
+			MIFTIWAC.engine.halt();
+			System.out.println("I AM HERE");
+		} catch (JessException e) {
+			e.printStackTrace();
+		}
+		
 		// Sets the type of the question for the GUI.
 		MIFTIWAC.questionText.add(MIFTIWAC.question.getQuestionText());
 		switch (MIFTIWAC.question.getType()) {
@@ -154,19 +168,13 @@ public class MIFTIWAC extends Application implements Initializable {
 		
 		System.out.println("This is questionTest: " + MIFTIWAC.questionText);
 
-		try {
-			// stop execution of Jess engine until engine.run is called
-			MIFTIWAC.engine.halt();
-		} catch (JessException e) {
-			e.printStackTrace();
-		}
 		// Tells the GUI it's ready to display.
 		MIFTIWAC.questionPage.display();
 		
 		// If radio, subtract 2 for offset between two arrays.
-		if (MIFTIWAC.dynamicPageType == 3) {
+		/*if (MIFTIWAC.dynamicPageType == 3) {
 			MIFTIWAC.answer -= 1;
-		}
+		}*/
 
 		// Put answer into question.
 		MIFTIWAC.question.setAnswer(MIFTIWAC.answer);
