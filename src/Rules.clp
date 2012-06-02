@@ -358,9 +358,9 @@
     ;-------------------- dream --------------------
     (subgenre (name trance)(subgenre-name dream)(subgenre-min-bpm 134)(subgenre-max-bpm 150)
     (true 
-			obvious-tempo cheesy danceable four-on-the-floor drum-machine digital buildup-breakdown )
+			obvious-tempo cheesy danceable uplifting four-on-the-floor drum-machine digital buildup-breakdown )
     (false 
-			soulful funky jazzy warm ambient cold uplifting 
+			soulful funky jazzy warm ambient cold 
            	dystopian hypnotic aggressive angry happy sad abrasive 
            	breakbeat percussion-none sampled-breaks  live-drummer 
            	verse-chorus repetitive minimalist 
