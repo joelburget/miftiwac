@@ -6,7 +6,7 @@
  
 ----------------------------
 ----------------------------
-Classic
+Chicago
 House
 -fx-background-image: url('file:resources/pictures/house_music_icon.png')
 Its antecedents include funk, soul, blues, jazz, disco, dub, and sometimes even hip hop, but none of that is here because it isn't electronic (unless specified specifically).
@@ -22,7 +22,7 @@ Mixmasters
 Disco
 House
 -fx-background-image: url('file:resources/pictures/house_music_icon.png')
-Description
+The electronic variant of Disco.
 Lipps, Inc.
 Donna Summer
 Claudja Barry
@@ -66,10 +66,10 @@ Ultravox
 Information Society
 ----------------------------
 ----------------------------
-Garage
+New-York
 House
 -fx-background-image: url('file:resources/pictures/house_music_icon.png')
-Description
+More polished than House, with gospel-influenced piano riffs and female vocals, New York house emerged in the early to mid 1980's.
 Aly-Us
 Masters at Work
 NYC Peech Boys
@@ -83,7 +83,7 @@ Oliver Cheatham
 Acid
 House
 -fx-background-image: url('file:resources/pictures/house_music_icon.png')
-Description
+Emphasizes a repetitive, hypnotic, and trance-like style, often with samples or spoken lines instead of lyrics.
 Phuture
 D-Mob
 Fast Eddie
@@ -95,7 +95,7 @@ Bobby Konders
 Progressive
 House
 -fx-background-image: url('file:resources/pictures/house_music_icon.png')
-Description
+Progressive House emerged in the mid 1990s - it consists of House with variations.
 CM
 Three Drives on a Vinyl
 LSG
@@ -140,7 +140,7 @@ Ultra Nate
 Anthem
 House
 -fx-background-image: url('file:resources/pictures/house_music_icon.png')
-Description
+This music evokes images of "hands in the air" cheering about positively nothing in giant soccer stadiums.
 Faithless
 Sash
 The KLF
@@ -196,7 +196,7 @@ Terry Lee Brown Jr.
 Funk
 House
 -fx-background-image: url('file:resources/pictures/house_music_icon.png')
-Description
+This encapsulates best what House music represents - groovy soul.
 Avalanche
 Ian Pooley
 DJ Sneak
@@ -248,7 +248,7 @@ Dave Armstrong
 ----------------------------
 ----------------------------
 Acid
-Trance
+Acid-Trance
 -fx-background-image: url('file:resources/pictures/trance.jpg')
 What real trance is supposed to feel like - trippy, fluid, hypnotic, very long and repetitive.
 Psychobabble
@@ -264,7 +264,7 @@ Balil
 Dream
 Trance
 -fx-background-image: url('file:resources/pictures/trance.jpg')
-Description
+The earliest subgenre of House that peaked prominently on the international dance scene between 1995 andd 1997.
 Robert Miles
 DJ Dado
 DJ Panda
@@ -309,7 +309,7 @@ Neurotic Fish
 Epic
 Trance
 -fx-background-image: url('file:resources/pictures/trance.jpg')
-Description
+Emerged in the mid 90's when trance started to drop the technique of slowly introducing complicated layers and building tension over long stretches, replacing them with cutesy little insta-melodies.
 Ian van Dahl
 Kayestone
 Ayla
@@ -324,7 +324,7 @@ Vincent de Moor
 Psychedelic
 Trance
 -fx-background-image: url('file:resources/pictures/trance.jpg')
-Description
+Removes the Hindu/Middle-Eastern influences from Goa Trance and makes heavy use of electronic sounds.
 Man Made Man
 Pleiadians
 GMS vs Alien Project
@@ -389,7 +389,7 @@ Uncut
 Darkstep
 Jungle
 -fx-background-image: url('file:resources/pictures/jungle.jpg')
-Description
+The late 90's progenitor of dark, fast, evil jungle. Rolling beats and barking baselines.
 Dieselboy
 Usual Suspects
 Dillinja
@@ -511,7 +511,19 @@ Overseer
 Garage
 Breakbeat
 -fx-background-image: url('file:resources/pictures/breakbeat.jpg')
-Description
+Endless crooning by guest popstars, divas, and whiny narcissists.
+The Artful Dodger
+Craig David
+Dajae
+E-Smoove
+MJ Cole
+Architects
+Nana
+Amira
+The Streets
+Second Protocol
+So Solid Crew
+Dru C
 ----------------------------
 ----------------------------
 Electro
@@ -532,6 +544,185 @@ Newcleus
 R & B
 Breakbeat
 -fx-background-image: url('file:resources/pictures/breakbeat.jpg')
-Description
+Heavily based on soul music, but with a less conventional sound, which emerged in the 1980's and early 90's.
+Lauren Hill
+Mary J. Blige
+Aaliyah
+Alisha Keys
+Ashanti
+Brandy
+Destiny's Child
+India Arie
+Keshia Chante
+----------------------------
+----------------------------
+Detroit
+Techno
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+The second wave of Techno - sounding cold and machine like with a completely rhythmic timbre.
+Jeff Mills
+Oscar Mulero
+Underground Resistance
+Carl Craig
+Kenny Larkin
+Damon Wild
+----------------------------
+----------------------------
+Acid
+Techno
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+Part of an electronica wave of mainstream acceptance in the late 90's which emerged out of late 1980's Chicago Acid House.
+Acid Scout
+Fuzz Face
+Woody McBride
+Miss Djax
+Dave the Drummer
+Tesox
+Choice
+----------------------------
+----------------------------
+Gabber
+Hardcore
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+New York style Hardcore - never wants to be thought of as unmanly.
+DJ Promo
+Matrix
+Wargroover
+The Prophet
+Omar Santana
+Ron D. Core
+Hellfish
+Pariah
+----------------------------
+----------------------------
+Speedcore
+Hardcore
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+Music sped up as much as possible
+Hell's Army
+Disciples of Annhilation
+DJ Tron
+DJ Universe
+Ricardo
+Gabba Front Berlin
+The Destroyer
+DJ PW
+----------------------------
+----------------------------
+Happy
+Hardcore
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+Chipmunk vocals, silly sing-a-long anthems, and shameless hug-a-thon anthems.
+Stealth
+Nakatomi
+Bang!
+Trixxy
+Scott Brown
+Visa
+Critical Mass
+4 Tune Fairytales
+Dune
+----------------------------
+----------------------------
+Breakcore
+Hardcore
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+A recreation of sounds in modern technological society in an abrasive form.
+Venetian Snares
+V/VM
+Speedranch vs End
+Navicon Torture Technologies
+Government Alpha
+----------------------------
+----------------------------
+Oldskool
+Hardcore
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+The predecessor to Jungle/Drum-n-Bass and Happy Hardcore - it is silly, with samples of children, cartoons, and nursery rhymes.
+Dj Sy
+The Prodigy
+Acen
+DJ Red Alert
+Mike Slammer
+N-Trance
+Smart E's
+Arling
+Cameron
+Jimmy J
+Cru-L-T
+----------------------------
+----------------------------
+Musique Concrete
+Downtempo
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+Postwar music experiments going as far back as the 50's using "instruments" like magnetic tape, transistors, and vacuum tubes.
+Pierre Schaeffer
+Edgar Varese
+Iannis Xenakis
+Karlheinz Stockhausen
+Kid Baltan
+Morton Subotnik
+Raymond Scott
+Tom Dissevelt
+----------------------------
+----------------------------
+Classical-Early-Electronic
+Downtempo
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+Covers of classical music using electronic sounds
+BBC Radiophonic Workshop
+Tomita
+Wenwaldyter Carlos
+----------------------------
+----------------------------
+Acid Jazz
+Downtempo
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+Downtempo with soul, groove, rhythm, funk, and Jazz.
+Raw Instinct
+Mateo & Matos
+Ronny Jordan
+Ballistic Brothers
+Nightmares on Wax
+Arnica Montana
+Kruder & Dorfmeister
+Sofa Surfers
+Silent Poets
+----------------------------
+----------------------------
+Trip Hop
+Downtempo
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+Very slow, also ambient and jazzy.
+Massive Attack
+Elizabeth Fraser
+Portishead
+Tricky
+Aztech
+----------------------------
+----------------------------
+Ambient
+Downtempo
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+Soothing background music.
+Tangerine Dream
+The KLF
+The Orb
+Speedy J
+Dreamfish
+Robert Rich
+Steven Roach
+Sylvian/Fripp
+Klaus Schulze
+----------------------------
+----------------------------
+Minimalism
+Downtempo
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+Sounds like the same thing over and over, but it is actually slowly evolving.
+Mike Oldfield
+Terry Riley
+Steve Reich
+Philip Glass
 ----------------------------
 ----------------------------
