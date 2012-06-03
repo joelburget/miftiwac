@@ -248,7 +248,7 @@ Dave Armstrong
 ----------------------------
 ----------------------------
 Acid
-Trance
+Acid-Trance
 -fx-background-image: url('file:resources/pictures/trance.jpg')
 What real trance is supposed to feel like - trippy, fluid, hypnotic, very long and repetitive.
 Psychobabble
@@ -533,5 +533,175 @@ R & B
 Breakbeat
 -fx-background-image: url('file:resources/pictures/breakbeat.jpg')
 Description
+----------------------------
+----------------------------
+Detroit
+Techno
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+The second wave of Techno - sounding cold and machine like with a completely rhythmic timbre.
+Jeff Mills
+Oscar Mulero
+Underground Resistance
+Carl Craig
+Kenny Larkin
+Damon Wild
+----------------------------
+----------------------------
+Acid
+Techno
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+Description
+Acid Scout
+Fuzz Face
+Woody McBride
+Miss Djax
+Dave the Drummer
+Tesox
+Choice
+----------------------------
+----------------------------
+Gabber
+Hardcore
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+New York style Hardcore - never wants to be thought of as unmanly.
+DJ Promo
+Matrix
+Wargroover
+The Prophet
+Omar Santana
+Ron D. Core
+Hellfish
+Pariah
+----------------------------
+----------------------------
+Speedcore
+Hardcore
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+Music sped up as much as possible
+Hell's Army
+Disciples of Annhilation
+DJ Tron
+DJ Universe
+Ricardo
+Gabba Front Berlin
+The Destroyer
+DJ PW
+----------------------------
+----------------------------
+Happy
+Hardcore
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+Chipmunk vocals, silly sing-a-long anthems, and shameless hug-a-thon anthems.
+Stealth
+Nakatomi
+Bang!
+Trixxy
+Scott Brown
+Visa
+Critical Mass
+4 Tune Fairytales
+Dune
+----------------------------
+----------------------------
+Breakcore
+Hardcore
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+A recreation of sounds in modern technological society in an abrasive form.
+Venetian Snares
+V/VM
+Speedranch vs End
+Navicon Torture Technologies
+Government Alpha
+----------------------------
+----------------------------
+Oldskool
+Hardcore
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+The predecessor to Jungle/Drum-n-Bass and Happy Hardcore - it is silly, with samples of children, cartoons, and nursery rhymes.
+Dj Sy
+The Prodigy
+Acen
+DJ Red Alert
+Mike Slammer
+N-Trance
+Smart E's
+Arling
+Cameron
+Jimmy J
+Cru-L-T
+----------------------------
+----------------------------
+Musique Concrete
+Downtempo
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+Postwar music experiments going as far back as the 50's using "instruments" like magnetic tape, transistors, and vacuum tubes.
+Pierre Schaeffer
+Edgar Varese
+Iannis Xenakis
+Karlheinz Stockhausen
+Kid Baltan
+Morton Subotnik
+Raymond Scott
+Tom Dissevelt
+----------------------------
+----------------------------
+Classical-Early-Electronic
+Downtempo
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+Covers of classical music using electronic sounds
+BBC Radiophonic Workshop
+Tomita
+Wenwaldyter Carlos
+----------------------------
+----------------------------
+Acid Jazz
+Downtempo
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+Downtempo with soul, groove, rhythm, funk, and Jazz.
+Raw Instinct
+Mateo & Matos
+Ronny Jordan
+Ballistic Brothers
+Nightmares on Wax
+Arnica Montana
+Kruder & Dorfmeister
+Sofa Surfers
+Silent Poets
+----------------------------
+----------------------------
+Trip Hop
+Downtempo
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+Very slow, also ambient and jazzy.
+Massive Attack
+Elizabeth Fraser
+Portishead
+Tricky
+Aztech
+----------------------------
+----------------------------
+Ambient
+Downtempo
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+Soothing background music.
+Tangerine Dream
+The KLF
+The Orb
+Speedy J
+Dreamfish
+Robert Rich
+Steven Roach
+Sylvian/Fripp
+Klaus Schulze
+----------------------------
+----------------------------
+Minimalism
+Downtempo
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+Sounds like the same thing over and over, but it is actually slowly evolving.
+Mike Oldfield
+Terry Riley
+Steve Reich
+Philip Glass
 ----------------------------
 ----------------------------
