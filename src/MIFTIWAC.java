@@ -30,7 +30,7 @@ public class MIFTIWAC extends Application implements Initializable {
 	private static Group rootOfQuestionPage;
 	public static Stage mainStage;
 	public static boolean blankPage;
-	private static Question question;
+	public static Question question;
 	
 	//---------------------------------------------------------------------------------------------------
 	//Integer for JESS to update to tell Java if it is 
@@ -42,6 +42,9 @@ public class MIFTIWAC extends Application implements Initializable {
 	
 	//Information that is updated to manage the dynamic Q/A page
 	public static List<String> questionText;
+	
+	//Information about the question.
+	public static String questionDescription;
 	
 	//boolean question: 1 is for true, 0 is for false
 	//integer question: number value
@@ -67,6 +70,7 @@ public class MIFTIWAC extends Application implements Initializable {
     	//startup initializations
     	questionPage = new Dynamic_page();
     	questionText = new ArrayList<String>();
+    	questionDescription = "NULL";
     	hasUserResponded = new SimpleIntegerProperty(0);
     	subGenreAnswer = "NULL";
     	reasoning = "NULL";
@@ -92,15 +96,17 @@ public class MIFTIWAC extends Application implements Initializable {
 					questionText.remove(0);
 				}
 				
+				// If radio, subtract 2 for offset between two arrays.
+				if (MIFTIWAC.dynamicPageType == 3) {
+					MIFTIWAC.answer -= 1;
+				}
+
+				// Put answer into question.
+				MIFTIWAC.question.setAnswer(MIFTIWAC.answer);
+				
 				try {
-					// If radio, subtract 2 for offset between two arrays.
-					if (MIFTIWAC.dynamicPageType == 3) {
-						MIFTIWAC.answer -= 1;
-					}
-					
 					// resume execution of Jess code
 					MIFTIWAC.engine.run();
-					
 				} catch (JessException e) {
 					e.printStackTrace();
 				}
@@ -134,16 +140,9 @@ public class MIFTIWAC extends Application implements Initializable {
     }
 
 	public static void questionReady() {
-		try {
-			// stop execution of Jess engine until engine.run is called
-			MIFTIWAC.engine.halt();
-			System.out.println("I AM HERE");
-		} catch (JessException e) {
-			e.printStackTrace();
-		}
-		
 		// Sets the type of the question for the GUI.
 		MIFTIWAC.questionText.add(MIFTIWAC.question.getQuestionText());
+		MIFTIWAC.questionDescription = MIFTIWAC.question.getExplanation();
 		switch (MIFTIWAC.question.getType()) {
 		case 0: // boolean
 			MIFTIWAC.dynamicPageType = 1;
@@ -168,16 +167,15 @@ public class MIFTIWAC extends Application implements Initializable {
 		
 		System.out.println("This is questionTest: " + MIFTIWAC.questionText);
 
+		try {
+			// stop execution of Jess engine until engine.run is called
+			MIFTIWAC.engine.halt();
+		} catch (JessException e) {
+			e.printStackTrace();
+		}
 		// Tells the GUI it's ready to display.
 		MIFTIWAC.questionPage.display();
 		
-		// If radio, subtract 2 for offset between two arrays.
-		/*if (MIFTIWAC.dynamicPageType == 3) {
-			MIFTIWAC.answer -= 1;
-		}*/
-
-		// Put answer into question.
-		MIFTIWAC.question.setAnswer(MIFTIWAC.answer);
 		return;
 	}
 
