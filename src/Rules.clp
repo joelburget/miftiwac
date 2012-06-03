@@ -144,7 +144,7 @@
     (unknown))
     
     ;-------------------- classic --------------------
-    (subgenre (name house)(subgenre-name classic)(subgenre-min-bpm 120)(subgenre-max-bpm 126)
+    (subgenre (name house)(subgenre-name chicago)(subgenre-min-bpm 120)(subgenre-max-bpm 126)
     (true 
 			obvious-tempo soulful jazzy warm danceable four-on-the-floor drum-machine repetitive syncopated groovy-feel )
     (false 
@@ -157,8 +157,8 @@
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
     (unknown))
     
-    ;-------------------- garage --------------------
-    (subgenre (name house)(subgenre-name garage)(subgenre-min-bpm 110)(subgenre-max-bpm 124)
+    ;-------------------- new-york --------------------
+    (subgenre (name house)(subgenre-name new-york)(subgenre-min-bpm 110)(subgenre-max-bpm 124)
     (true 
 			obvious-tempo soulful funky jazzy warm danceable four-on-the-floor drum-machine syncopated groovy-feel 
             digital  vocals-present vocals-studio-recorded vocals-male vocals-female vocals-melodic vocals-english)
@@ -346,7 +346,7 @@
 
 
     ;-------------------- acid --------------------
-    (subgenre (name trance)(subgenre-name acid)(subgenre-min-bpm 124)(subgenre-max-bpm 150)
+    (subgenre (name trance)(subgenre-name acid-trance)(subgenre-min-bpm 124)(subgenre-max-bpm 150)
     (true 
 			obvious-tempo cold dystopian hypnotic digital rhythmic-timbre three-oh-three repetitive thin intricate-rhythms )
     (false 
@@ -488,10 +488,10 @@
            	four-on-the-floor percussion-none drum-machine live-drummer 
            	verse-chorus buildup-breakdown minimalist 
            	band-not-electronic sparse-instrumentation turntablism three-oh-three digital thin rhythmic-timbre 
-           	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
+           	)
+    (unknown vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
            	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
-           	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
-    (unknown))
+           	vocals-rap-style vocals-melodic vocals-unpitched vocals-english))
     
     
     ;-------------------- darkstep --------------------
@@ -530,7 +530,35 @@
 */
 
 (deffacts question-base
-    ;placeholder for hardcodes
+    ;placeholder for hardcoded questions, this is used in the explanation system
+    
+     (question-template (reference-attribute verse-chorus)
+        (membership-value 10)
+        (question-text "verse-chorus")
+        (explanation-text "verse-chorus")
+        (question-type 0)
+     ) 
+    
+     (question-template (reference-attribute minimalist)
+        (membership-value 10)
+        (question-text "minimalist")
+        (explanation-text "minimalist")
+        (question-type 0)
+     ) 
+    
+     (question-template (reference-attribute repetitive)
+        (membership-value 10)
+        (question-text "repetitive")
+        (explanation-text "repetitive")
+        (question-type 0)
+     ) 
+    
+     (question-template (reference-attribute buildup-breakdown)
+        (membership-value 10)
+        (question-text "buildup-breakdown")
+        (explanation-text "buildup-breakdown")
+        (question-type 0)
+     ) 
     
      (question-template (reference-attribute four-on-the-floor)
         (membership-value 25)
@@ -545,13 +573,7 @@
         (explanation-text "breakbeat")
         (question-type 0)
      ) 
-     
-     (question-template (reference-attribute happy)
-        (membership-value 25)
-        (question-text "happy")
-        (explanation-text "Happy!")
-        (question-type 0)
-     ) 
+    
     
     (question-template (reference-attribute obvious-tempo)
         (membership-value 15)
@@ -560,6 +582,7 @@
         (question-type 0)
      ) 
     
+    ;questions that may be asked by Jess as part of the greedy elimination system
 	(question-template (reference-attribute vocals-male)
         (membership-value 5)
         (question-text "vocals-male?")
@@ -597,31 +620,38 @@
     
      (question-template (reference-attribute vocals-studio-recorded)
         (membership-value 5)
-        (question-text "vocals-studio-recorded?")
-        (explanation-text "vocals-studio-recorded.")
+        (question-text "Are the vocals present in extended-phrases?")
+        (explanation-text "This question intends to distinguish short vocal phrases sampled from other songs with extended-length vocals recorded for the song specifically.")
         (question-type 0)
      )
     
      (question-template (reference-attribute vocals-unpitched)
         (membership-value 5)
-        (question-text "vocals-unpitched?")
-        (explanation-text "vocals-unpitched.")
+        (question-text "Are the vocals unpitched?")
+        (explanation-text "If the vocals aren't sung with particular musical notes, then they can be considered to be unpitched.")
         (question-type 0)
      )
     
      (question-template (reference-attribute vocals-melodic)
         (membership-value 5)
-        (question-text "vocals-melodic?")
-        (explanation-text "vocals-melodic.")
+        (question-text "Are the vocals melodic in nature?")
+        (explanation-text "If the main theme of the song, usually the catchiest part, is sung then the vocals are melodic.")
         (question-type 0)
      )
     
      (question-template (reference-attribute vocals-rap-style)
         (membership-value 5)
-        (question-text "vocals-rap-style?")
-        (explanation-text "vocals-rap-style.")
+        (question-text "Are the vocals performed in a rapping style?")
+        (explanation-text "Rap style vocals are rhythmically, not melodically based.  They feature unpitched, rapidly performed, rhythmically interesting lyrics.")
         (question-type 0)
      )
+    
+     (question-template (reference-attribute happy)
+        (membership-value 5)
+        (question-text "Does the song go out of its way to inspire feelings of happiness?")
+        (explanation-text "Happy music is usually major and upbeat.  The question refers to music that's purposefully and intentionally happy sounding, more so than the average piece of music. ")
+        (question-type 0)
+     ) 
     
     (question-template (reference-attribute soulful)
         (membership-value 5)
@@ -703,7 +733,7 @@
     (question-template (reference-attribute aggressive)
         (membership-value 5)
         (question-text "Does the song feel aggressive?")
-        (explanation-text "Aggressive!")
+        (explanation-text "Aggressive music is fast and hard-hitting.  It inspires feelings of aggression.")
         (question-type 0)
      )
     
@@ -724,28 +754,28 @@
     (question-template (reference-attribute abrasive)
         (membership-value 5)
         (question-text "Does the song have an abrasive feel?")
-        (explanation-text "Abrasive!")
+        (explanation-text "Abrasive music is highly distorted, and disharmonious sounding.  It is the opposite of pleasant sounding.")
         (question-type 0)
      )
     
     (question-template (reference-attribute cheesy)
         (membership-value 5)
         (question-text "Does the song have a cheesy feeling?")
-        (explanation-text "Cheesy!")
+        (explanation-text "Cheesy refers to a dated sounding digital timbre.  Usually there will be fake sounding synthesized imitations of real music.")
         (question-type 0)
      )
     
     (question-template (reference-attribute danceable)
         (membership-value 5)
-        (question-text "Are you able to dance to this song?")
-        (explanation-text "")
+        (question-text "Does the song inspire the feeling of wanting to dance?  Is it danceable?")
+        (explanation-text "Not all electronic music was created with the intention of having people dance to it.  Some of it is meant to be listened to and contemplated.")
         (question-type 0)
      )
     
     (question-template (reference-attribute sampled-breaks)
         (membership-value 5)
         (question-text "Does the song use any sampled breaks?")
-        (explanation-text "Sampled break!!")
+        (explanation-text "Sampled breaks are drum loops that are sampled from the song they originally appeared in and reappropriated for use in a new piece of music.")
         (question-type 0)
      )
     
@@ -766,21 +796,21 @@
     (question-template (reference-attribute syncopated)
         (membership-value 5)
         (question-text "Does the song have a syncopated feeling?")
-        (explanation-text "Syncopated!")
+        (explanation-text "Syncopation refers to a tendancy to have important notes fall outside the downbeats.")
         (question-type 0)
      )
     
     (question-template (reference-attribute intricate-rhythms)
         (membership-value 5)
-        (question-text "Does the song have any intricate rhythms?")
-        (explanation-text "Intricate Rhythms!")
+        (question-text "Does the song have particularly intricate rhythms?")
+        (explanation-text "In this question intricate refers to rhythms that contain a large density of notes and are highly detailed.")
         (question-type 0)
      )
     
     (question-template (reference-attribute groovy-feel)
         (membership-value 5)
-        (question-text "Does the song have a groovy feel to it?")
-        (explanation-text "Groovy baby!")
+        (question-text "Does the song have a swung or shuffled rhythmic feel?")
+        (explanation-text "Swinging and shuffling refers to placing notes slightly before and after the beat, and changing their lengths to create a  ")
         (question-type 0)
      )
     
@@ -834,7 +864,6 @@
      )
         
 )
-
 ;-----------------------------------------------------------------------------
 ; Questions
 ;-----------------------------------------------------------------------------
@@ -957,7 +986,7 @@
 	(bind $?attr-to-exp (intersection$ ?sg.true ?wm.true))
     (bind ?explanation-string "")
     ;hard-code explanations here
-    (bind ?explanation-string (str-cat ?explanation-string "You indicated that the music had a tempo of " ?wm.bpm " bpm.  This contributed " (integer (* 100 (/ 20 ?sg.membership-value))) "% to the final decision.
+    (bind ?explanation-string (str-cat ?explanation-string "You indicated that the music had a tempo of " ?wm.bpm " bpm.  This contributed " (round (* 100 (/ 20 ?sg.membership-value))) "% to the final decision.
 "))
     (foreach ?attr $?attr-to-exp
         (bind ?attr-mem-value 0)
@@ -966,7 +995,7 @@
             (bind ?qt (?result getObject question-template))
             (bind ?attr-mem-value ?qt.membership-value)
             )
-        (bind ?explanation-string (str-cat ?explanation-string "You indicated that the music has the characteristic " ?attr " which contributed " (integer (* 100 (/ ?attr-mem-value ?sg.membership-value))) "% to the final decision.
+        (bind ?explanation-string (str-cat ?explanation-string "You indicated that the music has the characteristic " ?attr " which contributed " (round (* 100 (/ ?attr-mem-value ?sg.membership-value))) "% to the final decision.
 ")))
     (return ?explanation-string)
 )
@@ -1162,7 +1191,7 @@
     (modify ?q (type 2))
     (modify ?q (questionText "Which of the following best describes the song structure?"))
     (modify ?q (explanation "Verse Chorus - The standard pop structure, in which there's two clear melodic sections that repeat.  If there are lyrics, they may change during the verse, but be constant in the chorus.
-Repetetive - often repeats the same motif, not clear A-B section distinction, more like A, not A.  
+Repetitive - often repeats the same motif, not clear A-B section distinction, more like A, not A.  
 Minimalist - either through-composed (no repeating sections) or complete disregard for song structure
 Buildup Breakdown - heavy emphasis on tension and release through anticipation of the drop, when either the drums or melody will become central after a long build."))
     (modify ?q (answerTexts "Verse Chorus" "Repetitive" "Minimalist" "Buildup Breakdown"))
