@@ -2,11 +2,15 @@
 ; Global Variables
 ;-----------------------------------------------------------------------------
 ; Set TRUE to execute with GUI, set FALSE to execute with text-based UI
-;(defglobal ?*gui* = FALSE)
-
+(defglobal ?*gui* = TRUE)
 ;-----------------------------------------------------------------------------
 ; Templates
 ;-----------------------------------------------------------------------------
+(deftemplate qa-toggle
+    (slot mode (allowed-values question answer) (default question))
+    (slot attr)
+    (slot nqt)
+    )
 
 (deftemplate attributes
 	(multislot true (allowed-values 	soulful funky jazzy warm ambient cold uplifting 
@@ -95,6 +99,8 @@
 ;-----------------------------------------------------------------------------
 ; Facts
 ;-----------------------------------------------------------------------------
+(deffacts toggler
+    (qa-toggle (mode question)))
 
 (deffacts knowledge-base
     
@@ -138,7 +144,7 @@
     (unknown))
     
     ;-------------------- classic --------------------
-    (subgenre (name house)(subgenre-name classic)(subgenre-min-bpm 120)(subgenre-max-bpm 126)
+    (subgenre (name house)(subgenre-name chicago)(subgenre-min-bpm 120)(subgenre-max-bpm 126)
     (true 
 			obvious-tempo soulful jazzy warm danceable four-on-the-floor drum-machine repetitive syncopated groovy-feel )
     (false 
@@ -151,8 +157,8 @@
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
     (unknown))
     
-    ;-------------------- garage --------------------
-    (subgenre (name house)(subgenre-name garage)(subgenre-min-bpm 110)(subgenre-max-bpm 124)
+    ;-------------------- new-york --------------------
+    (subgenre (name house)(subgenre-name new-york)(subgenre-min-bpm 110)(subgenre-max-bpm 124)
     (true 
 			obvious-tempo soulful funky jazzy warm danceable four-on-the-floor drum-machine syncopated groovy-feel 
             digital  vocals-present vocals-studio-recorded vocals-male vocals-female vocals-melodic vocals-english)
@@ -340,7 +346,7 @@
 
 
     ;-------------------- acid --------------------
-    (subgenre (name trance)(subgenre-name acid)(subgenre-min-bpm 124)(subgenre-max-bpm 150)
+    (subgenre (name trance)(subgenre-name acid-trance)(subgenre-min-bpm 124)(subgenre-max-bpm 150)
     (true 
 			obvious-tempo cold dystopian hypnotic digital rhythmic-timbre three-oh-three repetitive thin intricate-rhythms )
     (false 
@@ -358,9 +364,9 @@
     ;-------------------- dream --------------------
     (subgenre (name trance)(subgenre-name dream)(subgenre-min-bpm 134)(subgenre-max-bpm 150)
     (true 
-			obvious-tempo cheesy danceable four-on-the-floor drum-machine digital buildup-breakdown )
+			obvious-tempo cheesy danceable uplifting four-on-the-floor drum-machine digital buildup-breakdown )
     (false 
-			soulful funky jazzy warm ambient cold uplifting 
+			soulful funky jazzy warm ambient cold 
            	dystopian hypnotic aggressive angry happy sad abrasive 
            	breakbeat percussion-none sampled-breaks  live-drummer 
            	verse-chorus repetitive minimalist 
@@ -425,8 +431,8 @@
            	vocals-rap-style vocals-unpitched)
     (unknown))
     
-    ;-------------------- psychadelic --------------------
-    (subgenre (name trance)(subgenre-name psychadelic)(subgenre-min-bpm 142)(subgenre-max-bpm 150)
+    ;-------------------- psychedelic --------------------
+    (subgenre (name trance)(subgenre-name psychedelic)(subgenre-min-bpm 142)(subgenre-max-bpm 150)
     (true 
 			obvious-tempo cold dystopian hypnotic danceable four-on-the-floor drum-machine digital rhythmic-timbre intricate-rhythms minimalist )
     (false 
@@ -482,10 +488,10 @@
            	four-on-the-floor percussion-none drum-machine live-drummer 
            	verse-chorus buildup-breakdown minimalist 
            	band-not-electronic sparse-instrumentation turntablism three-oh-three digital thin rhythmic-timbre 
-           	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
+           	)
+    (unknown vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
            	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
-           	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
-    (unknown))
+           	vocals-rap-style vocals-melodic vocals-unpitched vocals-english))
     
     
     ;-------------------- darkstep --------------------
@@ -524,7 +530,35 @@
 */
 
 (deffacts question-base
-    ;placeholder for hardcodes
+    ;placeholder for hardcoded questions, this is used in the explanation system
+    
+     (question-template (reference-attribute verse-chorus)
+        (membership-value 10)
+        (question-text "verse-chorus")
+        (explanation-text "verse-chorus")
+        (question-type 0)
+     ) 
+    
+     (question-template (reference-attribute minimalist)
+        (membership-value 10)
+        (question-text "minimalist")
+        (explanation-text "minimalist")
+        (question-type 0)
+     ) 
+    
+     (question-template (reference-attribute repetitive)
+        (membership-value 10)
+        (question-text "repetitive")
+        (explanation-text "repetitive")
+        (question-type 0)
+     ) 
+    
+     (question-template (reference-attribute buildup-breakdown)
+        (membership-value 10)
+        (question-text "buildup-breakdown")
+        (explanation-text "buildup-breakdown")
+        (question-type 0)
+     ) 
     
      (question-template (reference-attribute four-on-the-floor)
         (membership-value 25)
@@ -539,13 +573,7 @@
         (explanation-text "breakbeat")
         (question-type 0)
      ) 
-     
-     (question-template (reference-attribute happy)
-        (membership-value 25)
-        (question-text "happy")
-        (explanation-text "Happy!")
-        (question-type 0)
-     ) 
+    
     
     (question-template (reference-attribute obvious-tempo)
         (membership-value 15)
@@ -554,6 +582,7 @@
         (question-type 0)
      ) 
     
+    ;questions that may be asked by Jess as part of the greedy elimination system
 	(question-template (reference-attribute vocals-male)
         (membership-value 5)
         (question-text "vocals-male?")
@@ -591,31 +620,38 @@
     
      (question-template (reference-attribute vocals-studio-recorded)
         (membership-value 5)
-        (question-text "vocals-studio-recorded?")
-        (explanation-text "vocals-studio-recorded.")
+        (question-text "Are the vocals present in extended-phrases?")
+        (explanation-text "This question intends to distinguish short vocal phrases sampled from other songs with extended-length vocals recorded for the song specifically.")
         (question-type 0)
      )
     
      (question-template (reference-attribute vocals-unpitched)
         (membership-value 5)
-        (question-text "vocals-unpitched?")
-        (explanation-text "vocals-unpitched.")
+        (question-text "Are the vocals unpitched?")
+        (explanation-text "If the vocals aren't sung with particular musical notes, then they can be considered to be unpitched.")
         (question-type 0)
      )
     
      (question-template (reference-attribute vocals-melodic)
         (membership-value 5)
-        (question-text "vocals-melodic?")
-        (explanation-text "vocals-melodic.")
+        (question-text "Are the vocals melodic in nature?")
+        (explanation-text "If the main theme of the song, usually the catchiest part, is sung then the vocals are melodic.")
         (question-type 0)
      )
     
      (question-template (reference-attribute vocals-rap-style)
         (membership-value 5)
-        (question-text "vocals-rap-style?")
-        (explanation-text "vocals-rap-style.")
+        (question-text "Are the vocals performed in a rapping style?")
+        (explanation-text "Rap style vocals are rhythmically, not melodically based.  They feature unpitched, rapidly performed, rhythmically interesting lyrics.")
         (question-type 0)
      )
+    
+     (question-template (reference-attribute happy)
+        (membership-value 5)
+        (question-text "Does the song go out of its way to inspire feelings of happiness?")
+        (explanation-text "Happy music is usually major and upbeat.  The question refers to music that's purposefully and intentionally happy sounding, more so than the average piece of music. ")
+        (question-type 0)
+     ) 
     
     (question-template (reference-attribute soulful)
         (membership-value 5)
@@ -697,7 +733,7 @@
     (question-template (reference-attribute aggressive)
         (membership-value 5)
         (question-text "Does the song feel aggressive?")
-        (explanation-text "Aggressive!")
+        (explanation-text "Aggressive music is fast and hard-hitting.  It inspires feelings of aggression.")
         (question-type 0)
      )
     
@@ -718,28 +754,28 @@
     (question-template (reference-attribute abrasive)
         (membership-value 5)
         (question-text "Does the song have an abrasive feel?")
-        (explanation-text "Abrasive!")
+        (explanation-text "Abrasive music is highly distorted, and disharmonious sounding.  It is the opposite of pleasant sounding.")
         (question-type 0)
      )
     
     (question-template (reference-attribute cheesy)
         (membership-value 5)
         (question-text "Does the song have a cheesy feeling?")
-        (explanation-text "Cheesy!")
+        (explanation-text "Cheesy refers to a dated sounding digital timbre.  Usually there will be fake sounding synthesized imitations of real music.")
         (question-type 0)
      )
     
     (question-template (reference-attribute danceable)
         (membership-value 5)
-        (question-text "Are you able to dance to this song?")
-        (explanation-text "")
+        (question-text "Does the song inspire the feeling of wanting to dance?  Is it danceable?")
+        (explanation-text "Not all electronic music was created with the intention of having people dance to it.  Some of it is meant to be listened to and contemplated.")
         (question-type 0)
      )
     
     (question-template (reference-attribute sampled-breaks)
         (membership-value 5)
         (question-text "Does the song use any sampled breaks?")
-        (explanation-text "Sampled break!!")
+        (explanation-text "Sampled breaks are drum loops that are sampled from the song they originally appeared in and reappropriated for use in a new piece of music.")
         (question-type 0)
      )
     
@@ -760,21 +796,21 @@
     (question-template (reference-attribute syncopated)
         (membership-value 5)
         (question-text "Does the song have a syncopated feeling?")
-        (explanation-text "Syncopated!")
+        (explanation-text "Syncopation refers to a tendancy to have important notes fall outside the downbeats.")
         (question-type 0)
      )
     
     (question-template (reference-attribute intricate-rhythms)
         (membership-value 5)
-        (question-text "Does the song have any intricate rhythms?")
-        (explanation-text "Intricate Rhythms!")
+        (question-text "Does the song have particularly intricate rhythms?")
+        (explanation-text "In this question intricate refers to rhythms that contain a large density of notes and are highly detailed.")
         (question-type 0)
      )
     
     (question-template (reference-attribute groovy-feel)
         (membership-value 5)
-        (question-text "Does the song have a groovy feel to it?")
-        (explanation-text "Groovy baby!")
+        (question-text "Does the song have a swung or shuffled rhythmic feel?")
+        (explanation-text "Swinging and shuffling refers to placing notes slightly before and after the beat, and changing their lengths to create a  ")
         (question-type 0)
      )
     
@@ -828,7 +864,6 @@
      )
         
 )
-
 ;-----------------------------------------------------------------------------
 ; Questions
 ;-----------------------------------------------------------------------------
@@ -837,6 +872,7 @@
 ;creates question object and binds it for easy reference by ?q
 (defclass question Question)
 (bind ?q (definstance question (new Question)))
+(call MiftiwacM prepQuestion ?q.OBJECT)
 (call MIFTIWAC prepQuestion ?q.OBJECT)
 
 ;-----------------------------------------------------------------------------
@@ -882,12 +918,12 @@
 ; Functions
 ;-----------------------------------------------------------------------------
 (deffunction question-ready ()
-    ;(if ?*gui* then
+    (if ?*gui* then
      	(call MIFTIWAC questionReady)  
         (halt) 
-     ;else
-     ;   (call MiftiwacM questionReady)
-     ;)
+     else
+        (call MiftiwacM questionReady)
+     )
 )
 
 (deffunction int-to-bool (?a) 
@@ -899,12 +935,14 @@
     (while (?result next)
     	(bind ?subg (?result getObject subgenre))
         (modify ?subg (membership-value (+ ?subg.membership-value ?amount)))
-    	(printout t ?subg.subgenre-name " had true for slot " ?slot " and we added " ?amount " points. New point total: " ?subg.membership-value crlf))
+    	(printout t ?subg.subgenre-name " had true for slot " ?slot " and we added " ?amount " points. New point total: " ?subg.membership-value crlf)
+        )
     (bind ?result (run-query* false-set-from-slot ?slot))
     (while (?result next)
     	(bind ?subg (?result getObject subgenre))
         (modify ?subg (membership-value (- ?subg.membership-value ?amount)))
-    	(printout t ?subg.subgenre-name " had false for slot " ?slot " and we subtracted " ?amount " points. New point total: " ?subg.membership-value crlf)) 
+    	(printout t ?subg.subgenre-name " had false for slot " ?slot " and we subtracted " ?amount " points. New point total: " ?subg.membership-value crlf)
+        )
 )
 
 (deffunction update-membership-bpm (?bpm ?amount)
@@ -920,7 +958,7 @@
     	(printout t ?subg.subgenre-name " had bpm " ?bpm " and we subtracted " ?amount " points. New point total: " ?subg.membership-value crlf))
 )
 
-(deffunction ask-question (?attr)
+(deffunction ask-question (?attr ?m)
     (printout t "Next question attribute is: " ?attr crlf)
 	(bind ?result (run-query* get-question-from-attr ?attr))
     (while (?result next)
@@ -930,6 +968,7 @@
 	    (modify ?q (type ?nqt.question-type))
 	    (modify ?q (answerTexts ?nqt.answers))
 	    (question-ready)
+        (modify ?m (mode answer))
 	    (update ?q.OBJECT)
 	    (if (int-to-bool ?q.answer) then
 	        (modify ?wm (true (union$ ?wm.true (create$ ?attr))))
@@ -947,7 +986,7 @@
 	(bind $?attr-to-exp (intersection$ ?sg.true ?wm.true))
     (bind ?explanation-string "")
     ;hard-code explanations here
-    (bind ?explanation-string (str-cat ?explanation-string "You indicated that the music had a tempo of " ?wm.bpm " bpm.  This contributed " (integer (* 100 (/ 20 ?sg.membership-value))) "% to the final decision.
+    (bind ?explanation-string (str-cat ?explanation-string "You indicated that the music had a tempo of " ?wm.bpm " bpm.  This contributed " (round (* 100 (/ 20 ?sg.membership-value))) "% to the final decision.
 "))
     (foreach ?attr $?attr-to-exp
         (bind ?attr-mem-value 0)
@@ -956,7 +995,7 @@
             (bind ?qt (?result getObject question-template))
             (bind ?attr-mem-value ?qt.membership-value)
             )
-        (bind ?explanation-string (str-cat ?explanation-string "You indicated that the music has the characteristic " ?attr " which contributed " (integer (* 100 (/ ?attr-mem-value ?sg.membership-value))) "% to the final decision.
+        (bind ?explanation-string (str-cat ?explanation-string "You indicated that the music has the characteristic " ?attr " which contributed " (round (* 100 (/ ?attr-mem-value ?sg.membership-value))) "% to the final decision.
 ")))
     (return ?explanation-string)
 )
@@ -973,6 +1012,8 @@
 
 (defrule next-question
     (declare (salience 70))
+    ?m <- (qa-toggle (mode ?mm))
+    (test (eq ?mm question))
     ?wm <- (working-memory (unknown $?list))
     =>
     (bind $?counts (create$))
@@ -1039,7 +1080,7 @@
     (test (> (- ?thresh ?membership) 50))
     (test (not(eq ?sgname no-ad)))
     =>
-    (printout t "Eliminated subgenre " ?sgname " with membership value " ?membership crlf)
+    ;(printout t "Eliminated subgenre " ?sgname " with membership value " ?membership crlf)
     (retract ?sg)
 )
 
@@ -1047,12 +1088,23 @@
 
 (defrule obvious-tempo-question
     (declare (salience 90))
+    ?m <- (qa-toggle (mode ?mm))
+    (test (eq ?mm question))
     ?wm <- (working-memory (true $?t) (false $?f)(unknown $?ua obvious-tempo $?ub))
     =>
     (modify ?q (type 0))
     (modify ?q (questionText "Is there an obvious tempo?"))
     (modify ?q (explanation "If you can tap your hand to the beat, then there is an obvious tempo."))
     (question-ready)
+	(modify ?m (mode answer))
+)
+
+(defrule obvious-tempo-answer
+    (declare (salience 90))
+    ?m <- (qa-toggle (mode ?mm))
+    (test (eq ?mm answer))
+    ?wm <- (working-memory (true $?t) (false $?f)(unknown $?ua obvious-tempo $?ub))
+    =>
     (update ?q.OBJECT)
 	(if (int-to-bool ?q.answer) then
         (modify ?wm (true $?t obvious-tempo))
@@ -1063,10 +1115,13 @@
         (modify ?wm (unknown $?ua $?ub))
         (update-membership obvious-tempo (/ -15 2))
      )
+    (modify ?m (mode question))
 )
 
 (defrule get-bpm-question
     (declare (salience 88))
+    ?m <- (qa-toggle (mode ?mm))
+    (test (eq ?mm question))
     ?wm <- (working-memory (true $? obvious-tempo $?) (bpm ?bpm))
     (test (eq ?bpm 0))
 	=>
@@ -1074,13 +1129,26 @@
     (modify ?q (questionText "What is the BPM (Beats Per Minute)?"))
     (modify ?q (explanation "This is essentially how many times you would tap your hand to the beat per minute."))
     (question-ready)
+    (modify ?m (mode answer))
+)
+
+(defrule get-bpm-answer
+    (declare (salience 88))
+    ?m <- (qa-toggle (mode ?mm))
+    (test (eq ?mm answer))
+    ?wm <- (working-memory (true $? obvious-tempo $?) (bpm ?bpm))
+    (test (eq ?bpm 0))
+	=>
     (update ?q.OBJECT)
     (modify ?wm (bpm ?q.answer))
     (update-membership-bpm ?wm.bpm 20)
+    (modify ?m (mode question))
 )
 
 (defrule break-vs-four-on-the-floor
     (declare (salience 86))
+    ?m <- (qa-toggle (mode ?mm))
+    (test (eq ?mm question))
     ?wm <- (working-memory (bpm ?bpm) (true $?t) (false $?f) (unknown $?ua four-on-the-floor $?ub))
     (test (not (eq ?bpm 0)))
 	=>
@@ -1089,6 +1157,16 @@
     (modify ?q (explanation "Four on the floor features a constant (pounding) kick drum on every downbeat.  Breakbeat has a  (broken beat) kick that is not constant, but falls on different beats."))    
     (modify ?q (answerTexts "Four on the Floor" "Breakbeat"))
     (question-ready)
+    (modify ?m (mode answer))
+)
+
+(defrule break-vs-four-on-the-floor-answer
+    (declare (salience 86))
+    ?m <- (qa-toggle (mode ?mm))
+    (test (eq ?mm answer))
+    ?wm <- (working-memory (bpm ?bpm) (true $?t) (false $?f) (unknown $?ua four-on-the-floor $?ub))
+    (test (not (eq ?bpm 0)))
+	=>
     (update ?q.OBJECT)
     (if (eq ?q.answer 0) then
     	(modify ?wm (true $?t four-on-the-floor))
@@ -1100,20 +1178,33 @@
         (update-membership breakbeat 25)
     )
     (modify ?wm (unknown (complement$ (create$ four-on-the-floor breakbeat) (create$ $?ua four-on-the-floor $?ub))))
+	(modify ?m (mode question))
 )
 
 (defrule song-structure-question
 	(declare (salience 84))
+    ?m <- (qa-toggle (mode ?mm))
+    (test (eq ?mm question))
     ?wm <- (working-memory (true $?t) (false $?f) (unknown $?a verse-chorus $?b))
     =>
+    (printout t "ssq-start": ?mm crlf)
     (modify ?q (type 2))
     (modify ?q (questionText "Which of the following best describes the song structure?"))
     (modify ?q (explanation "Verse Chorus - The standard pop structure, in which there's two clear melodic sections that repeat.  If there are lyrics, they may change during the verse, but be constant in the chorus.
-Repetetive - often repeats the same motif, not clear A-B section distinction, more like A, not A.  
+Repetitive - often repeats the same motif, not clear A-B section distinction, more like A, not A.  
 Minimalist - either through-composed (no repeating sections) or complete disregard for song structure
 Buildup Breakdown - heavy emphasis on tension and release through anticipation of the drop, when either the drums or melody will become central after a long build."))
     (modify ?q (answerTexts "Verse Chorus" "Repetitive" "Minimalist" "Buildup Breakdown"))
     (question-ready)
+    (modify ?m (mode answer))
+)
+
+(defrule song-structure-answer
+	(declare (salience 84))
+    ?m <- (qa-toggle (mode ?mm))
+    (test (eq ?mm answer))
+    ?wm <- (working-memory (true $?t) (false $?f) (unknown $?a verse-chorus $?b))
+    =>
     (update ?q.OBJECT)
     (if (eq ?q.answer 0) then
 		(modify ?wm (true $?t verse-chorus))
@@ -1133,17 +1224,28 @@ Buildup Breakdown - heavy emphasis on tension and release through anticipation o
         (update-membership buildup-breakdown 10)
      	))))
     (modify ?wm (unknown (complement$ (create$ verse-chorus repetitive minimalist buildup-breakdown) (create$ $?a verse-chorus $?b))))
-    ;(facts)
+    (modify ?m (mode question))
 )
 
 (defrule vocals-question
     (declare (salience 82))
+    ?m <- (qa-toggle (mode ?mm))
+    (test (eq ?mm question))
     ?wm <- (working-memory (true $?t) (false $?f) (unknown $?a vocals-present $?b))
     =>
 	(modify ?q (type 0))
     (modify ?q (questionText "Are there vocals present in the song?"))
     (modify ?q (explanation "The vocals can either appear as vocal samples or studio recorded vocals."))
     (question-ready)
+	(modify ?m (mode answer))
+)
+
+(defrule vocals-answer
+    (declare (salience 82))
+    ?m <- (qa-toggle (mode ?mm))
+    (test (eq ?mm answer))
+    ?wm <- (working-memory (true $?t) (false $?f) (unknown $?a vocals-present $?b))
+    =>
     (update ?q.OBJECT)
     (if (int-to-bool ?q.answer) then
         (modify ?wm (true $?t vocals-present))
@@ -1160,10 +1262,13 @@ Buildup Breakdown - heavy emphasis on tension and release through anticipation o
                     					  (create$ $?a vocals-present $?b))))
         (update-membership vocals-present -10)
     )
+    (modify ?m (mode question))
 )
 
-(defrule vocals-type
+/*(defrule vocals-type
     (declare (salience 80))
+    ?m <- (mode (mode ?mm))
+    (test (eq ?mm question))
     ?wm <- (working-memory (bpm ?bpm) (true $?ta vocals-present $?tb) (false $?f) (unknown $?ua vocals-studio-recorded $?ub))
 	=>
     (modify ?q (type 2))
@@ -1171,6 +1276,7 @@ Buildup Breakdown - heavy emphasis on tension and release through anticipation o
     (modify ?q (explanation "Studio recorded vocals are extended passages, vocals sung specifically for use in the song.  Sampled vocals are often shorter clips, taken from other sources."))    
     (modify ?q (answerTexts "Studio Recorded" "Sampled"))
     (question-ready)
+    (modify ?m (mode answer))
     (update ?q.OBJECT)
     (if (eq ?q.answer 0) then
     	(modify ?wm (true $?ta vocals-studio-recorded $?tb))
@@ -1182,4 +1288,4 @@ Buildup Breakdown - heavy emphasis on tension and release through anticipation o
         (update-membership vocals-sampled 5)
     )
     (modify ?wm (unknown (complement$ (create$ vocals-studio-recorded vocals-sampled) (create$ $?ua vocals-studio-recorded $?ub))))
-)
+)*/

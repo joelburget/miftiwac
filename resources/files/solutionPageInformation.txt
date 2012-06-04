@@ -247,8 +247,8 @@ The Ones
 Dave Armstrong
 ----------------------------
 ----------------------------
-Acid
 Acid-Trance
+Trance
 -fx-background-image: url('file:resources/pictures/trance.jpg')
 What real trance is supposed to feel like - trippy, fluid, hypnotic, very long and repetitive.
 Psychobabble
