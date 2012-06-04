@@ -685,6 +685,185 @@
            	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
     (unknown))
+    
+    ;-------------------- gabba --------------------
+    (subgenre (name hardcore)(subgenre-name gabba)(subgenre-min-bpm 186)(subgenre-max-bpm 224)
+    (true 
+			obvious-tempo cold dystopian aggressive abrasive danceable four-on-the-floor 
+            drum-machine repetitive sparse-instrumentation rhythmic-timbre digital)
+    (false 
+			soulful funky jazzy warm ambient uplifting 
+           	hypnotic happy sad cheesy 
+           	breakbeat percussion-none sampled-breaks live-drummer 
+           	verse-chorus buildup-breakdown minimalist 
+           	syncopated intricate-rhythms groovy-feel 
+           	band-not-electronic turntablism three-oh-three thin 
+           	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
+           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
+    (unknown))
+    
+    ;-------------------- speedcore --------------------
+    (subgenre (name hardcore)(subgenre-name speedcore)(subgenre-min-bpm 225)(subgenre-max-bpm 1000)
+    (true 
+			obvious-tempo cold dystopian aggressive abrasive four-on-the-floor 
+            drum-machine repetitive sparse-instrumentation rhythmic-timbre digital)
+    (false 
+			soulful funky jazzy warm ambient uplifting danceable 
+           	hypnotic happy sad cheesy 
+           	breakbeat percussion-none sampled-breaks live-drummer 
+           	verse-chorus buildup-breakdown minimalist 
+           	syncopated intricate-rhythms groovy-feel 
+           	band-not-electronic turntablism three-oh-three thin 
+           	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
+           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
+    (unknown))
+    
+    ;-------------------- rave --------------------
+    (subgenre (name hardcore)(subgenre-name rave)(subgenre-min-bpm 124)(subgenre-max-bpm 134)
+    (true 
+			obvious-tempo cold dystopian aggressive repetitive abrasive danceable four-on-the-floor drum-machine syncopated rhythmic-timbre digital )
+    (false 
+			soulful funky jazzy warm ambient uplifting 
+           	hypnotic happy sad cheesy 
+           	breakbeat percussion-none sampled-breaks live-drummer 
+           	verse-chorus buildup-breakdown minimalist intricate-rhythms groovy-feel 
+           	band-not-electronic sparse-instrumentation turntablism three-oh-three thin 
+           	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
+           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
+    (unknown))
+    
+    ;-------------------- happy hardcore --------------------
+    (subgenre (name hardcore)(subgenre-name happy)(subgenre-min-bpm 174)(subgenre-max-bpm 190)
+    (true 
+			obvious-tempo happy cheesy danceable four-on-the-floor verse-chorus drum-machine 
+            digital vocals-present vocals-studio-recorded vocals-female vocals-melodic vocals-english )
+    (false 
+			soulful funky jazzy warm ambient cold uplifting 
+           	dystopian hypnotic aggressive sad abrasive 
+           	breakbeat percussion-none sampled-breaks live-drummer 
+           	buildup-breakdown repetitive minimalist syncopated intricate-rhythms groovy-feel 
+           	band-not-electronic sparse-instrumentation turntablism three-oh-three 
+           	thin rhythmic-timbre vocals-sampled vocals-male 
+           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-rap-style vocals-unpitched)
+    (unknown))
+    
+    ;-------------------- oldskool --------------------
+    (subgenre (name jungle)(subgenre-name oldskool)(subgenre-min-bpm 148)(subgenre-max-bpm 168)
+    (true 
+			obvious-tempo aggressive breakbeat sampled-breaks cheesy danceable syncopated intricate-rhythms 
+            repetitive digital vocals-present vocals-studio-recorded vocals-female vocals-heavily-effected vocals-melodic vocals-english)
+    (false 
+			soulful funky jazzy warm ambient cold uplifting 
+           	dystopian hypnotic happy sad abrasive 
+           	four-on-the-floor percussion-none drum-machine live-drummer 
+           	verse-chorus buildup-breakdown minimalist groovy-feel 
+           	band-not-electronic sparse-instrumentation turntablism three-oh-three 
+           	thin rhythmic-timbre vocals-sampled vocals-male 
+           	vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-rap-style vocals-unpitched)
+    (unknown))
+    
+    ;-------------------- musique concrete/tape music --------------------
+    (subgenre (name downtempo)(subgenre-name musique-concrete)(subgenre-min-bpm 0)(subgenre-max-bpm 0)
+    (true 
+			abrasive percussion-none minimalist sparse-instrumentation rhythmic-timbre )
+    (false 
+			obvious-tempo soulful funky jazzy warm ambient cold uplifting 
+           	dystopian hypnotic aggressive happy sad cheesy danceable 
+           	four-on-the-floor breakbeat sampled-breaks drum-machine live-drummer 
+           	verse-chorus buildup-breakdown repetitive 
+           	syncopated intricate-rhythms groovy-feel 
+           	band-not-electronic turntablism three-oh-three digital thin 
+           	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
+           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
+    (unknown))
+    
+    ;-------------------- early electronic --------------------
+    (subgenre (name downtempo)(subgenre-name early-electronic)(subgenre-min-bpm 82)(subgenre-max-bpm 140)
+    (true 
+			obvious-tempo warm happy breakbeat live-drummer verse-chorus cheesy syncopated band-not-electronic digital )
+    (false 
+			soulful funky jazzy ambient cold uplifting 
+           	dystopian hypnotic aggressive sad abrasive danceable 
+           	four-on-the-floor percussion-none sampled-breaks drum-machine 
+           	buildup-breakdown repetitive minimalist 
+           	intricate-rhythms groovy-feel 
+           	sparse-instrumentation turntablism three-oh-three 
+           	thin rhythmic-timbre 
+           	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
+           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
+    (unknown))
+    
+    ;-------------------- acid jazz --------------------
+    (subgenre (name downtempo)(subgenre-name acid-jazz)(subgenre-min-bpm 72)(subgenre-max-bpm 120)
+    (true 
+			obvious-tempo jazzy ambient soulful breakbeat sampled-breaks repetitive syncopated groovy-feel )
+    (false 
+			funky warm cold uplifting 
+           	dystopian hypnotic aggressive happy sad abrasive cheesy danceable 
+           	four-on-the-floor percussion-none drum-machine live-drummer 
+           	verse-chorus buildup-breakdown minimalist intricate-rhythms 
+           	band-not-electronic sparse-instrumentation turntablism three-oh-three digital thin rhythmic-timbre 
+           	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
+           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
+    (unknown))
+    
+    ;-------------------- trip hop --------------------
+    (subgenre (name downtempo)(subgenre-name trip-hop)(subgenre-min-bpm 70)(subgenre-max-bpm 108)
+    (true 
+			obvious-tempo soulful warm breakbeat sampled-breaks verse-chorus syncopated groovy-feel vocals-present 
+            vocals-studio-recorded vocals-female vocals-heavily-effected vocals-breathy vocals-melodic vocals-english)
+    (false 
+			funky jazzy ambient cold uplifting 
+           	dystopian hypnotic aggressive happy sad abrasive cheesy danceable 
+           	four-on-the-floor percussion-none drum-machine live-drummer 
+           	buildup-breakdown repetitive minimalist intricate-rhythms 
+           	band-not-electronic sparse-instrumentation turntablism three-oh-three 
+           	digital thin rhythmic-timbre 
+           	vocals-sampled vocals-male vocals-autotuned vocals-diva 
+           	vocals-rap-style vocals-unpitched )
+    (unknown))
+    
+    ;-------------------- minimalism --------------------
+    (subgenre (name downtempo)(subgenre-name minimalism)(subgenre-min-bpm 0)(subgenre-max-bpm 0)
+    (true 
+			ambient cold hypnotic percussion-none minimalist band-not-electronic )
+    (false 
+			obvious-tempo soulful funky jazzy warm uplifting 
+           	dystopian aggressive happy sad abrasive cheesy danceable 
+           	four-on-the-floor breakbeat sampled-breaks drum-machine live-drummer 
+           	verse-chorus buildup-breakdown repetitive 
+           	syncopated intricate-rhythms groovy-feel 
+           	sparse-instrumentation turntablism three-oh-three 
+           	digital thin rhythmic-timbre 
+           	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
+           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
+    (unknown))
+    
+    ;-------------------- ambient --------------------
+    (subgenre (name downtempo)(subgenre-name ambient)(subgenre-min-bpm 0)(subgenre-max-bpm 0)
+    (true 
+			ambient cold hypnotic percussion-none minimalist digital )
+    (false 
+			obvious-tempo soulful funky jazzy warm uplifting 
+           	dystopian aggressive happy sad abrasive cheesy danceable 
+           	four-on-the-floor breakbeat sampled-breaks drum-machine live-drummer 
+           	verse-chorus buildup-breakdown repetitive  
+           	syncopated intricate-rhythms groovy-feel 
+           	band-not-electronic sparse-instrumentation turntablism three-oh-three 
+           	thin rhythmic-timbre 
+           	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
+           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
+    (unknown))
 )
 /*  
     ;-------------------- jungle --------------------
