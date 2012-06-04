@@ -111,19 +111,19 @@
           	vocals-present vocals-male vocals-female vocals-studio-recorded band-not-electronic
           	vocals-melodic vocals-english)
     (false 
-            jazzy ambient uplifting dystopian hypnotic aggressive angry happy sad abrasive cheesy 
+            jazzy ambient uplifting dystopian hypnotic aggressive  happy sad abrasive cheesy 
             breakbeat percussion-none sampled-breaks drum-machine buildup-breakdown repetitive minimalist 
             intricate-rhythms rhythmic-timbre turntablism three-oh-three digital thin sparse-instrumentation 
             vocals-sampled vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva vocals-rap-style vocals-unpitched)
     (unknown))
 
     ;-------------------- italo --------------------
-    (subgenre (name house)(subgenre-name italo)(subgenre-min-bpm 120)(subgenre-max-bpm 132)
+    (subgenre (name house)(subgenre-name italo)(subgenre-min-bpm 110)(subgenre-max-bpm 132)
     (true 
             obvious-tempo happy cheesy danceable four-on-the-floor drum-machine verse-chorus digital thin
             vocals-present vocals-studio-recorded vocals-male vocals-female vocals-heavily-effected vocals-melodic vocals-english)
     (false 
-            soulful funky jazzy warm ambient cold uplifting dystopian hypnotic aggressive angry sad 
+            soulful funky jazzy warm ambient cold uplifting dystopian hypnotic aggressive  sad 
             abrasive rhythmic-timbre breakbeat percussion-none sampled-breaks  live-drummer 
            	buildup-breakdown repetitive minimalist syncopated intricate-rhythms groovy-feel 
            	band-not-electronic  sparse-instrumentation turntablism three-oh-three vocals-sampled 
@@ -136,19 +136,19 @@
 			obvious-tempo warm happy danceable four-on-the-floor drum-machine verse-chorus digital
             vocals-present vocals-studio-recorded vocals-male vocals-female vocals-heavily-effected vocals-melodic vocals-english)
     (false 
-			soulful funky jazzy ambient cold uplifting dystopian hypnotic aggressive angry sad 
+			soulful funky jazzy ambient cold uplifting dystopian hypnotic aggressive  sad 
             abrasive cheesy breakbeat percussion-none sampled-breaks live-drummer 
            	buildup-breakdown repetitive minimalist syncopated intricate-rhythms groovy-feel 
            	turntablism three-oh-three thin vocals-sampled rhythmic-timbre sparse-instrumentation
            	vocals-autotuned vocals-breathy vocals-diva vocals-rap-style vocals-unpitched band-not-electronic)
     (unknown))
     
-    ;-------------------- classic --------------------
+    ;-------------------- chicago --------------------
     (subgenre (name house)(subgenre-name chicago)(subgenre-min-bpm 120)(subgenre-max-bpm 126)
     (true 
 			obvious-tempo soulful jazzy warm danceable four-on-the-floor drum-machine repetitive syncopated groovy-feel )
     (false 
-			funky ambient cold uplifting dystopian hypnotic aggressive angry happy sad abrasive cheesy 
+			funky ambient cold uplifting dystopian hypnotic aggressive  happy sad abrasive cheesy 
            	breakbeat percussion-none sampled-breaks live-drummer 
            	verse-chorus buildup-breakdown minimalist intricate-rhythms 
            	band-not-electronic sparse-instrumentation turntablism three-oh-three digital thin rhythmic-timbre
@@ -164,7 +164,7 @@
             digital  vocals-present vocals-studio-recorded vocals-male vocals-female vocals-melodic vocals-english)
     (false 
 			ambient cold uplifting 
-           	dystopian hypnotic aggressive angry happy sad abrasive cheesy 
+           	dystopian hypnotic aggressive  happy sad abrasive cheesy 
            	breakbeat percussion-none sampled-breaks live-drummer 
            	verse-chorus band-not-electronic buildup-breakdown repetitive minimalist 
            	intricate-rhythms sparse-instrumentation turntablism three-oh-three 
@@ -178,7 +178,7 @@
     (true 
 			obvious-tempo cold dystopian abrasive danceable four-on-the-floor drum-machine three-oh-three rhythmic-timbre sparse-instrumentation digital thin )
     (false 
-			soulful funky jazzy warm ambient uplifting hypnotic aggressive angry happy sad cheesy  
+			soulful funky jazzy warm ambient uplifting hypnotic aggressive  happy sad cheesy  
            	breakbeat percussion-none sampled-breaks live-drummer verse-chorus buildup-breakdown repetitive minimalist 
            	syncopated intricate-rhythms groovy-feel band-not-electronic turntablism 
            	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
@@ -192,7 +192,7 @@
 			obvious-tempo warm hypnotic danceable four-on-the-floor drum-machine buildup-breakdown syncopated groovy-feel digital )
     (false 
 			soulful funky jazzy ambient cold uplifting 
-           	dystopian aggressive angry happy sad abrasive cheesy 
+           	dystopian aggressive  happy sad abrasive cheesy 
            	breakbeat percussion-none sampled-breaks live-drummer 
            	verse-chorus repetitive minimalist 
            	intricate-rhythms 
@@ -210,7 +210,7 @@
             verse-chorus digital vocals-present vocals-studio-recorded vocals-female vocals-diva vocals-melodic vocals-english)
     (false 
 			soulful funky jazzy warm ambient cold 
-           	dystopian hypnotic aggressive angry sad abrasive
+           	dystopian hypnotic aggressive  sad abrasive
            	breakbeat percussion-none sampled-breaks live-drummer 
            	buildup-breakdown repetitive minimalist 
            	syncopated intricate-rhythms groovy-feel 
@@ -228,7 +228,7 @@
             syncopated groovy-feel digital vocals-present vocals-studio-recorded vocals-female vocals-diva vocals-melodic vocals-english)
     (false 
 			jazzy ambient cold  
-           	dystopian hypnotic aggressive angry happy sad abrasive cheesy 
+           	dystopian hypnotic aggressive  happy sad abrasive cheesy 
            	breakbeat percussion-none sampled-breaks live-drummer 
            	buildup-breakdown repetitive minimalist 
            	intricate-rhythms 
@@ -246,7 +246,7 @@
             syncopated groovy-feel digital vocals-sampled vocals-present vocals-male)
     (false 
 			soulful funky jazzy warm ambient uplifting 
-           	dystopian hypnotic aggressive angry happy sad abrasive cheesy 
+           	dystopian hypnotic aggressive  happy sad abrasive cheesy 
            	breakbeat percussion-none sampled-breaks live-drummer 
            	 buildup-breakdown repetitive minimalist 
            	intricate-rhythms 
@@ -264,7 +264,7 @@
             vocals-present vocals-studio-recorded vocals-female vocals-heavily-effected vocals-melodic )
     (false 
 			soulful funky jazzy warm ambient cold uplifting 
-           	dystopian hypnotic aggressive angry sad abrasive 
+           	dystopian hypnotic aggressive  sad abrasive 
            	breakbeat percussion-none sampled-breaks live-drummer 
            	buildup-breakdown repetitive minimalist 
            	syncopated intricate-rhythms groovy-feel 
@@ -282,7 +282,7 @@
             digital vocals-present vocals-studio-recorded vocals-female vocals-melodic vocals-heavily-effected vocals-english)
     (false 
 			soulful funky jazzy warm ambient cold uplifting 
-           	dystopian hypnotic aggressive angry sad abrasive 
+           	dystopian hypnotic aggressive  sad abrasive 
            	breakbeat percussion-none sampled-breaks live-drummer 
            	buildup-breakdown repetitive minimalist 
            	syncopated intricate-rhythms groovy-feel 
@@ -299,7 +299,7 @@
 			obvious-tempo jazzy danceable four-on-the-floor drum-machine syncopated groovy-feel )
     (false 
 			soulful funky warm ambient cold uplifting 
-           	dystopian hypnotic aggressive angry happy sad abrasive cheesy 
+           	dystopian hypnotic aggressive  happy sad abrasive cheesy 
            	breakbeat percussion-none sampled-breaks live-drummer 
            	verse-chorus buildup-breakdown repetitive minimalist 
            	intricate-rhythms 
@@ -317,7 +317,7 @@
             drum-machine verse-chorus syncopated intricate-rhythms groovy-feel )
     (false 
 			soulful jazzy ambient cold 
-           	dystopian hypnotic aggressive angry happy sad abrasive cheesy 
+           	dystopian hypnotic aggressive  happy sad abrasive cheesy 
            	breakbeat percussion-none sampled-breaks live-drummer 
            	buildup-breakdown repetitive minimalist
            	band-not-electronic sparse-instrumentation turntablism three-oh-three 
@@ -334,7 +334,7 @@
             drum-machine minimalist sparse-instrumentation thin rhythmic-timbre )
     (false 
 			soulful funky jazzy warm ambient uplifting 
-           	hypnotic aggressive angry happy sad abrasive cheesy 
+           	hypnotic aggressive  happy sad abrasive cheesy 
            	breakbeat percussion-none sampled-breaks live-drummer 
            	verse-chorus buildup-breakdown repetitive 
            	syncopated intricate-rhythms groovy-feel 
@@ -351,7 +351,7 @@
 			obvious-tempo cold dystopian hypnotic digital rhythmic-timbre three-oh-three repetitive thin intricate-rhythms )
     (false 
 			soulful funky jazzy warm ambient uplifting 
-           	aggressive angry happy sad abrasive cheesy danceable 
+           	aggressive  happy sad abrasive cheesy danceable 
            	four-on-the-floor breakbeat percussion-none sampled-breaks drum-machine live-drummer 
            	verse-chorus buildup-breakdown minimalist 
            	syncopated groovy-feel 
@@ -364,10 +364,10 @@
     ;-------------------- dream --------------------
     (subgenre (name trance)(subgenre-name dream)(subgenre-min-bpm 134)(subgenre-max-bpm 150)
     (true 
-			obvious-tempo cheesy danceable uplifting four-on-the-floor drum-machine digital buildup-breakdown )
+			obvious-tempo cheesy uplifting danceable four-on-the-floor drum-machine digital buildup-breakdown )
     (false 
 			soulful funky jazzy warm ambient cold 
-           	dystopian hypnotic aggressive angry happy sad abrasive 
+           	dystopian hypnotic aggressive  happy sad abrasive 
            	breakbeat percussion-none sampled-breaks  live-drummer 
            	verse-chorus repetitive minimalist 
            	syncopated intricate-rhythms groovy-feel 
@@ -384,7 +384,7 @@
 			obvious-tempo uplifting danceable four-on-the-floor drum-machine digital buildup-breakdown )
     (false 
 			soulful funky jazzy warm ambient cold 
-           	dystopian hypnotic aggressive angry happy sad abrasive cheesy 
+           	dystopian hypnotic aggressive  happy sad abrasive cheesy 
            	breakbeat percussion-none sampled-breaks live-drummer 
            	verse-chorus repetitive minimalist 
            	syncopated intricate-rhythms groovy-feel 
@@ -402,7 +402,7 @@
             vocals-studio-recorded vocals-male vocals-melodic vocals-heavily-effected vocals-english)
     (false 
 			soulful funky jazzy warm ambient uplifting 
-           	hypnotic aggressive angry happy abrasive cheesy 
+           	hypnotic aggressive  happy abrasive cheesy 
            	breakbeat percussion-none sampled-breaks live-drummer 
            	buildup-breakdown repetitive minimalist 
            	syncopated intricate-rhythms groovy-feel 
@@ -420,7 +420,7 @@
             buildup-breakdown vocals-studio-recorded vocals-female vocals-heavily-effected vocals-melodic vocals-english)
     (false 
 			soulful funky jazzy warm ambient 
-           	dystopian hypnotic aggressive angry happy sad abrasive cheesy 
+           	dystopian hypnotic aggressive  happy sad abrasive cheesy 
             breakbeat percussion-none sampled-breaks live-drummer 
            	verse-chorus  repetitive minimalist 
            	syncopated intricate-rhythms groovy-feel 
@@ -431,13 +431,13 @@
            	vocals-rap-style vocals-unpitched)
     (unknown))
     
-    ;-------------------- psychedelic --------------------
-    (subgenre (name trance)(subgenre-name psychedelic)(subgenre-min-bpm 142)(subgenre-max-bpm 150)
+    ;-------------------- psychadelic --------------------
+    (subgenre (name trance)(subgenre-name psychadelic)(subgenre-min-bpm 142)(subgenre-max-bpm 150)
     (true 
 			obvious-tempo cold dystopian hypnotic danceable four-on-the-floor drum-machine digital rhythmic-timbre intricate-rhythms minimalist )
     (false 
 			soulful funky jazzy warm ambient uplifting 
-           	aggressive angry happy sad abrasive cheesy 
+           	aggressive  happy sad abrasive cheesy 
            	breakbeat percussion-none sampled-breaks live-drummer 
            	verse-chorus buildup-breakdown repetitive syncopated groovy-feel 
            	band-not-electronic sparse-instrumentation turntablism three-oh-three thin 
@@ -452,7 +452,7 @@
 			obvious-tempo aggressive breakbeat danceable sampled-breaks syncopated intricate-rhythms groovy-feel verse-chorus vocals-present vocals-studio-recorded vocals-male vocals-heavily-effected vocals-english vocals-melodic vocals-unpitched)
     (false 
 			soulful funky jazzy warm ambient cold uplifting 
-           	dystopian hypnotic angry happy sad abrasive cheesy 
+           	dystopian hypnotic  happy sad abrasive cheesy 
            	four-on-the-floor percussion-none drum-machine live-drummer 
            	buildup-breakdown repetitive minimalist 
            	band-not-electronic sparse-instrumentation turntablism three-oh-three 
@@ -468,7 +468,7 @@
 			obvious-tempo cold dystopian aggressive abrasive danceable breakbeat drum-machine syncopated intricate-rhythms groovy-feel sparse-instrumentation repetitive rhythmic-timbre )
     (false 
 			soulful funky jazzy warm ambient uplifting 
-           	hypnotic angry happy sad cheesy sampled-breaks 
+           	hypnotic  happy sad cheesy sampled-breaks 
            	four-on-the-floor percussion-none live-drummer 
            	verse-chorus buildup-breakdown minimalist 
            	band-not-electronic turntablism three-oh-three digital thin 
@@ -484,14 +484,14 @@
         ;vocals - sometimes present sometimes not
     (false 
 			funky ambient cold uplifting 
-           	dystopian hypnotic aggressive angry happy sad abrasive cheesy 
+           	dystopian hypnotic aggressive  happy sad abrasive cheesy 
            	four-on-the-floor percussion-none drum-machine live-drummer 
            	verse-chorus buildup-breakdown minimalist 
            	band-not-electronic sparse-instrumentation turntablism three-oh-three digital thin rhythmic-timbre 
-           	)
-    (unknown vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
+           	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
            	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
-           	vocals-rap-style vocals-melodic vocals-unpitched vocals-english))
+           	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
+    (unknown))
     
     
     ;-------------------- darkstep --------------------
@@ -500,7 +500,7 @@
 			obvious-tempo cold dystopian aggressive abrasive danceable breakbeat minimalist sampled-breaks syncopated intricate-rhythms groovy-feel rhythmic-timbre sparse-instrumentation )
     (false 
 			soulful funky jazzy warm ambient uplifting 
-           	hypnotic angry happy sad cheesy 
+           	hypnotic happy sad cheesy 
            	four-on-the-floor percussion-none drum-machine live-drummer 
            	verse-chorus buildup-breakdown repetitive 
            	band-not-electronic turntablism three-oh-three digital thin  
@@ -508,7 +508,183 @@
            	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
     (unknown))
+    
+    ;-------------------- dubstep --------------------
+    (subgenre (name breakbeat)(subgenre-name dubstep)(subgenre-min-bpm 136)(subgenre-max-bpm 144)
+    (true 
+			obvious-tempo dystopian aggressive abrasive danceable breakbeat verse-chorus syncopated groovy-feel digital )
+    (false 
+			soulful funky jazzy warm ambient cold uplifting 
+           	hypnotic  happy sad cheesy 
+           	four-on-the-floor percussion-none sampled-breaks drum-machine live-drummer 
+           	buildup-breakdown repetitive minimalist intricate-rhythms 
+           	band-not-electronic sparse-instrumentation turntablism three-oh-three 
+           	thin rhythmic-timbre 
+           	)
+    (unknown vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
+           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-rap-style vocals-melodic vocals-unpitched vocals-english))
 
+    ;-------------------- hip-hop --------------------
+    (subgenre (name breakbeat)(subgenre-name hip-hop)(subgenre-min-bpm 84)(subgenre-max-bpm 119)
+    (true 
+			obvious-tempo breakbeat verse-chorus syncopated vocals-present vocals-studio-recorded danceable 
+            vocals-male vocals-rap-style vocals-unpitched vocals-english rhythmic-timbre sampled-breaks drum-machine )
+    (false 
+			soulful funky jazzy warm ambient cold uplifting 
+           	dystopian hypnotic aggressive happy sad abrasive cheesy 
+           	four-on-the-floor percussion-none live-drummer 
+           	buildup-breakdown repetitive minimalist intricate-rhythms groovy-feel 
+           	band-not-electronic sparse-instrumentation turntablism three-oh-three 
+           	digital thin vocals-sampled vocals-female 
+           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva vocals-melodic )
+    (unknown))
+
+    ;-------------------- dirty-south/miami-bass --------------------
+    (subgenre (name breakbeat)(subgenre-name dirty-south/miami-bass)(subgenre-min-bpm 120)(subgenre-max-bpm 160)
+    (true 
+			obvious-tempo breakbeat verse-chorus danceable drum-machine syncopated rhythmic-timbre 
+            sparse-instrumentation vocals-present vocals-studio-recorded vocals-male vocals-rap-style vocals-unpitched vocals-english)
+    (false 
+			soulful funky jazzy warm ambient cold uplifting 
+           	dystopian hypnotic aggressive happy sad abrasive cheesy 
+           	four-on-the-floor percussion-none sampled-breaks live-drummer 
+           	buildup-breakdown repetitive minimalist intricate-rhythms groovy-feel 
+           	band-not-electronic turntablism three-oh-three digital thin vocals-sampled vocals-female 
+           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva vocals-melodic )
+    (unknown))
+    
+    ;-------------------- turntablism --------------------
+    (subgenre (name breakbeat)(subgenre-name turntablism)(subgenre-min-bpm 78)(subgenre-max-bpm 114)
+    (true 
+			obvious-tempo breakbeat sampled-breaks turntablism syncopated groovy-feel repetitive rhythmic-timbre)
+    (false 
+			soulful funky jazzy warm ambient cold uplifting 
+           	dystopian hypnotic aggressive  happy sad abrasive cheesy danceable 
+           	four-on-the-floor percussion-none  drum-machine live-drummer 
+           	verse-chorus buildup-breakdown minimalist intricate-rhythms 
+           	band-not-electronic sparse-instrumentation three-oh-three digital thin 
+           	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
+           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
+    (unknown))
+
+    ;-------------------- big beat --------------------
+    (subgenre (name breakbeat)(subgenre-name big-beat)(subgenre-min-bpm 120)(subgenre-max-bpm 140)
+    (true 
+			obvious-tempo warm danceable breakbeat sampled-breaks verse-chorus syncopated aggressive 
+            intricate-rhythms groovy-feel vocals-present vocals-sampled vocals-english vocals-unpitched)
+    (false 
+			soulful funky jazzy ambient cold uplifting 
+           	dystopian hypnotic happy sad abrasive cheesy  
+           	four-on-the-floor percussion-none drum-machine live-drummer 
+           	buildup-breakdown repetitive minimalist 
+           	band-not-electronic sparse-instrumentation turntablism three-oh-three 
+           	digital thin rhythmic-timbre vocals-studio-recorded 
+           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-rap-style vocals-melodic )
+    (unknown vocals-male vocals-female))
+    
+    ;-------------------- garage --------------------
+    (subgenre (name breakbeat)(subgenre-name garage)(subgenre-min-bpm 128)(subgenre-max-bpm 140)
+    (true 
+			obvious-tempo soulful danceable breakbeat drum-machine syncopated intricate-rhythms vocals-english
+            groovy-feel vocals-present vocals-studio-recorded vocals-male vocals-female vocals-diva vocals-rap-style verse-chorus  )
+    (false 
+			funky jazzy warm ambient cold uplifting 
+           	dystopian hypnotic aggressive happy sad abrasive cheesy 
+           	four-on-the-floor percussion-none sampled-breaks live-drummer 
+           	buildup-breakdown repetitive minimalist 
+           	band-not-electronic sparse-instrumentation turntablism three-oh-three 
+           	digital thin rhythmic-timbre vocals-sampled 
+           	vocals-heavily-effected vocals-autotuned vocals-breathy 
+           	vocals-melodic vocals-unpitched )
+    (unknown))
+    
+    ;-------------------- electro --------------------
+    (subgenre (name breakbeat)(subgenre-name ragga)(subgenre-min-bpm 98)(subgenre-max-bpm 138)
+    (true 
+			obvious-tempo cheesy danceable cold breakbeat drum-machine verse-chorus digital vocals-present 
+            vocals-studio-recorded vocals-heavily-effected vocals-male vocals-english vocals-melodic )
+    (false 
+			soulful funky jazzy warm ambient uplifting 
+           	dystopian hypnotic aggressive  happy sad abrasive 
+           	four-on-the-floor percussion-none sampled-breaks live-drummer 
+           	buildup-breakdown repetitive minimalist 
+           	syncopated intricate-rhythms groovy-feel 
+           	band-not-electronic sparse-instrumentation turntablism three-oh-three 
+           	thin rhythmic-timbre 
+           	vocals-sampled vocals-female 
+           	vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-rap-style vocals-unpitched )
+    (unknown))
+    
+    ;-------------------- electro funk --------------------
+    (subgenre (name breakbeat)(subgenre-name ragga)(subgenre-min-bpm 100)(subgenre-max-bpm 126)
+    (true 
+			obvious-tempo funky soulful danceable breakbeat drum-machine verse-chorus syncopated groovy-feel 
+            vocals-present vocals-studio-recorded vocals-heavily-effected vocals-male vocals-female vocals-melodic vocals-english)
+    (false 
+			jazzy warm ambient cold uplifting 
+           	dystopian hypnotic aggressive happy sad abrasive cheesy  
+           	four-on-the-floor percussion-none sampled-breaks live-drummer 
+           	buildup-breakdown repetitive minimalist intricate-rhythms 
+           	band-not-electronic sparse-instrumentation turntablism three-oh-three 
+           	digital thin rhythmic-timbre vocals-sampled 
+           	vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-rap-style vocals-unpitched )
+    (unknown))
+    
+    ;-------------------- R&B --------------------
+    (subgenre (name breakbeat)(subgenre-name r-and-b)(subgenre-min-bpm 80)(subgenre-max-bpm 104)
+    (true 
+			obvious-tempo soulful warm danceable breakbeat drum-machine verse-chorus syncopated groovy-feel 
+            vocals-present vocals-studio-recorded vocals-female vocals-diva vocals-melodic vocals-english)
+    (false 
+			funky jazzy ambient cold uplifting 
+           	dystopian hypnotic aggressive happy sad abrasive cheesy 
+           	four-on-the-floor percussion-none sampled-breaks live-drummer 
+           	buildup-breakdown repetitive minimalist 
+           	intricate-rhythms 
+           	band-not-electronic sparse-instrumentation turntablism three-oh-three 
+           	digital thin rhythmic-timbre 
+           	vocals-sampled vocals-male 
+           	vocals-heavily-effected vocals-autotuned vocals-breathy 
+           	vocals-rap-style vocals-unpitched )
+    (unknown))
+    
+    ;-------------------- detroit --------------------
+    (subgenre (name techno)(subgenre-name detroit)(subgenre-min-bpm 122)(subgenre-max-bpm 142)
+    (true 
+			obvious-tempo cold danceable dystopian four-on-the-floor drum-machine digital repetitive )
+    (false 
+			soulful funky jazzy warm ambient uplifting 
+           	hypnotic aggressive happy sad abrasive cheesy 
+           	breakbeat percussion-none sampled-breaks live-drummer 
+           	verse-chorus buildup-breakdown minimalist 
+           	syncopated intricate-rhythms groovy-feel 
+           	band-not-electronic sparse-instrumentation turntablism three-oh-three thin rhythmic-timbre 
+           	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
+           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
+    (unknown))
+    
+    ;-------------------- acid techno --------------------
+    (subgenre (name techno)(subgenre-name acid-techno)(subgenre-min-bpm 130)(subgenre-max-bpm 156)
+    (true 
+			obvious-tempo cold dystopian abrasive aggressive danceable four-on-the-floor 
+            repetitive drum-machine three-oh-three digital rhythmic-timbre intricate-rhythms)
+    (false 
+			soulful funky jazzy warm ambient uplifting 
+           	hypnotic happy sad cheesy  
+           	breakbeat percussion-none sampled-breaks live-drummer 
+           	verse-chorus buildup-breakdown minimalist 
+           	syncopated groovy-feel 
+           	band-not-electronic sparse-instrumentation turntablism thin 
+           	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
+           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
+    (unknown))
 )
 /*  
     ;-------------------- jungle --------------------
