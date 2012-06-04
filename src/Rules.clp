@@ -3,6 +3,7 @@
 ;-----------------------------------------------------------------------------
 ; Set TRUE to execute with GUI, set FALSE to execute with text-based UI
 (defglobal ?*gui* = TRUE)
+(defglobal ?*nqt* = TRUE)
 ;-----------------------------------------------------------------------------
 ; Templates
 ;-----------------------------------------------------------------------------
@@ -1022,6 +1023,13 @@
         (question-type 0)    
     )
     
+     (question-template (reference-attribute vocals-heavily-effected)
+        (membership-value 5)
+        (question-text "vocals-heavily-effected")
+        (explanation-text "vocals-heavily-effected")
+        (question-type 0)
+     ) 
+    
     (question-template (reference-attribute verse-chorus)
         (membership-value 5)
         (question-text "Does the song have a verse-chorus type structure?")
@@ -1323,17 +1331,9 @@
 	    (modify ?q (type ?nqt.question-type))
 	    (modify ?q (answerTexts ?nqt.answers))
 	    (question-ready)
+        (modify ?m (attr ?attr))
+        (bind ?*nqt* ?nqt)
         (modify ?m (mode answer))
-	    (update ?q.OBJECT)
-	    (if (int-to-bool ?q.answer) then
-	        (modify ?wm (true (union$ ?wm.true (create$ ?attr))))
-	        (modify ?wm (unknown (complement$ (create$ ?attr) ?wm.unknown)))
-	        (update-membership ?attr ?nqt.membership-value)
-	     else
-	        (modify ?wm (false (union$ ?wm.false (create$ ?attr))))
-	        (modify ?wm (unknown (complement$ (create$ ?attr) ?wm.unknown )))
-            (update-membership ?attr (div ?nqt.membership-value -2))
-	     )
      )
 )
 
@@ -1402,7 +1402,7 @@
     
     (bind ?refAttr (nth$ ?min_index $?list))
     ;(printout t (nth$ ?min_index $?list) crlf)
-    (ask-question ?refAttr)
+    (ask-question ?refAttr ?m)
     
     ; Ghetto hack toggle. :(
     (if (eq ?wm.toggle true) then (modify ?wm (toggle false))
@@ -1410,6 +1410,25 @@
     )
 )
 
+(defrule next-question-answer
+    (declare (salience 69))
+    ?m <- (qa-toggle (mode ?mm))
+    (test (eq ?mm answer))
+    ?wm <- (working-memory (unknown $?list))
+    =>
+	(update ?q.OBJECT)
+	(if (int-to-bool ?q.answer) then
+	    (modify ?wm (true (union$ ?wm.true (create$ ?m.attr))))
+	    (modify ?wm (unknown (complement$ (create$ ?m.attr) ?wm.unknown)))
+	    (update-membership ?m.attr ?*nqt*.membership-value)
+	 else
+	    (modify ?wm (false (union$ ?wm.false (create$ ?m.attr))))
+	    (modify ?wm (unknown (complement$ (create$ ?m.attr) ?wm.unknown )))
+        (update-membership ?m.attr (div ?*nqt*.membership-value -2))
+	     )
+    (modify ?m (mode question))
+    )
+    
 (defrule membership-threshold
     (declare (salience 100))
     ?wm <- (working-memory (threshold ?thresh))
