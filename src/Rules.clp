@@ -488,11 +488,11 @@
            	dystopian hypnotic aggressive  happy sad abrasive cheesy 
            	four-on-the-floor percussion-none drum-machine live-drummer 
            	verse-chorus buildup-breakdown minimalist 
-           	band-not-electronic sparse-instrumentation turntablism three-oh-three digital thin rhythmic-timbre 
-           	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
+           	band-not-electronic sparse-instrumentation turntablism three-oh-three digital thin rhythmic-timbre)
+    (unknown
+            vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
            	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
-           	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
-    (unknown))
+           	vocals-rap-style vocals-melodic vocals-unpitched vocals-english))
     
     
     ;-------------------- darkstep --------------------
@@ -603,7 +603,7 @@
     (unknown))
     
     ;-------------------- electro --------------------
-    (subgenre (name breakbeat)(subgenre-name ragga)(subgenre-min-bpm 98)(subgenre-max-bpm 138)
+    (subgenre (name breakbeat)(subgenre-name electro)(subgenre-min-bpm 98)(subgenre-max-bpm 138)
     (true 
 			obvious-tempo cheesy danceable cold breakbeat drum-machine verse-chorus digital vocals-present 
             vocals-studio-recorded vocals-heavily-effected vocals-male vocals-english vocals-melodic )
@@ -621,7 +621,7 @@
     (unknown))
     
     ;-------------------- electro funk --------------------
-    (subgenre (name breakbeat)(subgenre-name ragga)(subgenre-min-bpm 100)(subgenre-max-bpm 126)
+    (subgenre (name breakbeat)(subgenre-name electro-funk)(subgenre-min-bpm 100)(subgenre-max-bpm 126)
     (true 
 			obvious-tempo funky soulful danceable breakbeat drum-machine verse-chorus syncopated groovy-feel 
             vocals-present vocals-studio-recorded vocals-heavily-effected vocals-male vocals-female vocals-melodic vocals-english)
@@ -866,24 +866,6 @@
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
     (unknown))
 )
-/*  
-    ;-------------------- jungle --------------------
-    (subgenre (name jungle)(subgenre-name ragga)(subgenre-min-bpm 120)(subgenre-max-bpm 132)
-    (true 
-			obvious-tempo )
-    (false 
-			soulful funky jazzy warm ambient cold uplifting 
-           	dystopian hypnotic aggressive angry happy sad abrasive cheesy danceable 
-           	four-on-the-floor breakbeat percussion-none sampled-breaks drum-machine live-drummer 
-           	verse-chorus buildup-breakdown repetitive minimalist 
-           	syncopated intricate-rhythms groovy-feel 
-           	band-not-electronic sparse-instrumentation turntablism three-oh-three 
-           	digital thin rhythmic-timbre 
-           	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
-           	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
-    (unknown))
-*/
 
 (deffacts question-base
     ;placeholder for hardcoded questions, this is used in the explanation system
@@ -1424,7 +1406,7 @@
 	 else
 	    (modify ?wm (false (union$ ?wm.false (create$ ?m.attr))))
 	    (modify ?wm (unknown (complement$ (create$ ?m.attr) ?wm.unknown )))
-        (update-membership ?m.attr (div ?*nqt*.membership-value -2))
+        (update-membership ?m.attr (div ?*nqt*.membership-value -1))
 	     )
     (modify ?m (mode question))
     )
@@ -1454,7 +1436,7 @@
     (test (> (- ?thresh ?membership) 50))
     (test (not(eq ?sgname no-ad)))
     =>
-    ;(printout t "Eliminated subgenre " ?sgname " with membership value " ?membership crlf)
+    (printout t "Eliminated subgenre " ?sgname " with membership value " ?membership crlf)
     (retract ?sg)
 )
 
@@ -1478,16 +1460,19 @@
     ?m <- (qa-toggle (mode ?mm))
     (test (eq ?mm answer))
     ?wm <- (working-memory (true $?t) (false $?f)(unknown $?ua obvious-tempo $?ub))
+    ?qt <- (question-template (reference-attribute obvious-tempo) (membership-value ?mv))
     =>
     (update ?q.OBJECT)
+    (printout t "Answer: " ?q.answer crlf)
 	(if (int-to-bool ?q.answer) then
         (modify ?wm (true $?t obvious-tempo))
         (modify ?wm (unknown $?ua $?ub))
-        (update-membership obvious-tempo 15)
+        (update-membership obvious-tempo ?mv)
      else
         (modify ?wm (false $?f obvious-tempo))
         (modify ?wm (unknown $?ua $?ub))
-        (update-membership obvious-tempo (/ -15 2))
+        (update-membership obvious-tempo (- 0 ?mv))
+        (update-membership obvious-tempo (- 0 ?mv))
      )
     (modify ?m (mode question))
 )
@@ -1561,7 +1546,6 @@
     (test (eq ?mm question))
     ?wm <- (working-memory (true $?t) (false $?f) (unknown $?a verse-chorus $?b))
     =>
-    (printout t "ssq-start": ?mm crlf)
     (modify ?q (type 2))
     (modify ?q (questionText "Which of the following best describes the song structure?"))
     (modify ?q (explanation "Verse Chorus - The standard pop structure, in which there's two clear melodic sections that repeat.  If there are lyrics, they may change during the verse, but be constant in the chorus.
