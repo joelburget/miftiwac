@@ -22,7 +22,7 @@
 	            						band-not-electronic sparse-instrumentation turntablism three-oh-three 
 	            						digital thin rhythmic-timbre 
 	            						vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-	            						vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+	            						vocals-heavily-effected  vocals-breathy vocals-diva 
 	            						vocals-rap-style vocals-melodic vocals-unpitched vocals-english))
 	
 	(multislot false (allowed-values 	soulful funky jazzy warm ambient cold uplifting 
@@ -33,7 +33,7 @@
 	            						band-not-electronic sparse-instrumentation turntablism three-oh-three 
 	            						digital thin rhythmic-timbre 
 	            						vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-	            						vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+	            						vocals-heavily-effected  vocals-breathy vocals-diva 
 	            						vocals-rap-style vocals-melodic vocals-unpitched vocals-english))
 	
 	(multislot unknown (allowed-values 	soulful funky jazzy warm ambient cold uplifting 
@@ -44,7 +44,7 @@
 	            						band-not-electronic sparse-instrumentation turntablism three-oh-three 
 	            						digital thin rhythmic-timbre 
 	            						vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-	            						vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+	            						vocals-heavily-effected  vocals-breathy vocals-diva 
 	            						vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
 	        
 	        		   (default 		soulful funky jazzy warm ambient cold uplifting 
@@ -55,7 +55,7 @@
 	            						band-not-electronic sparse-instrumentation turntablism three-oh-three 
 	            						digital thin rhythmic-timbre 
 	            						vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-	            						vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+	            						vocals-heavily-effected  vocals-breathy vocals-diva 
 	            						vocals-rap-style vocals-melodic vocals-unpitched vocals-english))
 )
 
@@ -88,7 +88,7 @@
             						band-not-electronic sparse-instrumentation turntablism three-oh-three 
             						digital thin rhythmic-timbre 
             						vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-            						vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+            						vocals-heavily-effected  vocals-breathy vocals-diva 
             						vocals-rap-style vocals-melodic vocals-unpitched vocals-english))
     (slot membership-value (type INTEGER))
     (slot question-text (type STRING))
@@ -115,7 +115,7 @@
             jazzy ambient uplifting dystopian hypnotic aggressive  happy sad abrasive cheesy 
             breakbeat percussion-none sampled-breaks drum-machine buildup-breakdown repetitive minimalist 
             intricate-rhythms rhythmic-timbre turntablism three-oh-three digital thin sparse-instrumentation 
-            vocals-sampled vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva vocals-rap-style vocals-unpitched)
+            vocals-sampled vocals-heavily-effected  vocals-breathy vocals-diva vocals-rap-style vocals-unpitched)
     (unknown))
 
     ;-------------------- italo --------------------
@@ -128,7 +128,7 @@
             abrasive rhythmic-timbre breakbeat percussion-none sampled-breaks  live-drummer 
            	buildup-breakdown repetitive minimalist syncopated intricate-rhythms groovy-feel 
            	band-not-electronic  sparse-instrumentation turntablism three-oh-three vocals-sampled 
-           	vocals-autotuned vocals-breathy vocals-diva vocals-rap-style vocals-unpitched )
+           	 vocals-breathy vocals-diva vocals-rap-style vocals-unpitched )
     (unknown))
     
     ;-------------------- synthpop --------------------
@@ -141,7 +141,7 @@
             abrasive cheesy breakbeat percussion-none sampled-breaks live-drummer 
            	buildup-breakdown repetitive minimalist syncopated intricate-rhythms groovy-feel 
            	turntablism three-oh-three thin vocals-sampled rhythmic-timbre sparse-instrumentation
-           	vocals-autotuned vocals-breathy vocals-diva vocals-rap-style vocals-unpitched band-not-electronic)
+           	 vocals-breathy vocals-diva vocals-rap-style vocals-unpitched band-not-electronic)
     (unknown))
     
     ;-------------------- chicago --------------------
@@ -154,7 +154,7 @@
            	verse-chorus buildup-breakdown minimalist intricate-rhythms 
            	band-not-electronic sparse-instrumentation turntablism three-oh-three digital thin rhythmic-timbre
            	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-heavily-effected  vocals-breathy vocals-diva 
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
     (unknown))
     
@@ -170,7 +170,7 @@
            	verse-chorus band-not-electronic buildup-breakdown repetitive minimalist 
            	intricate-rhythms sparse-instrumentation turntablism three-oh-three 
            	thin vocals-sampled rhythmic-timbre
-           	vocals-heavily-effected vocals-breathy vocals-diva vocals-autotuned
+           	vocals-heavily-effected vocals-breathy vocals-diva 
            	vocals-rap-style vocals-unpitched)
     (unknown))
     
@@ -183,7 +183,7 @@
            	breakbeat percussion-none sampled-breaks live-drummer verse-chorus buildup-breakdown repetitive minimalist 
            	syncopated intricate-rhythms groovy-feel band-not-electronic turntablism 
            	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-heavily-effected  vocals-breathy vocals-diva 
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
     (unknown))
     
@@ -200,7 +200,7 @@
            	band-not-electronic sparse-instrumentation turntablism three-oh-three 
            	thin rhythmic-timbre 
            	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-heavily-effected  vocals-breathy vocals-diva 
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
     (unknown))
     
@@ -218,7 +218,7 @@
            	band-not-electronic sparse-instrumentation turntablism three-oh-three 
            	thin rhythmic-timbre 
            	vocals-sampled vocals-male 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy 
+           	vocals-heavily-effected  vocals-breathy 
            	vocals-rap-style vocals-unpitched)
     (unknown))
 
@@ -236,7 +236,7 @@
            	band-not-electronic sparse-instrumentation turntablism three-oh-three 
            	thin rhythmic-timbre 
            	 vocals-sampled vocals-male 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy 
+           	vocals-heavily-effected  vocals-breathy 
            	vocals-rap-style vocals-unpitched )
     (unknown))
 
@@ -254,7 +254,7 @@
            	band-not-electronic sparse-instrumentation turntablism three-oh-three 
            	thin rhythmic-timbre 
            	vocals-studio-recorded vocals-female 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-heavily-effected  vocals-breathy vocals-diva 
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
     (unknown))
     
@@ -272,7 +272,7 @@
            	band-not-electronic sparse-instrumentation turntablism three-oh-three 
            	thin rhythmic-timbre 
            	vocals-sampled vocals-male 
-           	vocals-autotuned vocals-breathy vocals-diva 
+           	 vocals-breathy vocals-diva 
            	vocals-rap-style vocals-unpitched vocals-english)
     (unknown))
     
@@ -290,7 +290,7 @@
            	band-not-electronic sparse-instrumentation turntablism three-oh-three 
            	thin rhythmic-timbre 
            	vocals-sampled vocals-male 
-           	vocals-autotuned vocals-breathy vocals-diva 
+           	 vocals-breathy vocals-diva 
            	vocals-rap-style vocals-unpitched )
     (unknown))
     
@@ -307,7 +307,7 @@
            	band-not-electronic sparse-instrumentation turntablism three-oh-three 
            	digital thin rhythmic-timbre 
            	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-heavily-effected  vocals-breathy vocals-diva 
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
     (unknown))
 
@@ -324,7 +324,7 @@
            	band-not-electronic sparse-instrumentation turntablism three-oh-three 
            	digital thin rhythmic-timbre 
            	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-heavily-effected  vocals-breathy vocals-diva 
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
     (unknown))
     
@@ -341,7 +341,7 @@
            	syncopated intricate-rhythms groovy-feel 
            	band-not-electronic turntablism three-oh-three digital 
            	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-heavily-effected  vocals-breathy vocals-diva 
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
     (unknown))
 
@@ -358,7 +358,7 @@
            	syncopated groovy-feel 
            	band-not-electronic sparse-instrumentation turntablism 
            	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-heavily-effected  vocals-breathy vocals-diva 
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
     (unknown))
     
@@ -375,7 +375,7 @@
            	band-not-electronic sparse-instrumentation turntablism three-oh-three 
            	thin rhythmic-timbre 
            	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-heavily-effected  vocals-breathy vocals-diva 
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
     (unknown))
     
@@ -392,7 +392,7 @@
            	band-not-electronic sparse-instrumentation turntablism three-oh-three 
            	thin rhythmic-timbre 
            	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-heavily-effected  vocals-breathy vocals-diva 
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
     (unknown))
     
@@ -410,7 +410,7 @@
            	band-not-electronic sparse-instrumentation turntablism three-oh-three 
            	thin rhythmic-timbre 
            	vocals-sampled vocals-female 
-           	vocals-autotuned vocals-breathy vocals-diva 
+           	 vocals-breathy vocals-diva 
            	vocals-rap-style vocals-unpitched )
     (unknown))
 
@@ -428,7 +428,7 @@
            	band-not-electronic sparse-instrumentation turntablism three-oh-three 
            	thin rhythmic-timbre 
            	vocals-sampled vocals-male 
-           	vocals-autotuned vocals-breathy vocals-diva 
+           	 vocals-breathy vocals-diva 
            	vocals-rap-style vocals-unpitched)
     (unknown))
     
@@ -443,7 +443,7 @@
            	verse-chorus buildup-breakdown repetitive syncopated groovy-feel 
            	band-not-electronic sparse-instrumentation turntablism three-oh-three thin 
            	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-heavily-effected  vocals-breathy vocals-diva 
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
     (unknown))
     
@@ -459,7 +459,7 @@
            	band-not-electronic sparse-instrumentation turntablism three-oh-three 
            	digital thin rhythmic-timbre 
            	vocals-sampled vocals-female 
-           	vocals-autotuned vocals-breathy vocals-diva 
+           	 vocals-breathy vocals-diva 
            	vocals-rap-style)
     (unknown))
     
@@ -474,7 +474,7 @@
            	verse-chorus buildup-breakdown minimalist 
            	band-not-electronic turntablism three-oh-three digital thin 
            	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-heavily-effected  vocals-breathy vocals-diva 
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
     (unknown))
     
@@ -491,7 +491,7 @@
            	band-not-electronic sparse-instrumentation turntablism three-oh-three digital thin rhythmic-timbre)
     (unknown
             vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-heavily-effected  vocals-breathy vocals-diva 
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english))
     
     
@@ -506,7 +506,7 @@
            	verse-chorus buildup-breakdown repetitive 
            	band-not-electronic turntablism three-oh-three digital thin  
            	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-heavily-effected  vocals-breathy vocals-diva 
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
     (unknown))
     
@@ -523,7 +523,7 @@
            	thin rhythmic-timbre 
            	)
     (unknown vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-heavily-effected  vocals-breathy vocals-diva 
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english))
 
     ;-------------------- hip-hop --------------------
@@ -538,7 +538,7 @@
            	buildup-breakdown repetitive minimalist intricate-rhythms groovy-feel 
            	band-not-electronic sparse-instrumentation turntablism three-oh-three 
            	digital thin vocals-sampled vocals-female 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva vocals-melodic )
+           	vocals-heavily-effected  vocals-breathy vocals-diva vocals-melodic )
     (unknown))
 
     ;-------------------- dirty-south/miami-bass --------------------
@@ -552,7 +552,7 @@
            	four-on-the-floor percussion-none sampled-breaks live-drummer 
            	buildup-breakdown repetitive minimalist intricate-rhythms groovy-feel 
            	band-not-electronic turntablism three-oh-three digital thin vocals-sampled vocals-female 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva vocals-melodic )
+           	vocals-heavily-effected  vocals-breathy vocals-diva vocals-melodic )
     (unknown))
     
     ;-------------------- turntablism --------------------
@@ -566,7 +566,7 @@
            	verse-chorus buildup-breakdown minimalist intricate-rhythms 
            	band-not-electronic sparse-instrumentation three-oh-three digital thin 
            	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-heavily-effected  vocals-breathy vocals-diva 
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
     (unknown))
 
@@ -582,7 +582,7 @@
            	buildup-breakdown repetitive minimalist 
            	band-not-electronic sparse-instrumentation turntablism three-oh-three 
            	digital thin rhythmic-timbre vocals-studio-recorded 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-heavily-effected  vocals-breathy vocals-diva 
            	vocals-rap-style vocals-melodic )
     (unknown vocals-male vocals-female))
     
@@ -598,7 +598,7 @@
            	buildup-breakdown repetitive minimalist 
            	band-not-electronic sparse-instrumentation turntablism three-oh-three 
            	digital thin rhythmic-timbre vocals-sampled 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy 
+           	vocals-heavily-effected  vocals-breathy 
            	vocals-melodic vocals-unpitched )
     (unknown))
     
@@ -616,7 +616,7 @@
            	band-not-electronic sparse-instrumentation turntablism three-oh-three 
            	thin rhythmic-timbre 
            	vocals-sampled vocals-female 
-           	vocals-autotuned vocals-breathy vocals-diva 
+           	 vocals-breathy vocals-diva 
            	vocals-rap-style vocals-unpitched )
     (unknown))
     
@@ -632,7 +632,7 @@
            	buildup-breakdown repetitive minimalist intricate-rhythms 
            	band-not-electronic sparse-instrumentation turntablism three-oh-three 
            	digital thin rhythmic-timbre vocals-sampled 
-           	vocals-autotuned vocals-breathy vocals-diva 
+           	 vocals-breathy vocals-diva 
            	vocals-rap-style vocals-unpitched )
     (unknown))
     
@@ -650,7 +650,7 @@
            	band-not-electronic sparse-instrumentation turntablism three-oh-three 
            	digital thin rhythmic-timbre 
            	vocals-sampled vocals-male 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy 
+           	vocals-heavily-effected  vocals-breathy 
            	vocals-rap-style vocals-unpitched )
     (unknown))
     
@@ -666,7 +666,7 @@
            	syncopated intricate-rhythms groovy-feel 
            	band-not-electronic sparse-instrumentation turntablism three-oh-three thin rhythmic-timbre 
            	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-heavily-effected  vocals-breathy vocals-diva 
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
     (unknown))
     
@@ -683,7 +683,7 @@
            	syncopated groovy-feel 
            	band-not-electronic sparse-instrumentation turntablism thin 
            	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-heavily-effected  vocals-breathy vocals-diva 
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
     (unknown))
     
@@ -700,7 +700,7 @@
            	syncopated intricate-rhythms groovy-feel 
            	band-not-electronic turntablism three-oh-three thin 
            	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-heavily-effected  vocals-breathy vocals-diva 
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
     (unknown))
     
@@ -717,7 +717,7 @@
            	syncopated intricate-rhythms groovy-feel 
            	band-not-electronic turntablism three-oh-three thin 
            	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-heavily-effected  vocals-breathy vocals-diva 
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
     (unknown))
     
@@ -732,7 +732,7 @@
            	verse-chorus buildup-breakdown minimalist intricate-rhythms groovy-feel 
            	band-not-electronic sparse-instrumentation turntablism three-oh-three thin 
            	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-heavily-effected  vocals-breathy vocals-diva 
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
     (unknown))
     
@@ -748,7 +748,7 @@
            	buildup-breakdown repetitive minimalist syncopated intricate-rhythms groovy-feel 
            	band-not-electronic sparse-instrumentation turntablism three-oh-three 
            	thin rhythmic-timbre vocals-sampled vocals-male 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-heavily-effected  vocals-breathy vocals-diva 
            	vocals-rap-style vocals-unpitched)
     (unknown))
     
@@ -764,7 +764,7 @@
            	verse-chorus buildup-breakdown minimalist groovy-feel 
            	band-not-electronic sparse-instrumentation turntablism three-oh-three 
            	thin rhythmic-timbre vocals-sampled vocals-male 
-           	vocals-autotuned vocals-breathy vocals-diva 
+           	 vocals-breathy vocals-diva 
            	vocals-rap-style vocals-unpitched)
     (unknown))
     
@@ -780,7 +780,7 @@
            	syncopated intricate-rhythms groovy-feel 
            	band-not-electronic turntablism three-oh-three digital thin 
            	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-heavily-effected  vocals-breathy vocals-diva 
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
     (unknown))
     
@@ -797,7 +797,7 @@
            	sparse-instrumentation turntablism three-oh-three 
            	thin rhythmic-timbre 
            	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-heavily-effected  vocals-breathy vocals-diva 
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
     (unknown))
     
@@ -812,7 +812,7 @@
            	verse-chorus buildup-breakdown minimalist intricate-rhythms 
            	band-not-electronic sparse-instrumentation turntablism three-oh-three digital thin rhythmic-timbre 
            	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-heavily-effected  vocals-breathy vocals-diva 
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
     (unknown))
     
@@ -828,7 +828,7 @@
            	buildup-breakdown repetitive minimalist intricate-rhythms 
            	band-not-electronic sparse-instrumentation turntablism three-oh-three 
            	digital thin rhythmic-timbre 
-           	vocals-sampled vocals-male vocals-autotuned vocals-diva 
+           	vocals-sampled vocals-male  vocals-diva 
            	vocals-rap-style vocals-unpitched )
     (unknown))
     
@@ -845,7 +845,7 @@
            	sparse-instrumentation turntablism three-oh-three 
            	digital thin rhythmic-timbre 
            	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-heavily-effected  vocals-breathy vocals-diva 
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
     (unknown))
     
@@ -862,7 +862,7 @@
            	band-not-electronic sparse-instrumentation turntablism three-oh-three 
            	thin rhythmic-timbre 
            	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-           	vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+           	vocals-heavily-effected  vocals-breathy vocals-diva 
            	vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
     (unknown))
 )
@@ -911,7 +911,13 @@
         (explanation-text "breakbeat")
         (question-type 0)
      ) 
-    
+     
+     (question-template (reference-attribute percussion-none)
+     	(membership-value 25)
+     	(question-text "percussion-none")
+     	(explanation-text "percussion-none")
+     	(question-type 0)
+     )
     
     (question-template (reference-attribute obvious-tempo)
         (membership-value 15)
@@ -920,21 +926,7 @@
         (question-type 0)
      ) 
     
-    ;questions that may be asked by Jess as part of the greedy elimination system
-	(question-template (reference-attribute vocals-male)
-        (membership-value 5)
-        (question-text "vocals-male?")
-        (explanation-text "vocals-male.")
-        (question-type 0)
-     )
-    
-     (question-template (reference-attribute vocals-female)
-        (membership-value 5)
-        (question-text "vocals-female?")
-        (explanation-text "vocals-female.")
-        (question-type 0)
-     )
-    
+    ;vocals present is hardcoded to add 5 or subtract 10, so this may not work 
      (question-template (reference-attribute vocals-present)
         (membership-value 5)
         (question-text "vocals-present?")
@@ -942,17 +934,40 @@
         (question-type 0)
      )
     
+    ;questions that may be asked by Jess as part of the greedy elimination system
+	(question-template (reference-attribute vocals-male)
+        (membership-value 5)
+        (question-text "Are the vocals present in the song performed by a male?")
+        (explanation-text "If this song contains vocals by a male, or if you think the genre that the song belongs to can have vocals sung by a male, answer yes.")
+        (question-type 0)
+     )
+    
+     (question-template (reference-attribute vocals-female)
+        (membership-value 5)
+        (question-text "Are the vocals present in the song performed by a female?")
+        (explanation-text "If this song contains vocals by a female, or if you think the genre that the song belongs to can have vocals sung by a female, answer yes.")
+        (question-type 0)
+     )
+
+    
      (question-template (reference-attribute vocals-diva)
         (membership-value 5)
-        (question-text "vocals-diva?")
-        (explanation-text "vocals-diva.")
+        (question-text "Are the vocals present in the song sung in a diva style?")
+        (explanation-text "Diva style vocals are characterized by virtuosic performance of difficult melodic lines, high register singing and melismatic (singing many notes per syllable) runs.")
+        (question-type 0)
+     )
+     
+     (question-template (reference-attribute vocals-breathy)
+        (membership-value 5)
+        (question-text "Are the vocals present in the song sung in a breathy style?")
+        (explanation-text "Breathy style vocals are often smooth, understated and laid-back feeling. They are the result of the vocalist expelling more air than necessary while singing, creating a whispy sound.")
         (question-type 0)
      )
     
      (question-template (reference-attribute vocals-sampled)
         (membership-value 5)
-        (question-text "vocals-sampled?")
-        (explanation-text "vocals-sampled.")
+        (question-text "Are the vocals present in the song sampled from a different source?")
+        (explanation-text "Sampled vocals are taken from other works and reappropriated for use in the song by the producer.  They will often be short, clipped passages, instead of extended lines.")
         (question-type 0)
      )
     
@@ -1011,13 +1026,6 @@
         (explanation-text "vocals-heavily-effected")
         (question-type 0)
      ) 
-    
-    (question-template (reference-attribute verse-chorus)
-        (membership-value 5)
-        (question-text "Does the song have a verse-chorus type structure?")
-        (explanation-text "Songs that follow verse-chorus structure have an A and B section that repeat throughout.")
-        (question-type 0)
-     )
     
     (question-template (reference-attribute funky)
         (membership-value 5)
@@ -1513,8 +1521,8 @@
 	=>
     (modify ?q (type 2))
     (modify ?q (questionText "Which of the following two options best describes the kick (bass) drum in the song?"))
-    (modify ?q (explanation "Four on the floor features a constant (pounding) kick drum on every downbeat.  Breakbeat has a  (broken beat) kick that is not constant, but falls on different beats."))    
-    (modify ?q (answerTexts "Four on the Floor" "Breakbeat"))
+    (modify ?q (explanation "Four on the floor features a constant (pounding) kick drum on every downbeat.  Breakbeat has a  (broken beat) kick that is not constant, but falls on different beats.  If there are no drums, choose no percussion present."))    
+    (modify ?q (answerTexts "Four on the Floor" "Breakbeat" "No Percussion Present"))
     (question-ready)
     (modify ?m (mode answer))
 )
@@ -1529,14 +1537,20 @@
     (update ?q.OBJECT)
     (if (eq ?q.answer 0) then
     	(modify ?wm (true $?t four-on-the-floor))
-        (modify ?wm (false $?f breakbeat))		
+        (modify ?wm (false $?f breakbeat percussion-none))
         (update-membership four-on-the-floor 25)
+    else 
+    (if (eq ?q.answer 1) then
+	    (modify ?wm (true $?t breakbeat))
+	    (modify ?wm (false $?f four-on-the-floor percussion-none))
+	    (update-membership breakbeat 25)
     else
-        (modify ?wm (true $?t breakbeat))
-        (modify ?wm (false $?f four-on-the-floor))
-        (update-membership breakbeat 25)
+        (modify ?wm (true $?t percussion-none))
+	    (modify ?wm (false $?f four-on-the-floor breakbeat))
+	    (update-membership percussion-none 25)    
+    	)
     )
-    (modify ?wm (unknown (complement$ (create$ four-on-the-floor breakbeat) (create$ $?ua four-on-the-floor $?ub))))
+    (modify ?wm (unknown (complement$ (create$ four-on-the-floor breakbeat percussion-none) (create$ $?ua four-on-the-floor $?ub))))
 	(modify ?m (mode question))
 )
 
@@ -1611,11 +1625,11 @@ Buildup Breakdown - heavy emphasis on tension and release through anticipation o
         (update-membership vocals-present 5)
      else
         (modify ?wm (false $?f vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-            				   vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+            				   vocals-heavily-effected  vocals-breathy vocals-diva 
             				   vocals-rap-style vocals-melodic vocals-unpitched vocals-english))
         (modify ?wm (unknown (complement$ (create$ 
                         							vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-            										vocals-heavily-effected vocals-autotuned vocals-breathy vocals-diva 
+            										vocals-heavily-effected vocals-breathy vocals-diva 
             										vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
                     					  (create$ $?a vocals-present $?b))))
         (update-membership vocals-present -10)

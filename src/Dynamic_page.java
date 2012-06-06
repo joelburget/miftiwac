@@ -574,8 +574,8 @@ public class Dynamic_page implements Initializable {
 	
 	private void intializeBooleanToggleButton(){
 		//Boolean Question User Input True or False Toggle Button
-        toggleTrue = new ToggleButton("TRUE");
-        toggleFalse = new ToggleButton("FALSE");
+        toggleTrue = new ToggleButton("Yes");
+        toggleFalse = new ToggleButton("No");
         ToggleGroup booleanToggleGroup = new ToggleGroup();
         toggleTrue.setToggleGroup(booleanToggleGroup);
         toggleFalse.setToggleGroup(booleanToggleGroup);
