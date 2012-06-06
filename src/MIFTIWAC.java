@@ -82,7 +82,7 @@ public class MIFTIWAC extends Application implements Initializable {
     	try {
     		MIFTIWAC.rootOfQuestionPage = new Group((Parent)(FXMLLoader.load(getClass().getResource("MIFTIWAC.fxml"))));
     		primaryStage.setScene(new Scene(MIFTIWAC.rootOfQuestionPage));
-            primaryStage.setStyle("-fx-background-image: url(file:resources/pictures/background.jpg);");
+            //primaryStage.setStyle("-fx-background-image: url(file:resources/pictures/background.jpg);");
     	} catch (IOException e) {
 			e.printStackTrace();
 		}
