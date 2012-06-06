@@ -183,7 +183,8 @@ House
 -fx-background-image: url('file:resources/pictures/house_music_icon.png')
 This subgenre encapsulates everthing House music is supposed to sound like.
 Second Shift
-Kevin Yost & Peter Funk
+Kevin Yost
+Peter Funk
 Sixteen Souls
 Blue Six
 Aaron Carl
@@ -457,7 +458,7 @@ Usher
 Lil Scrappy
 ----------------------------
 ----------------------------
-Dirty South/Miami Bass
+Dirty-South/Miami-Bass
 Breakbeat
 -fx-background-image: url('file:resources/pictures/breakbeat.jpg')
 Gang vocals, raunchy choruses, and deep, throbbing bass.
@@ -471,7 +472,7 @@ Wreckx-N-Effect
 Gucci Crew
 ----------------------------
 ----------------------------
-Electro Funk
+Electro-Funk
 Breakbeat
 -fx-background-image: url('file:resources/pictures/breakbeat.jpg')
 Robot funk.
@@ -496,7 +497,7 @@ Kid Koala
 Cut Chemist
 ----------------------------
 ----------------------------
-Big Beat
+Big-Beat
 Breakbeat
 -fx-background-image: url('file:resources/pictures/breakbeat.jpg')
 Driven by heaby breakbeats and synthesizer-generated loops and patterns in common with techno and acid house.
@@ -541,7 +542,7 @@ Jonzun Crew
 Newcleus
 ----------------------------
 ----------------------------
-R & B
+R-and-B
 Breakbeat
 -fx-background-image: url('file:resources/pictures/breakbeat.jpg')
 Heavily based on soul music, but with a less conventional sound, which emerged in the 1980's and early 90's.
@@ -568,7 +569,7 @@ Kenny Larkin
 Damon Wild
 ----------------------------
 ----------------------------
-Acid
+Acid-Techno
 Techno
 -fx-background-image: url('file:resources/pictures/work_in_progress.png')
 Part of an electronica wave of mainstream acceptance in the late 90's which emerged out of late 1980's Chicago Acid House.
@@ -581,7 +582,7 @@ Tesox
 Choice
 ----------------------------
 ----------------------------
-Gabber
+Gabba
 Hardcore
 -fx-background-image: url('file:resources/pictures/work_in_progress.png')
 New York style Hardcore - never wants to be thought of as unmanly.
@@ -624,6 +625,21 @@ Critical Mass
 Dune
 ----------------------------
 ----------------------------
+Rave
+Hardcore
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+Designed for raves: harder and faster.
+Channel X
+Second Phase
+LA Style
+Altern 8
+Human Resource
+Messiah
+T99
+The Hypnotist
+U96
+----------------------------
+----------------------------
 Breakcore
 Hardcore
 -fx-background-image: url('file:resources/pictures/work_in_progress.png')
@@ -652,7 +668,7 @@ Jimmy J
 Cru-L-T
 ----------------------------
 ----------------------------
-Musique Concrete
+Musique-Concrete
 Downtempo
 -fx-background-image: url('file:resources/pictures/work_in_progress.png')
 Postwar music experiments going as far back as the 50's using "instruments" like magnetic tape, transistors, and vacuum tubes.
@@ -666,7 +682,7 @@ Raymond Scott
 Tom Dissevelt
 ----------------------------
 ----------------------------
-Classical-Early-Electronic
+Early-Electronic
 Downtempo
 -fx-background-image: url('file:resources/pictures/work_in_progress.png')
 Covers of classical music using electronic sounds
@@ -675,7 +691,7 @@ Tomita
 Wenwaldyter Carlos
 ----------------------------
 ----------------------------
-Acid Jazz
+Acid-Jazz
 Downtempo
 -fx-background-image: url('file:resources/pictures/work_in_progress.png')
 Downtempo with soul, groove, rhythm, funk, and Jazz.
@@ -690,7 +706,7 @@ Sofa Surfers
 Silent Poets
 ----------------------------
 ----------------------------
-Trip Hop
+Trip-Hop
 Downtempo
 -fx-background-image: url('file:resources/pictures/work_in_progress.png')
 Very slow, also ambient and jazzy.
