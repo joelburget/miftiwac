@@ -31,41 +31,41 @@ public class MIFTIWAC extends Application implements Initializable {
 	public static Stage mainStage;
 	public static boolean blankPage;
 	public static Question question;
-	
+
 	//---------------------------------------------------------------------------------------------------
-	//Integer for JESS to update to tell Java if it is 
+	//Integer for JESS to update to tell Java if it is
 	//0.) Default Null Value
 	//1.) Boolean
 	//2.) Integer
 	//3.) Radio Button(s)
 	public static int dynamicPageType;
-	
+
 	//Information that is updated to manage the dynamic Q/A page
 	public static List<String> questionText;
-	
+
 	//Information about the question.
 	public static String questionDescription;
-	
+
 	//boolean question: 1 is for true, 0 is for false
 	//integer question: number value
 	//radio choice: index of the answer on text
 	public static Integer answer;
-	
+
 	//Used to inform us when the display has an answer from the user
 	public static IntegerProperty hasUserResponded;
-	
+
 	//this is what Jess will updated when the final answer has been chosen
 	public static String subGenreAnswer;
-	
+
 	//this is what will need to be updated in order to have the reasoning section filled out on the solution page
 	public static String reasoning;
-    
-    
+
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1){
 
-    }   
-    
+    }
+
     public void init(Stage primaryStage){
     	//startup initializations
     	questionPage = new Dynamic_page();
@@ -77,25 +77,26 @@ public class MIFTIWAC extends Application implements Initializable {
     	answer = 0;
     	dynamicPageType = 0;
     	blankPage = true;
-    	
+
     	//loads the fxml file for the MIFTIWAC homepage and then sets it as the primary stage
     	try {
     		MIFTIWAC.rootOfQuestionPage = new Group((Parent)(FXMLLoader.load(getClass().getResource("MIFTIWAC.fxml"))));
     		primaryStage.setScene(new Scene(MIFTIWAC.rootOfQuestionPage));
+            primaryStage.setStyle("-fx-background-image: url(file:resources/pictures/background.jpg);");
     	} catch (IOException e) {
 			e.printStackTrace();
 		}
-    	
+
 		//this is the listener the responds every time the user clicks on the "Continue..." button in the GUI
 		MIFTIWAC.hasUserResponded.addListener(new ChangeListener<Number>(){
 			@Override
 			public void changed(ObservableValue<? extends Number> observable,
-					Number oldValue, Number newValue) {	
+					Number oldValue, Number newValue) {
 				int questionTextSize = questionText.size();
 				for(int i = 0; i < questionTextSize; i++){
 					questionText.remove(0);
 				}
-				
+
 				// If radio, subtract 2 for offset between two arrays.
 				if (MIFTIWAC.dynamicPageType == 3) {
 					MIFTIWAC.answer -= 1;
@@ -103,7 +104,7 @@ public class MIFTIWAC extends Application implements Initializable {
 
 				// Put answer into question.
 				MIFTIWAC.question.setAnswer(MIFTIWAC.answer);
-				
+
 				try {
 					// resume execution of Jess code
 					MIFTIWAC.engine.run();
@@ -113,7 +114,7 @@ public class MIFTIWAC extends Application implements Initializable {
 			}
 		});
     }
-   
+
 	public void startButtonHandler(ActionEvent a){
 		// Create, load, and run the Jess rule engine
 		try {
@@ -125,7 +126,7 @@ public class MIFTIWAC extends Application implements Initializable {
 			System.out.println("ERROR: " + e);
 		}
     }
-	
+
     @Override
     public void start(final Stage primaryStage){
     	primaryStage.initStyle(StageStyle.UTILITY);
@@ -136,7 +137,7 @@ public class MIFTIWAC extends Application implements Initializable {
     }
 
     public static void main(String[] args){
-		launch(args);	
+		launch(args);
     }
 
 	public static void questionReady() {
@@ -164,7 +165,7 @@ public class MIFTIWAC extends Application implements Initializable {
 		default: System.out.println("ERROR! MIFTIWAC.question.getType() did not match any of the dynamicPageTypes!!");
 			break;
 		}
-		
+
 		System.out.println("This is questionTest: " + MIFTIWAC.questionText);
 
 		try {
@@ -175,7 +176,7 @@ public class MIFTIWAC extends Application implements Initializable {
 		}
 		// Tells the GUI it's ready to display.
 		MIFTIWAC.questionPage.display();
-		
+
 		return;
 	}
 
@@ -183,5 +184,5 @@ public class MIFTIWAC extends Application implements Initializable {
 	public static void prepQuestion(Object o) {
 		MIFTIWAC.question = (Question) o;
 	}
-	
+
 }
