@@ -32,7 +32,6 @@ public class Solution_page implements Initializable {
 	static Map<String, ArrayList<ArrayList<String>>> solutionPageInformation = new HashMap<String, ArrayList<ArrayList<String>>>();
 	// [Artist, InfoAboutArtist]
 	static Map<String, String> relatedArtistsInfo = new HashMap<String, String>();
-	static Map<String, String> mediaResources = new HashMap<String, String>();
 	
 	@FXML private TextArea reasoningTextArea;
 	@FXML private AnchorPane genreImagePanel;
@@ -46,9 +45,26 @@ public class Solution_page implements Initializable {
 		readInSolutionInfo();
     	readInRelatedArtistInfo();
 		
-		if (MIFTIWAC.blankPage == false) {
-			ArrayList<ArrayList<String>> info = new ArrayList<ArrayList<String>>(solutionPageInformation.get(MIFTIWAC.subGenreAnswer));
-			this.subGenreNameLabel.setText(MIFTIWAC.subGenreAnswer);
+		if (MIFTIWAC.blankPage == false && solutionPageInformation.containsValue(MIFTIWAC.subGenreAnswer)) {
+			String tempSubGenre = MIFTIWAC.subGenreAnswer;
+			System.out.println("The subgenre should be: " + MIFTIWAC.subGenreAnswer);
+			
+			ArrayList<ArrayList<String>> info = new ArrayList<ArrayList<String>>(solutionPageInformation.get(tempSubGenre));
+			
+			//Goes through and capitalizes all of the first letters of each word
+			char[] chars = tempSubGenre.toCharArray();
+			boolean found = false;
+			for (int i = 0; i < chars.length; i++) {
+				if (!found && Character.isLetter(chars[i])) {
+					chars[i] = Character.toUpperCase(chars[i]);
+					found = true;
+				} else if (Character.isWhitespace(chars[i]) || chars[i]=='.' || chars[i]=='\'' || chars[i]=='-') {
+					found = false;
+				}
+			}
+			tempSubGenre = String.valueOf(chars);
+			
+			this.subGenreNameLabel.setText(tempSubGenre);
 			this.genreNameLabel.setText(info.get(0).toString().substring(1, info.get(0).toString().length()-1));
 			this.genreImagePanel.setStyle(info.get(1).toString().substring(1, info.get(1).toString().length()-1));
 			this.genreDescription.setText(info.get(2).toString().substring(1, info.get(2).toString().length()-1));
@@ -73,6 +89,8 @@ public class Solution_page implements Initializable {
 			this.genreDescription.setText(info.get(2).toString().substring(1, info.get(2).toString().length()-1));
 			
 			this.reasoningTextArea.setText(this.blank);
+			
+			System.out.println("ERROR! If you are getting this error either the final subgenre that was chosen is not in the solutionPageInformation.txt file, or somehow blankPage is still equal to true.");
 		}
 	}
 
@@ -90,7 +108,7 @@ public class Solution_page implements Initializable {
 	    		if((text.next()).compareToIgnoreCase("----------------------------") == 0){
 	    			text.hasNext();
 		    		if(text.hasNext()){
-		    			subGenre = text.next();						//SubGenre
+		    			subGenre = text.next().toLowerCase();						//SubGenre
 		    			//System.out.println(subGenre);
 		    		}if(text.hasNext()){
 		    			genre.add(text.next());						//Genre - 0
@@ -151,21 +169,12 @@ public class Solution_page implements Initializable {
 		relatedArtistsInfo.put("Test 8", "Information!");
     }
 
-    public static void readInMediaResources(){
-    	//Scanner text = new Scanner(new BufferedReader(new FileReader(new File("solutionPageInformation.txt"))));
-    	//text.useDelimiter("\r\n");
-    	//while (text.hasNext()) {
-    	//	
-    	//}
-    	mediaResources.put("Prelinger_Kyrie", "file:/C:/Users/Jon%20Martin/Desktop/MIFTIWAC/media/audio/Prelinger_Kyrie.mp3");
-    }
-
     public static void closeProgramButton(){
     	Platform.exit();    	
     }
 
     public static void aboutProgramButton(ActionEvent t){
-    	final Stage stage = new Stage(StageStyle.UNDECORATED);
+    	final Stage stage = new Stage(StageStyle.UTILITY);
         Group aboutPopup = new Group();
         stage.setScene(new Scene(aboutPopup, 400, 250, Color.WHITESMOKE));
     	

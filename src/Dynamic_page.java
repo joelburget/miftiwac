@@ -176,6 +176,7 @@ public class Dynamic_page implements Initializable {
         	    "-fx-focus-color: #FFFFFF;"+
         		"-fx-text-alignment: left; " +
         		"-fx-text-box-border: derive(-fx-background,100.0%);");
+		descriptionArea.setWrapText(true);
 		descriptionArea.setFocusTraversable(false);
 		descriptionArea.setEditable(false);
 		descriptionArea.setCursor(Cursor.DEFAULT);
@@ -322,6 +323,7 @@ public class Dynamic_page implements Initializable {
         			for(int i = 0; i < 5; i++){
         				if(radioButtons[i].isSelected()){
         					MIFTIWAC.answer = i+1;
+        					System.out.println("This is the index of the radio selection that was made. (Index 0 is the question itself): " + MIFTIWAC.answer);
         				}
         			}
         		}
@@ -367,7 +369,6 @@ public class Dynamic_page implements Initializable {
         });
 	}
 	
-	
 	private void intializeBackButton(){
 		//Back Button
 		backButton = new Button();
@@ -390,7 +391,6 @@ public class Dynamic_page implements Initializable {
         });
 	}
 	
-	
 	private void intializeForwardButton(){
 		//Forward Button
 		forwardButton = new Button();
@@ -412,7 +412,6 @@ public class Dynamic_page implements Initializable {
         });
 	}
 	
-	
 	private void intializeIntegerTextField(){
 		//Integer Question User Input Field
 		integerResponseField = new TextField();
@@ -424,23 +423,14 @@ public class Dynamic_page implements Initializable {
         integerResponseField.setOnKeyReleased(new EventHandler<KeyEvent>() {
 			@Override
 			public void handle(KeyEvent event) {
-				try 
-				{
-					int userInputInteger = Integer.parseInt(integerResponseField.getText());
-					if (userInputInteger > 0) {
-						continueButton.setDisable(false);
-					} else {
-						continueButton.setDisable(true);
-					}
-				}
-				catch (NumberFormatException nfe)
-				{
+				if(integerResponseField.getText().isEmpty()){
 					continueButton.setDisable(true);
+				}else{
+					continueButton.setDisable(false);
 				}
 			}
         });
 	}
-	
 	
 	private void intializeBPMcounter(){
 		bpmCounterAssistanceLabel = new Label("*If you are not sure what the BPM is, click 'BPM Counter' for assistance.*");
@@ -469,7 +459,7 @@ public class Dynamic_page implements Initializable {
             	final Stage stage = new Stage(StageStyle.UTILITY);
             	
                 Group bpmCounterPopup = new Group();
-                //bpmCounterPopup.setStyle("-fx-background-image: url('file:resources/pictures/bpm_background.png');");
+               // bpmCounterPopup.setStyle("-fx-background-image: url('file:resources/pictures/bpm_background.png');");
                 
                 stage.setScene(new Scene(bpmCounterPopup, 600, 500, Color.WHITE));
             	
@@ -579,11 +569,10 @@ public class Dynamic_page implements Initializable {
         });
 	}
 	
-	
 	private void intializeBooleanToggleButton(){
 		//Boolean Question User Input True or False Toggle Button
-        toggleTrue = new ToggleButton("Yes");
-        toggleFalse = new ToggleButton("No");
+        toggleTrue = new ToggleButton("TRUE");
+        toggleFalse = new ToggleButton("FALSE");
         ToggleGroup booleanToggleGroup = new ToggleGroup();
         toggleTrue.setToggleGroup(booleanToggleGroup);
         toggleFalse.setToggleGroup(booleanToggleGroup);
@@ -597,6 +586,7 @@ public class Dynamic_page implements Initializable {
         		"-fx-font-size: 20px;" +
         		"-fx-cursor: hand;" +
         		"-fx-text-alignment: center;" +
+        		"-fx-font-style: italic;" +
         		"-fx-font-weight: bold;");
         toggleTrue.setPrefSize(122, 47);
         toggleFalse.setPrefSize(122, 47);
@@ -624,12 +614,10 @@ public class Dynamic_page implements Initializable {
         });
 	}
 	
-	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
 	}
-	
 	
     public static void readInMediaResources(){
     	//Scanner text = new Scanner(new BufferedReader(new FileReader(new File("solutionPageInformation.txt"))));
@@ -704,15 +692,17 @@ public class Dynamic_page implements Initializable {
 	        	radioButtons[i].setVisible(false);
 	        	radioButtons[i].setSelected(false);
 	        }
-	        
 	        for(int i = 0; i < 6; i++){
 	        	root.getChildren().add(mediaToggles[i]);
 	        	mediaToggles[i].setVisible(false);
 	        	mediaTogglesPressed[i] = false;
 	        }
 	        
-	        
 		}
+		if(!MIFTIWAC.questionDescription.isEmpty()){
+			descriptionArea.setText(MIFTIWAC.questionDescription);
+		}
+		
 		String tempQuestion = "NULL";
 		if(MIFTIWAC.dynamicPageType == 1){
 			//boolean question
@@ -725,7 +715,7 @@ public class Dynamic_page implements Initializable {
 				tempQuestion = MIFTIWAC.questionText.get(0);
 				System.out.println("Should display to the question box: " + tempQuestion);
 				if(mediaResources.containsKey(tempQuestion)){
-					//mediaToggles[0].setVisible(true);
+					mediaToggles[0].setVisible(true);
 					audioClips[0] = new AudioClip(mediaResources.get(tempQuestion));
 				}
 				questionBox.setText(tempQuestion);
@@ -745,7 +735,7 @@ public class Dynamic_page implements Initializable {
 				tempQuestion = MIFTIWAC.questionText.get(0);
 				System.out.println("Should display to the question box: " + tempQuestion);
 				if(mediaResources.containsKey(tempQuestion)){
-					//mediaToggles[0].setVisible(true);
+					mediaToggles[0].setVisible(true);
 					audioClips[0] = new AudioClip(mediaResources.get(tempQuestion));
 				}
 				if(tempQuestion.compareToIgnoreCase("What is the BPM (Beats Per Minute)?") == 0){
@@ -768,7 +758,7 @@ public class Dynamic_page implements Initializable {
 				tempQuestion = MIFTIWAC.questionText.get(0);
 				System.out.println("Should display to the question box: " + tempQuestion);
 				if(mediaResources.containsKey(tempQuestion)){
-					//mediaToggles[0].setVisible(true);
+					mediaToggles[0].setVisible(true);
 					audioClips[0] = new AudioClip(mediaResources.get(tempQuestion));
 				}
 				questionBox.setText(tempQuestion);
@@ -777,7 +767,7 @@ public class Dynamic_page implements Initializable {
 						radioButtons[(i - 1)].setVisible(true);
 						radioButtons[(i - 1)].setText(MIFTIWAC.questionText.get(i));
 						if(mediaResources.containsKey(MIFTIWAC.questionText.get(i))){
-							//mediaToggles[i].setVisible(true);
+							mediaToggles[i].setVisible(true);
 							audioClips[i] = new AudioClip(mediaResources.get(MIFTIWAC.questionText.get(i)));
 						}
 					}
@@ -793,7 +783,6 @@ public class Dynamic_page implements Initializable {
 				try {
 					MIFTIWAC.mainStage.setScene(new Scene((Parent)FXMLLoader.load(getClass().getResource("Solution_page.fxml"))));
 				} catch (IOException e) {
-					System.out.println("Error trying to display solution page.  subGenreAnswer was: " + MIFTIWAC.subGenreAnswer);
 					e.printStackTrace();
 				}
 				MIFTIWAC.mainStage.show();

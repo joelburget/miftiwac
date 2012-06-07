@@ -77,6 +77,7 @@
     (slot bpm (type INTEGER) (default 0))
     (slot toggle (allowed-values true false) (default false))
     (slot threshold (type INTEGER) (default 50))
+    (slot neg-threshold (type INTEGER) (default 25))
 )
 
 (deftemplate question-template
@@ -1233,16 +1234,16 @@
 ;-----------------------------------------------------------------------------
 (defquery true-set-from-slot
     (declare (variables ?slot))
-    ?subgenre <- (subgenre (true $?a ?slot $?b))
+    ?subgenre <- (subgenre {subgenre-name != no-ad} (true $?a ?slot $?b))
 )
 
 (defquery false-set-from-slot
     (declare (variables ?slot))
-    ?subgenre <- (subgenre (false $?a ?slot $?b))
+    ?subgenre <- (subgenre {subgenre-name != no-ad} (false $?a ?slot $?b))
 )
 
 (defquery get-subgenres
-    ?subgenre <- (subgenre)
+    ?subgenre <- (subgenre {subgenre-name != no-ad})
 )
 
 (defquery get-question-from-attr
@@ -1252,11 +1253,11 @@
 
 (defquery bpm-inside-search
     (declare (variables ?bpm))
-    ?subgenre <- (subgenre {(subgenre-min-bpm > -1 && subgenre-max-bpm > -1) && (subgenre-min-bpm <= ?bpm && subgenre-max-bpm >= ?bpm)}))
+    ?subgenre <- (subgenre {subgenre-name != no-ad} {(subgenre-min-bpm > -1 && subgenre-max-bpm > -1) && (subgenre-min-bpm <= ?bpm && subgenre-max-bpm >= ?bpm)}))
 
 (defquery bpm-outside-search
     (declare (variables ?bpm))
-    ?subgenre <- (subgenre {(subgenre-min-bpm > -1 && subgenre-max-bpm > -1) && (subgenre-min-bpm > ?bpm || subgenre-max-bpm < ?bpm)}))
+    ?subgenre <- (subgenre {subgenre-name != no-ad} {(subgenre-min-bpm > -1 && subgenre-max-bpm > -1) && (subgenre-min-bpm > ?bpm || subgenre-max-bpm < ?bpm)}))
 
 (defquery above-threshold
     (declare (variables ?threshold))
@@ -1449,11 +1450,17 @@
 	)
 )
 
+/*(defrule lower-membership-threshold
+    (declare (salience 99))
+    ?wm <- (working-memory (threshold ?thresh))
+     =>
+    )*/
+
 (defrule penalty-membership-threshold
     (declare (salience 98))
     ?wm <- (working-memory (threshold ?thresh))
     ?sg <- (subgenre (subgenre-name ?sgname)(membership-value ?membership))
-    (test (> (- ?thresh ?membership) 50))
+    (test (> (- ?thresh ?membership) neg-threshold))
     (test (not(eq ?sgname no-ad)))
     =>
     (printout t "Eliminated subgenre " ?sgname " with membership value " ?membership crlf)
@@ -1533,7 +1540,9 @@
 	=>
     (modify ?q (type 2))
     (modify ?q (questionText "Which of the following two options best describes the kick (bass) drum in the song?"))
-    (modify ?q (explanation "Four on the floor features a constant (pounding) kick drum on every downbeat.  Breakbeat has a  (broken beat) kick that is not constant, but falls on different beats.  If there are no drums, choose no percussion present."))    
+    (modify ?q (explanation "Four on the floor features a constant (pounding) kick drum on every downbeat.
+Breakbeat has a  (broken beat) kick that is not constant, but falls on different beats.
+If there are no drums, choose no percussion present."))
     (modify ?q (answerTexts "Four on the Floor" "Breakbeat" "No Percussion Present"))
     (question-ready)
     (modify ?m (mode answer))
