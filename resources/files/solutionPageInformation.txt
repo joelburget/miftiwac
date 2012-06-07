@@ -151,7 +151,7 @@ The Immortals
 Jpop
 House
 -fx-background-image: url('file:resources/pictures/house_music_icon.png')
-Japan pop. There are two forms of Jpop.
+Fast, exuberant, happy, with chipmunk vocals which entered the musical mainstream of Japan in the 1990s.
 Ayumi Hamasaki
 Hirokai Anzai
 Masami Okui & Megumi Hayashibara
