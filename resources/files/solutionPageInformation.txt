@@ -559,7 +559,7 @@ Keshia Chante
 ----------------------------
 Detroit
 Techno
--fx-background-image: url('file:resources/pictures/work_in_progress.png')
+-fx-background-image: url('file:resources/pictures/techno.jpg')
 The second wave of Techno - sounding cold and machine like with a completely rhythmic timbre.
 Jeff Mills
 Oscar Mulero
@@ -571,7 +571,7 @@ Damon Wild
 ----------------------------
 Acid-Techno
 Techno
--fx-background-image: url('file:resources/pictures/work_in_progress.png')
+-fx-background-image: url('file:resources/pictures/techno.jpg')
 Part of an electronica wave of mainstream acceptance in the late 90's which emerged out of late 1980's Chicago Acid House.
 Acid Scout
 Fuzz Face
@@ -584,7 +584,7 @@ Choice
 ----------------------------
 Gabba
 Hardcore
--fx-background-image: url('file:resources/pictures/work_in_progress.png')
+-fx-background-image: url('file:resources/pictures/hardcore.jpg')
 New York style Hardcore - never wants to be thought of as unmanly.
 DJ Promo
 Matrix
@@ -598,7 +598,7 @@ Pariah
 ----------------------------
 Speedcore
 Hardcore
--fx-background-image: url('file:resources/pictures/work_in_progress.png')
+-fx-background-image: url('file:resources/pictures/hardcore.jpg')
 Music sped up as much as possible
 Hell's Army
 Disciples of Annhilation
@@ -612,7 +612,7 @@ DJ PW
 ----------------------------
 Happy
 Hardcore
--fx-background-image: url('file:resources/pictures/work_in_progress.png')
+-fx-background-image: url('file:resources/pictures/hardcore.jpg')
 Chipmunk vocals, silly sing-a-long anthems, and shameless hug-a-thon anthems.
 Stealth
 Nakatomi
@@ -627,7 +627,7 @@ Dune
 ----------------------------
 Rave
 Hardcore
--fx-background-image: url('file:resources/pictures/work_in_progress.png')
+-fx-background-image: url('file:resources/pictures/hardcore.jpg')
 Designed for raves: harder and faster.
 Channel X
 Second Phase
@@ -642,7 +642,7 @@ U96
 ----------------------------
 Breakcore
 Hardcore
--fx-background-image: url('file:resources/pictures/work_in_progress.png')
+-fx-background-image: url('file:resources/pictures/hardcore.jpg')
 A recreation of sounds in modern technological society in an abrasive form.
 Venetian Snares
 V/VM
@@ -653,7 +653,7 @@ Government Alpha
 ----------------------------
 Oldskool
 Hardcore
--fx-background-image: url('file:resources/pictures/work_in_progress.png')
+-fx-background-image: url('file:resources/pictures/hardcore.jpg')
 The predecessor to Jungle/Drum-n-Bass and Happy Hardcore - it is silly, with samples of children, cartoons, and nursery rhymes.
 Dj Sy
 The Prodigy
@@ -670,7 +670,7 @@ Cru-L-T
 ----------------------------
 Musique-Concrete
 Downtempo
--fx-background-image: url('file:resources/pictures/work_in_progress.png')
+-fx-background-image: url('file:resources/pictures/downtempo.jpg')
 Postwar music experiments going as far back as the 50's using "instruments" like magnetic tape, transistors, and vacuum tubes.
 Pierre Schaeffer
 Edgar Varese
@@ -684,7 +684,7 @@ Tom Dissevelt
 ----------------------------
 Early-Electronic
 Downtempo
--fx-background-image: url('file:resources/pictures/work_in_progress.png')
+-fx-background-image: url('file:resources/pictures/downtempo.jpg')
 Covers of classical music using electronic sounds
 BBC Radiophonic Workshop
 Tomita
@@ -693,7 +693,7 @@ Wenwaldyter Carlos
 ----------------------------
 Acid-Jazz
 Downtempo
--fx-background-image: url('file:resources/pictures/work_in_progress.png')
+-fx-background-image: url('file:resources/pictures/downtempo.jpg')
 Downtempo with soul, groove, rhythm, funk, and Jazz.
 Raw Instinct
 Mateo & Matos
@@ -708,7 +708,7 @@ Silent Poets
 ----------------------------
 Trip-Hop
 Downtempo
--fx-background-image: url('file:resources/pictures/work_in_progress.png')
+-fx-background-image: url('file:resources/pictures/downtempo.jpg')
 Very slow, also ambient and jazzy.
 Massive Attack
 Elizabeth Fraser
@@ -719,7 +719,7 @@ Aztech
 ----------------------------
 Ambient
 Downtempo
--fx-background-image: url('file:resources/pictures/work_in_progress.png')
+-fx-background-image: url('file:resources/pictures/downtempo.jpg')
 Soothing background music.
 Tangerine Dream
 The KLF
@@ -734,7 +734,7 @@ Klaus Schulze
 ----------------------------
 Minimalism
 Downtempo
--fx-background-image: url('file:resources/pictures/work_in_progress.png')
+-fx-background-image: url('file:resources/pictures/downtempo.jpg')
 Sounds like the same thing over and over, but it is actually slowly evolving.
 Mike Oldfield
 Terry Riley
@@ -747,5 +747,4 @@ No_Genre
 -fx-background-image: url('file:resources/pictures/work_in_progress.png')
 We couldn't find a solution.
 No Artist
-----------------------------
 ----------------------------
