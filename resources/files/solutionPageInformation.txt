@@ -137,7 +137,7 @@ Kym Mazelle
 Ultra Nate
 ----------------------------
 ----------------------------
-Anthem
+Anthem-House
 House
 -fx-background-image: url('file:resources/pictures/house_music_icon.png')
 This music evokes images of "hands in the air" cheering about positively nothing in giant soccer stadiums.
@@ -277,7 +277,7 @@ The Cynic Project
 WP Alex Remark
 ----------------------------
 ----------------------------
-Anthem
+Anthem-Trance
 Trance
 -fx-background-image: url('file:resources/pictures/trance.jpg')
 Full of breakdowns, builds, and memorable melodies.
@@ -542,7 +542,7 @@ Jonzun Crew
 Newcleus
 ----------------------------
 ----------------------------
-R-and-B
+R-And-B
 Breakbeat
 -fx-background-image: url('file:resources/pictures/breakbeat.jpg')
 Heavily based on soul music, but with a less conventional sound, which emerged in the 1980's and early 90's.

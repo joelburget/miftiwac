@@ -37,6 +37,7 @@ public class Solution_page implements Initializable {
 	@FXML private AnchorPane genreImagePanel;
 	@FXML private Label genreNameLabel, subGenreNameLabel, genreDescription;
 	@FXML private Accordion relatedArtistAccordion;
+	@FXML private ToggleButton favoritedToggleButton;
 	
 	String blank = " ";
 	
@@ -44,25 +45,24 @@ public class Solution_page implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {		
 		readInSolutionInfo();
     	readInRelatedArtistInfo();
-		
-    	//Goes through and capitalizes all of the first letters of each word
-    	String tempSubGenre = MIFTIWAC.subGenreAnswer;
+		favoritedToggleButton.setTooltip(new Tooltip("Favorites Button Coming In Future Updates!"));
     	
-    	char[] chars = tempSubGenre.toCharArray();
+    	String tempSubGenre = MIFTIWAC.subGenreAnswer;
+		//System.out.println("The subgenre should be: " + MIFTIWAC.subGenreAnswer);
+    	//Goes through and capitalizes all of the first letters of each word
+		char[] chars = tempSubGenre.toCharArray();
 		boolean found = false;
 		for (int i = 0; i < chars.length; i++) {
 			if (!found && Character.isLetter(chars[i])) {
 				chars[i] = Character.toUpperCase(chars[i]);
 				found = true;
-			} else if (Character.isWhitespace(chars[i]) || chars[i]=='.' || chars[i]=='\'' || chars[i]=='-') {
+			} else if (Character.isWhitespace(chars[i]) || chars[i]=='.' || chars[i]=='\'' || chars[i]=='-' || chars[i]=='/') {
 				found = false;
 			}
 		}
 		tempSubGenre = String.valueOf(chars);
     	
 		if (MIFTIWAC.blankPage == false && solutionPageInformation.containsKey(tempSubGenre)) {
-			System.out.println("The subgenre should be: " + MIFTIWAC.subGenreAnswer);
-			
 			ArrayList<ArrayList<String>> info = new ArrayList<ArrayList<String>>(solutionPageInformation.get(tempSubGenre));
 			
 			this.subGenreNameLabel.setText(tempSubGenre);
@@ -73,7 +73,8 @@ public class Solution_page implements Initializable {
 			int numOfRelatedArtists = info.get(3).size();
 			TextArea[] textAreaArray = new TextArea[numOfRelatedArtists];
 			for (int i = 0; i < numOfRelatedArtists; i++) {
-				textAreaArray[i] = new TextArea(relatedArtistsInfo.get(info.get(3).get(i)));
+				//textAreaArray[i] = new TextArea(relatedArtistsInfo.get(info.get(3).get(i)));
+				textAreaArray[i] = new TextArea("Artist Information Available In Future Updates!");
 				textAreaArray[i].setWrapText(true);
 				textAreaArray[i].setEditable(false);
 				this.relatedArtistAccordion.getPanes().add(i, new TitledPane(info.get(3).get(i), textAreaArray[i]));
@@ -161,13 +162,7 @@ public class Solution_page implements Initializable {
     	//	
     	//}
     	relatedArtistsInfo.put("Test 1", "Information!");
-    	relatedArtistsInfo.put("Test 2", "Information!");
-		relatedArtistsInfo.put("Test 3", "Information!");
-		relatedArtistsInfo.put("Test 4", "Information!");
-		relatedArtistsInfo.put("Test 5", "Information!");
-		relatedArtistsInfo.put("Test 6", "Information!");
-		relatedArtistsInfo.put("Test 7", "Information!");
-		relatedArtistsInfo.put("Test 8", "Information!");
+
     }
 
     public static void closeProgramButton(){

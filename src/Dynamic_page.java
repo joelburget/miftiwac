@@ -66,6 +66,9 @@ public class Dynamic_page implements Initializable {
 	double bpmAvgDecimal, bpmAvg;
 	static double msecsFirst, msecsPrevious;
 	static AudioClip[] audioClips;
+	boolean notInteger = false;
+	
+	final Stage stage = new Stage(StageStyle.UTILITY);
 	
 	Dynamic_page() {	
 		allAnswers = new HashMap<List<String>, Integer>();
@@ -176,8 +179,8 @@ public class Dynamic_page implements Initializable {
         	    "-fx-focus-color: #FFFFFF;"+
         		"-fx-text-alignment: left; " +
         		"-fx-text-box-border: derive(-fx-background,100.0%);");
-		descriptionArea.setWrapText(true);
 		descriptionArea.setFocusTraversable(false);
+		descriptionArea.setWrapText(true);
 		descriptionArea.setEditable(false);
 		descriptionArea.setCursor(Cursor.DEFAULT);
 		descriptionArea.setLayoutX(78.0);
@@ -303,6 +306,7 @@ public class Dynamic_page implements Initializable {
             	//boolean question: 1 is for true, 0 is for false
             	//integer question: number value
             	//radio choice: index of the answer on text
+            	boolean integerFieldContinueBoolean = true;
             	if(MIFTIWAC.dynamicPageType == 1){
         			//boolean question
         			if(toggleTrue.isSelected()){
@@ -314,57 +318,60 @@ public class Dynamic_page implements Initializable {
         			}
         		}else if(MIFTIWAC.dynamicPageType == 2){
         			//integer question
-        			if(integerResponseField.getLength() > 0){
+        			if(integerResponseField.getLength() > 0 && !notInteger){
         				MIFTIWAC.answer = Integer.valueOf(integerResponseField.getText());
         				integerResponseField.clear();
+        				integerFieldContinueBoolean = true;
+        			}else{
+        				integerFieldContinueBoolean = false;
         			}
         		} else if(MIFTIWAC.dynamicPageType == 3){
         			//radio button question
         			for(int i = 0; i < 5; i++){
         				if(radioButtons[i].isSelected()){
         					MIFTIWAC.answer = i+1;
-        					System.out.println("This is the index of the radio selection that was made. (Index 0 is the question itself): " + MIFTIWAC.answer);
+        					//System.out.println("This is the index of the radio selection that was made. (Index 0 is the question itself): " + MIFTIWAC.answer);
         				}
         			}
         		}
-            	
-            	//obtain question and answer for back and forward button operations
-            	List<String> question = new ArrayList<String>(MIFTIWAC.questionText);
-            	allAnswers.put(question, MIFTIWAC.answer);
-            	allQuestions.add(question);
-            	//System.out.println("allAnswers - Does it contain the question?: " + allAnswers.containsKey(question) + " The user's answer was: " + allAnswers.get(question));
-            	
-            	//GUI Reset for next question
-            	continueButton.setDisable(true);
-            	integerResponseField.setVisible(false);
-            	bpmCounterAssistanceLabel.setVisible(false);
-            	bpmCounterButton.setVisible(false);
-            	toggleFalse.setVisible(false);
-            	toggleTrue.setVisible(false);           	
-            	
-            	for(int i = 0; i < 5; i++){
-    	        	radioButtons[i].setVisible(false);
-    	        	radioButtons[i].setSelected(false);
-    	        }
-            	
-            	for(int i = 0; i < 6; i++){
-            		if(mediaTogglesPressed[i] == true){
-        				audioClips[i].stop();
-        			}
-    	        	mediaToggles[i].setVisible(false);
-    	        	mediaTogglesPressed[i] = false;
-    	        	mediaToggles[i].setStyle("" +
-            				"-fx-cursor: hand; " +
-            				"-fx-background-repeat: no-repeat; " +
-            				"-fx-background-position: center;" +
-            				"-fx-base: white;" +
-            				"-fx-background-color: white;" +
-            				"-fx-background-image: url('file:resources/pictures/media_not_started_icon.png');");
-    	        }
+            	if(integerFieldContinueBoolean){
+	            	//obtain question and answer for back and forward button operations
+	            	List<String> question = new ArrayList<String>(MIFTIWAC.questionText);
+	            	allAnswers.put(question, MIFTIWAC.answer);
+	            	allQuestions.add(question);
+	            	//System.out.println("allAnswers - Does it contain the question?: " + allAnswers.containsKey(question) + " The user's answer was: " + allAnswers.get(question));
+	            	
+	            	//GUI Reset for next question
+	            	continueButton.setDisable(true);
+	            	integerResponseField.setVisible(false);
+	            	bpmCounterAssistanceLabel.setVisible(false);
+	            	bpmCounterButton.setVisible(false);
+	            	toggleFalse.setVisible(false);
+	            	toggleTrue.setVisible(false);           	
+	            	
+	            	for(int i = 0; i < 5; i++){
+	    	        	radioButtons[i].setVisible(false);
+	    	        	radioButtons[i].setSelected(false);
+	    	        }
+	            	
+	            	for(int i = 0; i < 6; i++){
+	            		if(mediaTogglesPressed[i] == true){
+	        				audioClips[i].stop();
+	        			}
+	    	        	mediaToggles[i].setVisible(false);
+	    	        	mediaTogglesPressed[i] = false;
+	    	        	mediaToggles[i].setStyle("" +
+	            				"-fx-cursor: hand; " +
+	            				"-fx-background-repeat: no-repeat; " +
+	            				"-fx-background-position: center;" +
+	            				"-fx-base: white;" +
+	            				"-fx-background-color: white;" +
+	            				"-fx-background-image: url('file:resources/pictures/media_not_started_icon.png');");
+	    	        }
 
-            	
-            	//Tell JESS that the user has responded!
-            	MIFTIWAC.hasUserResponded.set(MIFTIWAC.hasUserResponded.getValue() + 1);
+	            	//Tell JESS that the user has responded!
+	            	MIFTIWAC.hasUserResponded.set(MIFTIWAC.hasUserResponded.getValue() + 1);
+	            }
             }
         });
 	}
@@ -385,8 +392,7 @@ public class Dynamic_page implements Initializable {
 		backButton.setPrefSize(48.0, 48.0);
 		backButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent t) {
-            	System.out.println("Back button was pressed!");
-            	
+            	//System.out.println("Back button was pressed!");
             }
         });
 	}
@@ -407,7 +413,7 @@ public class Dynamic_page implements Initializable {
 		forwardButton.setPrefSize(48.0, 48.0);
         forwardButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent t) {
-            	System.out.println("Forward button was pressed!");
+            	//System.out.println("Forward button was pressed!");
             }
         });
 	}
@@ -419,14 +425,25 @@ public class Dynamic_page implements Initializable {
         integerResponseField.setPrefSize(208, 47);
         integerResponseField.setLayoutX(496.0);
         integerResponseField.setLayoutY(522.0);
-        
         integerResponseField.setOnKeyReleased(new EventHandler<KeyEvent>() {
 			@Override
 			public void handle(KeyEvent event) {
-				if(integerResponseField.getText().isEmpty()){
-					continueButton.setDisable(true);
+				if(!integerResponseField.getText().isEmpty()){
+					String strFieldValue = integerResponseField.getText();
+					char[] charFieldValue = strFieldValue.toCharArray();
+					notInteger = false;
+					for(int i = 0; i < charFieldValue.length; i++){
+						if(!Character.isDigit(charFieldValue[i])){
+							notInteger = true;
+						}	
+					}
+					if(notInteger){
+						continueButton.setDisable(true);
+					}else{
+						continueButton.setDisable(false);
+					}					
 				}else{
-					continueButton.setDisable(false);
+					continueButton.setDisable(true);
 				}
 			}
         });
@@ -571,8 +588,8 @@ public class Dynamic_page implements Initializable {
 	
 	private void intializeBooleanToggleButton(){
 		//Boolean Question User Input True or False Toggle Button
-        toggleTrue = new ToggleButton("TRUE");
-        toggleFalse = new ToggleButton("FALSE");
+        toggleTrue = new ToggleButton("YES");
+        toggleFalse = new ToggleButton("NO");
         ToggleGroup booleanToggleGroup = new ToggleGroup();
         toggleTrue.setToggleGroup(booleanToggleGroup);
         toggleFalse.setToggleGroup(booleanToggleGroup);
@@ -664,7 +681,10 @@ public class Dynamic_page implements Initializable {
 		
 		if(firstRun){
 			firstRun = false;
-			MIFTIWAC.mainStage.setScene(new Scene(root));
+			//final Stage stage = new Stage(StageStyle.UTILITY);
+
+			stage.setScene(new Scene(root, 1200, 800, Color.WHITE));
+			//MIFTIWAC.mainStage.setScene(new Scene(root));
 		
 			root.getChildren().add(vbox);
 			root.getChildren().add(questionBox);
@@ -698,6 +718,9 @@ public class Dynamic_page implements Initializable {
 	        	mediaTogglesPressed[i] = false;
 	        }
 	        
+	        stage.centerOnScreen();
+	        stage.show();
+	        
 		}
 		if(!MIFTIWAC.questionDescription.isEmpty()){
 			descriptionArea.setText(MIFTIWAC.questionDescription);
@@ -707,13 +730,13 @@ public class Dynamic_page implements Initializable {
 		if(MIFTIWAC.dynamicPageType == 1){
 			//boolean question
 			if(MIFTIWAC.questionText.size() > 0){
-				if(MIFTIWAC.questionText.get(0).length() > 60){
+				if(MIFTIWAC.questionText.get(0).length() > 70){
 					changeLayoutHeight(32);
 				}else{
 					changeLayoutHeight(0);
 				}
 				tempQuestion = MIFTIWAC.questionText.get(0);
-				System.out.println("Should display to the question box: " + tempQuestion);
+				//System.out.println("Should display to the question box: " + tempQuestion);
 				if(mediaResources.containsKey(tempQuestion)){
 					mediaToggles[0].setVisible(true);
 					audioClips[0] = new AudioClip(mediaResources.get(tempQuestion));
@@ -727,13 +750,13 @@ public class Dynamic_page implements Initializable {
 		}else if(MIFTIWAC.dynamicPageType == 2){
 			//integer question
 			if(MIFTIWAC.questionText.size() > 0){
-				if(MIFTIWAC.questionText.get(0).length() > 60){
+				if(MIFTIWAC.questionText.get(0).length() > 70){
 					changeLayoutHeight(32);
 				}else{
 					changeLayoutHeight(0);
 				}
 				tempQuestion = MIFTIWAC.questionText.get(0);
-				System.out.println("Should display to the question box: " + tempQuestion);
+				//System.out.println("Should display to the question box: " + tempQuestion);
 				if(mediaResources.containsKey(tempQuestion)){
 					mediaToggles[0].setVisible(true);
 					audioClips[0] = new AudioClip(mediaResources.get(tempQuestion));
@@ -750,13 +773,13 @@ public class Dynamic_page implements Initializable {
 		}else if(MIFTIWAC.dynamicPageType == 3){
 			//radio question
 			if(MIFTIWAC.questionText.size() > 0){
-				if(MIFTIWAC.questionText.get(0).length() > 60){
+				if(MIFTIWAC.questionText.get(0).length() > 70){
 					changeLayoutHeight(32);
 				}else{
 					changeLayoutHeight(0);
 				}
 				tempQuestion = MIFTIWAC.questionText.get(0);
-				System.out.println("Should display to the question box: " + tempQuestion);
+				//System.out.println("Should display to the question box: " + tempQuestion);
 				if(mediaResources.containsKey(tempQuestion)){
 					mediaToggles[0].setVisible(true);
 					audioClips[0] = new AudioClip(mediaResources.get(tempQuestion));
@@ -781,19 +804,19 @@ public class Dynamic_page implements Initializable {
 			if(MIFTIWAC.subGenreAnswer.compareToIgnoreCase("NULL") != 0){
 				MIFTIWAC.blankPage = false;
 				try {
-					MIFTIWAC.mainStage.setScene(new Scene((Parent)FXMLLoader.load(getClass().getResource("Solution_page.fxml"))));
+					stage.setScene(new Scene((Parent)FXMLLoader.load(getClass().getResource("Solution_page.fxml"))));
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-				MIFTIWAC.mainStage.show();
+				stage.show();
 			}else{
 				System.out.println("Error! Solution page was triggered but the subGenreAnswer variable doesn't have a correct answer!");
 				try {
-					MIFTIWAC.mainStage.setScene(new Scene((Parent)FXMLLoader.load(getClass().getResource("Solution_page.fxml"))));
+					stage.setScene(new Scene((Parent)FXMLLoader.load(getClass().getResource("Solution_page.fxml"))));
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-				MIFTIWAC.mainStage.show();
+				stage.show();
 			}
 		}else{
 			System.out.println("Error! There is no SubGenre in the textQuestion array to display!");

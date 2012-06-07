@@ -243,7 +243,7 @@
     (unknown))
 
     ;-------------------- anthem --------------------
-    (subgenre (name house)(subgenre-name anthem)(subgenre-min-bpm 120)(subgenre-max-bpm 136)
+    (subgenre (name house)(subgenre-name anthem-house)(subgenre-min-bpm 120)(subgenre-max-bpm 136)
     (true 
 			obvious-tempo cold danceable four-on-the-floor drum-machine verse-chorus 
             syncopated groovy-feel digital vocals-sampled vocals-present vocals-male)
@@ -382,7 +382,7 @@
     (unknown))
     
     ;-------------------- anthem --------------------
-    (subgenre (name trance)(subgenre-name anthem)(subgenre-min-bpm 136)(subgenre-max-bpm 144)
+    (subgenre (name trance)(subgenre-name anthem-trance)(subgenre-min-bpm 136)(subgenre-max-bpm 144)
     (true 
 			obvious-tempo uplifting danceable four-on-the-floor drum-machine digital buildup-breakdown )
     (false 
@@ -419,13 +419,13 @@
     ;-------------------- epic --------------------
     (subgenre (name trance)(subgenre-name epic)(subgenre-min-bpm 136)(subgenre-max-bpm 144)
     (true 
-			obvious-tempo cold uplifting danceable four-on-the-floor drum-machine digital vocals-present 
+			verse-chorus obvious-tempo cold uplifting danceable four-on-the-floor drum-machine digital vocals-present 
             buildup-breakdown vocals-studio-recorded vocals-female vocals-heavily-effected vocals-melodic vocals-english)
     (false 
 			soulful funky jazzy warm ambient 
            	dystopian hypnotic aggressive  happy sad abrasive cheesy 
             breakbeat percussion-none sampled-breaks live-drummer 
-           	verse-chorus  repetitive minimalist 
+           	repetitive minimalist 
            	syncopated intricate-rhythms groovy-feel 
            	band-not-electronic sparse-instrumentation turntablism three-oh-three 
            	thin rhythmic-timbre 
@@ -580,7 +580,7 @@
     (false 
 			soulful funky jazzy ambient cold uplifting 
            	dystopian hypnotic happy sad abrasive cheesy  
-           	four-on-the-floor percussion-none drum-machine live-drummer 
+           	four-on-the-floor percussion-none drum-machine  live-drummer 
            	buildup-breakdown repetitive minimalist 
            	band-not-electronic sparse-instrumentation turntablism three-oh-three 
            	digital thin rhythmic-timbre vocals-studio-recorded 

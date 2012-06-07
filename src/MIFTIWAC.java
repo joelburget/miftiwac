@@ -68,9 +68,9 @@ public class MIFTIWAC extends Application implements Initializable {
 
     }   
     
-    public void init(Stage primaryStage){
+    public void setPrimaryValues(){
     	//startup initializations
-    	questionPage = new Dynamic_page();
+    	//questionPage = new Dynamic_page();
     	questionText = new ArrayList<String>();
     	questionDescription = "NULL";
     	hasUserResponded = new SimpleIntegerProperty(0);
@@ -79,6 +79,36 @@ public class MIFTIWAC extends Application implements Initializable {
     	answer = 0;
     	dynamicPageType = 0;
     	blankPage = true;
+    	
+    	//this is the listener the responds every time the user clicks on the "Continue..." button in the GUI
+		MIFTIWAC.hasUserResponded.addListener(new ChangeListener<Number>(){
+			@Override
+			public void changed(ObservableValue<? extends Number> observable,
+					Number oldValue, Number newValue) {	
+				int questionTextSize = questionText.size();
+				for(int i = 0; i < questionTextSize; i++){
+					questionText.remove(0);
+				}
+				
+				// If radio, subtract 2 for offset between two arrays.
+				if (MIFTIWAC.dynamicPageType == 3) {
+					MIFTIWAC.answer -= 1;
+				}
+
+				// Put answer into question.
+				MIFTIWAC.question.setAnswer(MIFTIWAC.answer);
+				
+				try {
+					// resume execution of Jess code
+					MIFTIWAC.engine.run();
+				} catch (JessException e) {
+					e.printStackTrace();
+				}
+			}
+		});
+    }
+    
+    public void init(Stage primaryStage){
     	
     	//loads the fxml file for the MIFTIWAC homepage and then sets it as the primary stage
     	//try {
@@ -114,37 +144,13 @@ public class MIFTIWAC extends Application implements Initializable {
          });
          MIFTIWAC.rootOfQuestionPage.getChildren().add(testButton);
          
-    	
-		//this is the listener the responds every time the user clicks on the "Continue..." button in the GUI
-		MIFTIWAC.hasUserResponded.addListener(new ChangeListener<Number>(){
-			@Override
-			public void changed(ObservableValue<? extends Number> observable,
-					Number oldValue, Number newValue) {	
-				int questionTextSize = questionText.size();
-				for(int i = 0; i < questionTextSize; i++){
-					questionText.remove(0);
-				}
-				
-				// If radio, subtract 2 for offset between two arrays.
-				if (MIFTIWAC.dynamicPageType == 3) {
-					MIFTIWAC.answer -= 1;
-				}
-
-				// Put answer into question.
-				MIFTIWAC.question.setAnswer(MIFTIWAC.answer);
-				
-				try {
-					// resume execution of Jess code
-					MIFTIWAC.engine.run();
-				} catch (JessException e) {
-					e.printStackTrace();
-				}
-			}
-		});
+         //setPrimaryValues();
     }
    
 	public void startButtonHandler(ActionEvent a){
 		// Create, load, and run the Jess rule engine
+		questionPage = new Dynamic_page();
+		setPrimaryValues();
 		try {
 			MIFTIWAC.engine = new Rete();
 			engine.reset();
@@ -194,7 +200,7 @@ public class MIFTIWAC extends Application implements Initializable {
 			break;
 		}
 		
-		System.out.println("This is questionText: " + MIFTIWAC.questionText);
+		System.out.println("This is questionTest: " + MIFTIWAC.questionText);
 
 		try {
 			// stop execution of Jess engine until engine.run is called
