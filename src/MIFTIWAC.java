@@ -120,8 +120,8 @@ public class MIFTIWAC extends Application implements Initializable {
     	 MIFTIWAC.rootOfQuestionPage = new Group();
          primaryStage.setScene(new Scene(MIFTIWAC.rootOfQuestionPage));
          webView = new WebView();
-         webView.setMinSize(1200, 800);
-         webView.setPrefSize(1200, 800); 	
+         webView.setMinSize(1400, 900);
+         webView.setPrefSize(1400, 900); 	
          final WebEngine eng = webView.getEngine();
          eng.load("http://cse731group3.wordpress.com");
          
@@ -134,7 +134,7 @@ public class MIFTIWAC extends Application implements Initializable {
         		"-fx-shadow-highlight-color: derive(-fx-background, -65%);" +
          		"-fx-cursor: hand;");
          testButton.setDefaultButton(true);
-         testButton.setLayoutX(535.0);
+         testButton.setLayoutX(635.0);
          testButton.setLayoutY(14.0);
          testButton.setPrefSize(131.0, 50.0);
          testButton.setOnAction(new EventHandler<ActionEvent>() {

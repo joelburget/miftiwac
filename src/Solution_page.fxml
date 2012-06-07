@@ -70,8 +70,8 @@
     </SplitPane>
   </children>
   <stylesheets>
-    <!--URL value="file:resources/files/styles.css" /-->
+    <URL value="file:resources/files/styles.css" />
     <!--URL value="file:/C:/Users/Idle_Thought/Google%20Drive/Workspaces/workspace/MIFTIWAC/resources/files/styles.css" /-->
-    <URL value="file:/C:/Users/Jon%20Martin/Google%20Drive/Workspaces/workspace/MIFTIWAC3/resources/files/styles.css" />
+    <!--URL value="file:/C:/Users/Jon%20Martin/Google%20Drive/Workspaces/workspace/MIFTIWAC3/resources/files/styles.css" /-->
   </stylesheets>
 </AnchorPane>

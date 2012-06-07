@@ -77,7 +77,8 @@
     (slot bpm (type INTEGER) (default 0))
     (slot toggle (allowed-values true false) (default false))
     (slot bpm-points (type INTEGER) (default 15))
-    (slot threshold (type INTEGER) (default 50))
+    (slot threshold-def (type INTEGER) (default 75))
+    (slot threshold (type INTEGER) (default 75))
     (slot neg-threshold (type INTEGER) (default 25))
 )
 
@@ -1477,7 +1478,7 @@
 )
 
 (defrule no-solution
-    (declare (salience 50))
+    (declare (salience 100))
 	?wm <- (working-memory (unknown $?list))
     (test (= (length$ $?list) 0))
     =>
@@ -1486,6 +1487,12 @@
     (modify ?q (answerTexts "No_Genre" "No_Subgenre" "We were unable to find a matching result given your input.  Sorry, please try again."))
     (question-ready)
 )
+
+(defrule one-solution-left
+    (declare (salience 100))
+    ?wm <- (working-memory (unknown $?list))
+    =>
+    )
 
 (defrule next-question-answer
     (declare (salience 69))
@@ -1505,7 +1512,7 @@
 	     )
     (modify ?m (mode question))
     )
-    
+
 (defrule membership-threshold
     (declare (salience 100))
     ?wm <- (working-memory (threshold ?thresh))
@@ -1525,11 +1532,17 @@
 	)
 )
 
-/*(defrule lower-membership-threshold
+(defrule lower-membership-threshold
     (declare (salience 99))
     ?wm <- (working-memory (threshold ?thresh))
      =>
-    )*/
+    (bind ?resnum (count-query-results above-threshold ?thresh))
+    (printout t "Resnum: " ?resnum crlf)
+    (if (and (< ?resnum 1) (> ?wm.threshold ?wm.threshold-def))then
+        (modify ?wm (threshold (- ?wm.threshold 5)))
+        (printout t "New threshold: " ?wm.threshold crlf)
+        )
+    )
 
 (defrule penalty-membership-threshold
     (declare (salience 98))
@@ -1573,6 +1586,7 @@
         (modify ?wm (false $?f obvious-tempo))
         (modify ?wm (unknown $?ua $?ub))
         (modify ?wm (threshold (/ ?wm.threshold 3)))
+        (modify ?wm (threshold (/ ?wm.threshold-def 3)))
         (modify ?wm (neg-threshold (/ ?wm.neg-threshold 3)))
         (update-membership obvious-tempo (- 0 ?mv))
      )

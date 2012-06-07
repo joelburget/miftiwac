@@ -68,6 +68,7 @@ public class Solution_page implements Initializable {
 			this.subGenreNameLabel.setText(tempSubGenre);
 			this.genreNameLabel.setText(info.get(0).toString().substring(1, info.get(0).toString().length()-1));
 			this.genreImagePanel.setStyle(info.get(1).toString().substring(1, info.get(1).toString().length()-1));
+			this.genreImagePanel.setStyle("-fx-background-size: 100% 100%;" + (info.get(1).toString().substring(1, info.get(1).toString().length()-1)));
 			this.genreDescription.setText(info.get(2).toString().substring(1, info.get(2).toString().length()-1));
 			
 			int numOfRelatedArtists = info.get(3).size();
