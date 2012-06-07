@@ -144,6 +144,7 @@ public class MIFTIWAC extends Application implements Initializable {
 		// Sets the type of the question for the GUI.
 		MIFTIWAC.questionText.add(MIFTIWAC.question.getQuestionText());
 		MIFTIWAC.questionDescription = MIFTIWAC.question.getExplanation();
+		System.out.println("Mydebug: " + MIFTIWAC.questionDescription);
 		switch (MIFTIWAC.question.getType()) {
 		case 0: // boolean
 			MIFTIWAC.dynamicPageType = 1;

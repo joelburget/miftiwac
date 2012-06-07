@@ -705,7 +705,7 @@
     (unknown))
     
     ;-------------------- speedcore --------------------
-    (subgenre (name hardcore)(subgenre-name speedcore)(subgenre-min-bpm 225)(subgenre-max-bpm 1000)
+    (subgenre (name hardcore)(subgenre-name speedcore)(subgenre-min-bpm 225)(subgenre-max-bpm 10000)
     (true 
 			obvious-tempo cold dystopian aggressive abrasive four-on-the-floor 
             drum-machine repetitive sparse-instrumentation rhythmic-timbre digital)
@@ -1022,8 +1022,8 @@
     
      (question-template (reference-attribute vocals-heavily-effected)
         (membership-value 5)
-        (question-text "vocals-heavily-effected")
-        (explanation-text "vocals-heavily-effected")
+        (question-text "Are the vocals heavily effected?  Do they not sound like a natural human voice?")
+        (explanation-text "Some genres of electronic music favor electronically modulated vocals to add interest.")
         (question-type 0)
      ) 
     
@@ -1204,7 +1204,7 @@
     
     (question-template (reference-attribute thin)
         (membership-value 5)
-        (question-text "Is the range of frequency that this song occupies small?  Does it sound monophoinic?  Does it have a closed-down (as opposed to open) feeling?")
+        (question-text "Is the range of frequency that this song occupies small?  Does it sound monophoinic?  Does it have a closed-down feeling?")
         (explanation-text "Differences in the mixing skills of the producer and the producers intention can result in music that sounds closed-down and thin, as opposed to wide and open feeling.")
         (question-type 0)
      )
@@ -1360,6 +1360,7 @@
     ?m <- (qa-toggle (mode ?mm))
     (test (eq ?mm question))
     ?wm <- (working-memory (unknown $?list))
+    (test (> (length$ $?list) 0))
     =>
     (bind $?counts (create$))
     (foreach ?attr $?list 
@@ -1398,6 +1399,17 @@
     (if (eq ?wm.toggle true) then (modify ?wm (toggle false))
         else (modify ?wm (toggle true))
     )
+)
+
+(defrule no-solution
+    (declare (salience 50))
+	?wm <- (working-memory (unknown $?list))
+    (test (= (length$ $?list) 0))
+    =>
+    (printout t "No-Solution rule match OMG OMG OMG OMG!!!")
+    (modify ?q (type 3))
+    (modify ?q (answerTexts "No_Genre" "No_Subgenre" "We were unable to find a matching result given your input.  Sorry, please try again."))
+    (question-ready)
 )
 
 (defrule next-question-answer
@@ -1535,21 +1547,20 @@
     (test (not (eq ?bpm 0)))
 	=>
     (update ?q.OBJECT)
+    (printout t "wtf: " ?q.answer crlf)
     (if (eq ?q.answer 0) then
     	(modify ?wm (true $?t four-on-the-floor))
         (modify ?wm (false $?f breakbeat percussion-none))
         (update-membership four-on-the-floor 25)
-    else 
-    (if (eq ?q.answer 1) then
+    else (if (eq ?q.answer 1) then
 	    (modify ?wm (true $?t breakbeat))
 	    (modify ?wm (false $?f four-on-the-floor percussion-none))
 	    (update-membership breakbeat 25)
-    else
+    else (if (eq ?q.answer 2) then
         (modify ?wm (true $?t percussion-none))
 	    (modify ?wm (false $?f four-on-the-floor breakbeat))
 	    (update-membership percussion-none 25)    
-    	)
-    )
+    	)))
     (modify ?wm (unknown (complement$ (create$ four-on-the-floor breakbeat percussion-none) (create$ $?ua four-on-the-floor $?ub))))
 	(modify ?m (mode question))
 )
@@ -1578,6 +1589,7 @@ Buildup Breakdown - heavy emphasis on tension and release through anticipation o
     ?wm <- (working-memory (true $?t) (false $?f) (unknown $?a verse-chorus $?b))
     =>
     (update ?q.OBJECT)
+    (printout t "wtf: " ?q.answer crlf)
     (if (eq ?q.answer 0) then
 		(modify ?wm (true $?t verse-chorus))
         (modify ?wm (false $?f repetitive minimalist buildup-breakdown))

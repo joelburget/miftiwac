@@ -319,7 +319,7 @@ public class Dynamic_page implements Initializable {
         			}
         		} else if(MIFTIWAC.dynamicPageType == 3){
         			//radio button question
-        			for(int i = 1; i < 5; i++){
+        			for(int i = 0; i < 5; i++){
         				if(radioButtons[i].isSelected()){
         					MIFTIWAC.answer = i+1;
         				}
@@ -469,7 +469,7 @@ public class Dynamic_page implements Initializable {
             	final Stage stage = new Stage(StageStyle.UTILITY);
             	
                 Group bpmCounterPopup = new Group();
-               // bpmCounterPopup.setStyle("-fx-background-image: url('file:resources/pictures/bpm_background.png');");
+                //bpmCounterPopup.setStyle("-fx-background-image: url('file:resources/pictures/bpm_background.png');");
                 
                 stage.setScene(new Scene(bpmCounterPopup, 600, 500, Color.WHITE));
             	
@@ -793,6 +793,7 @@ public class Dynamic_page implements Initializable {
 				try {
 					MIFTIWAC.mainStage.setScene(new Scene((Parent)FXMLLoader.load(getClass().getResource("Solution_page.fxml"))));
 				} catch (IOException e) {
+					System.out.println("Error trying to display solution page.  subGenreAnswer was: " + MIFTIWAC.subGenreAnswer);
 					e.printStackTrace();
 				}
 				MIFTIWAC.mainStage.show();
