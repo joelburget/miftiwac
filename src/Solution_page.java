@@ -45,24 +45,25 @@ public class Solution_page implements Initializable {
 		readInSolutionInfo();
     	readInRelatedArtistInfo();
 		
-		if (MIFTIWAC.blankPage == false && solutionPageInformation.containsValue(MIFTIWAC.subGenreAnswer)) {
-			String tempSubGenre = MIFTIWAC.subGenreAnswer;
+    	//Goes through and capitalizes all of the first letters of each word
+    	String tempSubGenre = MIFTIWAC.subGenreAnswer;
+    	
+    	char[] chars = tempSubGenre.toCharArray();
+		boolean found = false;
+		for (int i = 0; i < chars.length; i++) {
+			if (!found && Character.isLetter(chars[i])) {
+				chars[i] = Character.toUpperCase(chars[i]);
+				found = true;
+			} else if (Character.isWhitespace(chars[i]) || chars[i]=='.' || chars[i]=='\'' || chars[i]=='-') {
+				found = false;
+			}
+		}
+		tempSubGenre = String.valueOf(chars);
+    	
+		if (MIFTIWAC.blankPage == false && solutionPageInformation.containsKey(tempSubGenre)) {
 			System.out.println("The subgenre should be: " + MIFTIWAC.subGenreAnswer);
 			
 			ArrayList<ArrayList<String>> info = new ArrayList<ArrayList<String>>(solutionPageInformation.get(tempSubGenre));
-			
-			//Goes through and capitalizes all of the first letters of each word
-			char[] chars = tempSubGenre.toCharArray();
-			boolean found = false;
-			for (int i = 0; i < chars.length; i++) {
-				if (!found && Character.isLetter(chars[i])) {
-					chars[i] = Character.toUpperCase(chars[i]);
-					found = true;
-				} else if (Character.isWhitespace(chars[i]) || chars[i]=='.' || chars[i]=='\'' || chars[i]=='-') {
-					found = false;
-				}
-			}
-			tempSubGenre = String.valueOf(chars);
 			
 			this.subGenreNameLabel.setText(tempSubGenre);
 			this.genreNameLabel.setText(info.get(0).toString().substring(1, info.get(0).toString().length()-1));
@@ -108,7 +109,7 @@ public class Solution_page implements Initializable {
 	    		if((text.next()).compareToIgnoreCase("----------------------------") == 0){
 	    			text.hasNext();
 		    		if(text.hasNext()){
-		    			subGenre = text.next().toLowerCase();						//SubGenre
+		    			subGenre = text.next();						//SubGenre
 		    			//System.out.println(subGenre);
 		    		}if(text.hasNext()){
 		    			genre.add(text.next());						//Genre - 0

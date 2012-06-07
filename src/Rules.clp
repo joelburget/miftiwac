@@ -76,8 +76,9 @@
     extends subgenre
     (slot bpm (type INTEGER) (default 0))
     (slot toggle (allowed-values true false) (default false))
-    (slot threshold (type INTEGER) (default 60))
-    (slot neg-threshold (type INTEGER) (default 30))
+    (slot bpm-points (type INTEGER) (default 15))
+    (slot threshold (type INTEGER) (default 50))
+    (slot neg-threshold (type INTEGER) (default 25))
 )
 
 (deftemplate question-template
@@ -113,7 +114,7 @@
           	vocals-present vocals-male vocals-female vocals-studio-recorded band-not-electronic
           	vocals-melodic vocals-english)
     (false 
-            jazzy ambient uplifting dystopian hypnotic aggressive  happy sad abrasive cheesy 
+            cold jazzy ambient uplifting dystopian hypnotic aggressive  happy sad abrasive cheesy 
             breakbeat percussion-none sampled-breaks drum-machine buildup-breakdown repetitive minimalist 
             intricate-rhythms rhythmic-timbre turntablism three-oh-three digital thin sparse-instrumentation 
             vocals-sampled vocals-heavily-effected  vocals-breathy vocals-diva vocals-rap-style vocals-unpitched)
@@ -770,7 +771,7 @@
     (unknown))
     
     ;-------------------- musique concrete/tape music --------------------
-    (subgenre (name downtempo)(subgenre-name musique-concrete)(subgenre-min-bpm 0)(subgenre-max-bpm 0)
+    (subgenre (name downtempo)(subgenre-name musique-concrete)(subgenre-min-bpm -10)(subgenre-max-bpm -10)
     (true 
 			abrasive percussion-none minimalist sparse-instrumentation rhythmic-timbre )
     (false 
@@ -834,7 +835,7 @@
     (unknown))
     
     ;-------------------- minimalism --------------------
-    (subgenre (name downtempo)(subgenre-name minimalism)(subgenre-min-bpm 0)(subgenre-max-bpm 0)
+    (subgenre (name downtempo)(subgenre-name minimalism)(subgenre-min-bpm -10)(subgenre-max-bpm -10)
     (true 
 			ambient cold hypnotic percussion-none minimalist band-not-electronic )
     (false 
@@ -851,7 +852,7 @@
     (unknown))
     
     ;-------------------- ambient --------------------
-    (subgenre (name downtempo)(subgenre-name ambient)(subgenre-min-bpm 0)(subgenre-max-bpm 0)
+    (subgenre (name downtempo)(subgenre-name ambient)(subgenre-min-bpm -10)(subgenre-max-bpm -10)
     (true 
 			ambient cold hypnotic percussion-none minimalist digital )
     (false 
@@ -1322,19 +1323,69 @@
 )
 
 (deffunction explanation-system (?sg ?wm)
-	(bind $?attr-to-exp (intersection$ ?sg.true ?wm.true))
+	(bind $?true-attr-to-exp (intersection$ ?sg.true ?wm.true))
+    (bind $?false-attr-to-exp (intersection$ ?sg.false ?wm.false))
     (bind ?explanation-string "")
-    ;hard-code explanations here
-    (bind ?explanation-string (str-cat ?explanation-string "You indicated that the music had a tempo of " ?wm.bpm " bpm.  This contributed " (round (* 100 (/ 20 ?sg.membership-value))) "% to the final decision.
-"))
-    (foreach ?attr $?attr-to-exp
+    
+    ;determine if is in bpm range
+    (bind ?in-range FALSE)
+    (bind ?result (run-query* bpm-inside-search ?wm.bpm))
+    (while (?result next)
+		(bind ?subg (?result getObject subgenre))
+        (if (eq ?sg.subgenre-name ?subg.subgenre-name) then
+            (bind ?in-range TRUE)
+            )
+        )
+    
+    ;sum total points
+    (bind ?total-points 0)
+    (foreach ?attr $?true-attr-to-exp
+        (bind ?result (run-query* attribute-question ?attr))
+        (while (?result next)
+            (bind ?qt (?result getObject question-template))
+            (bind ?attr-mem-value ?qt.membership-value)
+            (bind ?total-points (+ ?total-points ?qt.membership-value))
+            )
+        )
+    
+    (foreach ?attr $?false-attr-to-exp
+        (bind ?result (run-query* attribute-question ?attr))
+        (while (?result next)
+            (bind ?qt (?result getObject question-template))
+            (bind ?attr-mem-value ?qt.membership-value)
+            (bind ?total-points (+ ?total-points ?qt.membership-value))
+            )
+        )
+    
+    ;if bpm was in range, add points
+    (if ?in-range then (bind ?total-points (+ ?total-points ?wm.bpm-points)))
+    
+    ;if bpm was correct, explain it
+    (if ?in-range then (bind ?explanation-string (str-cat ?explanation-string "You indicated that the music had a tempo of " ?wm.bpm " bpm.  This contributed " (round (* 100 (/ 20 ?total-points))) "% to the final decision.
+")))
+    
+    (printout t "Total points: " ?total-points crlf)
+    
+    ;now explain each true attribute
+    (foreach ?attr $?true-attr-to-exp
         (bind ?attr-mem-value 0)
         (bind ?result (run-query* attribute-question ?attr))
         (while (?result next)
             (bind ?qt (?result getObject question-template))
             (bind ?attr-mem-value ?qt.membership-value)
             )
-        (bind ?explanation-string (str-cat ?explanation-string "You indicated that the music has the characteristic " ?attr " which contributed " (round (* 100 (/ ?attr-mem-value ?sg.membership-value))) "% to the final decision.
+        (bind ?explanation-string (str-cat ?explanation-string "You indicated that the music has the characteristic " ?attr " which contributed " (round (* 100 (/ ?attr-mem-value ?total-points))) "% to the final decision.
+")))
+    
+    ;now explain each false attribute
+    (foreach ?attr $?false-attr-to-exp
+        (bind ?attr-mem-value 0)
+        (bind ?result (run-query* attribute-question ?attr))
+        (while (?result next)
+            (bind ?qt (?result getObject question-template))
+            (bind ?attr-mem-value ?qt.membership-value)
+            )
+        (bind ?explanation-string (str-cat ?explanation-string "You indicated that the music has the characteristic " ?attr " which contributed " (round (* 100 (/ ?attr-mem-value ?total-points))) "% to the final decision.
 ")))
     (return ?explanation-string)
 )
@@ -1451,6 +1502,7 @@
     else
         (modify ?q (type 3))
         (modify ?q (answerTexts ?sg.name ?sg.subgenre-name (explanation-system ?sg ?wm)))
+        (printout t "Answer is: " ?sg.subgenre-name crlf)
         (question-ready)
 	)
 )
@@ -1502,7 +1554,8 @@
      else
         (modify ?wm (false $?f obvious-tempo))
         (modify ?wm (unknown $?ua $?ub))
-        (update-membership obvious-tempo (- 0 ?mv))
+        (modify ?wm (threshold (/ ?wm.threshold 3)))
+        (modify ?wm (neg-threshold (/ ?wm.neg-threshold 3)))
         (update-membership obvious-tempo (- 0 ?mv))
      )
     (modify ?m (mode question))
@@ -1531,7 +1584,7 @@
 	=>
     (update ?q.OBJECT)
     (modify ?wm (bpm ?q.answer))
-    (update-membership-bpm ?wm.bpm 15)
+    (update-membership-bpm ?wm.bpm ?wm.bpm-points)
     (modify ?m (mode question))
 )
 
@@ -1582,7 +1635,8 @@ If there are no drums, choose no percussion present."))
 	(declare (salience 84))
     ?m <- (qa-toggle (mode ?mm))
     (test (eq ?mm question))
-    ?wm <- (working-memory (true $?t) (false $?f) (unknown $?a verse-chorus $?b))
+    ?wm <- (working-memory (true $?t) (false $?f) (unknown $?a verse-chorus $?b) (bpm ?bpm))
+    (test (not (eq ?bpm 0)))
     =>
     (modify ?q (type 2))
     (modify ?q (questionText "Which of the following best describes the song structure?"))
@@ -1599,7 +1653,8 @@ Buildup Breakdown - heavy emphasis on tension and release through anticipation o
 	(declare (salience 84))
     ?m <- (qa-toggle (mode ?mm))
     (test (eq ?mm answer))
-    ?wm <- (working-memory (true $?t) (false $?f) (unknown $?a verse-chorus $?b))
+    ?wm <- (working-memory (true $?t) (false $?f) (unknown $?a verse-chorus $?b)  (bpm ?bpm))
+    (test (not (eq ?bpm 0)))
     =>
     (update ?q.OBJECT)
     (printout t "wtf: " ?q.answer crlf)
@@ -1628,7 +1683,8 @@ Buildup Breakdown - heavy emphasis on tension and release through anticipation o
     (declare (salience 82))
     ?m <- (qa-toggle (mode ?mm))
     (test (eq ?mm question))
-    ?wm <- (working-memory (true $?t) (false $?f) (unknown $?a vocals-present $?b))
+    ?wm <- (working-memory (true $?t) (false $?f) (unknown $?a vocals-present $?b)  (bpm ?bpm))
+    (test (not (eq ?bpm 0)))
     =>
 	(modify ?q (type 0))
     (modify ?q (questionText "Are there vocals present in the song?"))
@@ -1641,7 +1697,8 @@ Buildup Breakdown - heavy emphasis on tension and release through anticipation o
     (declare (salience 82))
     ?m <- (qa-toggle (mode ?mm))
     (test (eq ?mm answer))
-    ?wm <- (working-memory (true $?t) (false $?f) (unknown $?a vocals-present $?b))
+    ?wm <- (working-memory (true $?t) (false $?f) (unknown $?a vocals-present $?b) (bpm ?bpm))
+    (test (not (eq ?bpm 0)))
     =>
     (update ?q.OBJECT)
     (if (int-to-bool ?q.answer) then

@@ -194,7 +194,7 @@ public class MIFTIWAC extends Application implements Initializable {
 			break;
 		}
 		
-		System.out.println("This is questionTest: " + MIFTIWAC.questionText);
+		System.out.println("This is questionText: " + MIFTIWAC.questionText);
 
 		try {
 			// stop execution of Jess engine until engine.run is called
