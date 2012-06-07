@@ -82,7 +82,7 @@ public class MIFTIWAC extends Application implements Initializable {
     	try {
     		MIFTIWAC.rootOfQuestionPage = new Group((Parent)(FXMLLoader.load(getClass().getResource("MIFTIWAC.fxml"))));
     		primaryStage.setScene(new Scene(MIFTIWAC.rootOfQuestionPage));
-            primaryStage.setStyle("-fx-background-image: url(file:resources/pictures/background.jpg);");
+            //primaryStage.setStyle("-fx-background-image: url(file:resources/pictures/background.jpg);");
     	} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -144,6 +144,7 @@ public class MIFTIWAC extends Application implements Initializable {
 		// Sets the type of the question for the GUI.
 		MIFTIWAC.questionText.add(MIFTIWAC.question.getQuestionText());
 		MIFTIWAC.questionDescription = MIFTIWAC.question.getExplanation();
+		System.out.println("Mydebug: " + MIFTIWAC.questionDescription);
 		switch (MIFTIWAC.question.getType()) {
 		case 0: // boolean
 			MIFTIWAC.dynamicPageType = 1;

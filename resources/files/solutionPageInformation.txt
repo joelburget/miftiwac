@@ -500,7 +500,7 @@ Cut Chemist
 Big-Beat
 Breakbeat
 -fx-background-image: url('file:resources/pictures/breakbeat.jpg')
-Driven by heaby breakbeats and synthesizer-generated loops and patterns in common with techno and acid house.
+Driven by heady breakbeats and synthesizer-generated loops and patterns in common with techno and acid house.
 Chemical Brothers
 Fatboy Slim
 Wildchild
@@ -740,4 +740,11 @@ Mike Oldfield
 Terry Riley
 Steve Reich
 Philip Glass
+----------------------------
+----------------------------
+No_Subgenre
+No_Genre
+-fx-background-image: url('file:resources/pictures/work_in_progress.png')
+We couldn't find a solution.
+No Artist
 ----------------------------
