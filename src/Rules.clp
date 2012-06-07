@@ -97,6 +97,16 @@
     (slot explanation-text (type STRING))
     (slot question-type (type INTEGER) (allowed-values 0 1 2 3))
     (multislot answers (type STRING))
+    (multislot removals (type STRING) (allowed-values soulful funky jazzy warm ambient cold uplifting 
+            						dystopian hypnotic aggressive  happy sad abrasive cheesy danceable 
+            						four-on-the-floor breakbeat percussion-none sampled-breaks drum-machine live-drummer 
+            						verse-chorus buildup-breakdown repetitive minimalist 
+            						obvious-tempo syncopated intricate-rhythms groovy-feel 
+            						band-not-electronic sparse-instrumentation turntablism three-oh-three 
+            						digital thin rhythmic-timbre 
+            						vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
+            						vocals-heavily-effected  vocals-breathy vocals-diva 
+            						vocals-rap-style vocals-melodic vocals-unpitched vocals-english))
 )
 
 ;-----------------------------------------------------------------------------
@@ -942,6 +952,7 @@
         (question-text "Are the vocals present in the song performed by a male?")
         (explanation-text "If this song contains vocals by a male, or if you think the genre that the song belongs to can have vocals sung by a male, answer yes.")
         (question-type 0)
+        (removals vocals-female)
      )
     
      (question-template (reference-attribute vocals-female)
@@ -949,6 +960,7 @@
         (question-text "Are the vocals present in the song performed by a female?")
         (explanation-text "If this song contains vocals by a female, or if you think the genre that the song belongs to can have vocals sung by a female, answer yes.")
         (question-type 0)
+        (removals vocals-male)
      )
 
     
@@ -985,6 +997,7 @@
         (question-text "Are the vocals unpitched?")
         (explanation-text "If the vocals aren't sung with particular musical notes, then they can be considered to be unpitched.")
         (question-type 0)
+        (removals vocals-melodic)
      )
     
      (question-template (reference-attribute vocals-melodic)
@@ -992,6 +1005,7 @@
         (question-text "Are the vocals melodic in nature?")
         (explanation-text "If the main theme of the song, usually the catchiest part, is sung then the vocals are melodic.")
         (question-type 0)
+        (removals vocals-unpitched)
      )
     
      (question-template (reference-attribute vocals-rap-style)
@@ -1006,6 +1020,7 @@
         (question-text "Does the song go out of its way to inspire feelings of happiness?")
         (explanation-text "Happy music is usually major and upbeat.  The question refers to music that's purposefully and intentionally happy sounding, more so than the average piece of music. ")
         (question-type 0)
+        (removals sad)
      ) 
     
     (question-template (reference-attribute soulful)
@@ -1048,6 +1063,7 @@
         (question-text "Does the song have a warm feel?")
         (explanation-text "Warm music is natural, human and comforting sounding.  It may produce feelings of nostalgia.")
         (question-type 0)
+        (removals cold)
      )
     
     (question-template (reference-attribute ambient)
@@ -1062,6 +1078,7 @@
         (question-text "Does the song have a cold feel?")
         (explanation-text "Cold music is unemotional and not comforting.  It will often sound inhuman and machine-made.")
         (question-type 0)
+        (removals warm)
      )
     
     (question-template (reference-attribute uplifting)
@@ -1097,6 +1114,7 @@
         (question-text "Does the song have a sad feel?")
         (explanation-text "Does the song evoke sad feelings when you listen to it?")
         (question-type 0)
+        (removals happy)
      )
     
     (question-template (reference-attribute abrasive)
@@ -1374,7 +1392,7 @@
             (bind ?qt (?result getObject question-template))
             (bind ?attr-mem-value ?qt.membership-value)
             )
-        (bind ?explanation-string (str-cat ?explanation-string "You indicated that the music has the characteristic " ?attr " which contributed " (round (* 100 (/ ?attr-mem-value ?total-points))) "% to the final decision.
+        (bind ?explanation-string (str-cat ?explanation-string "You indicated that the music possessed the characteristic " ?attr " which contributed " (round (* 100 (/ ?attr-mem-value ?total-points))) "% to the final decision.
 ")))
     
     ;now explain each false attribute
@@ -1385,7 +1403,7 @@
             (bind ?qt (?result getObject question-template))
             (bind ?attr-mem-value ?qt.membership-value)
             )
-        (bind ?explanation-string (str-cat ?explanation-string "You indicated that the music has the characteristic " ?attr " which contributed " (round (* 100 (/ ?attr-mem-value ?total-points))) "% to the final decision.
+        (bind ?explanation-string (str-cat ?explanation-string "You indicated that the music lacked the characteristic " ?attr " which contributed " (round (* 100 (/ ?attr-mem-value ?total-points))) "% to the final decision.
 ")))
     (return ?explanation-string)
 )
@@ -1478,7 +1496,7 @@
 	(update ?q.OBJECT)
 	(if (int-to-bool ?q.answer) then
 	    (modify ?wm (true (union$ ?wm.true (create$ ?m.attr))))
-	    (modify ?wm (unknown (complement$ (create$ ?m.attr) ?wm.unknown)))
+	    (modify ?wm (unknown (complement$ (create$ ?m.attr ?*nqt*.removals) ?wm.unknown)))
 	    (update-membership ?m.attr ?*nqt*.membership-value)
 	 else
 	    (modify ?wm (false (union$ ?wm.false (create$ ?m.attr))))
@@ -1616,15 +1634,15 @@ If there are no drums, choose no percussion present."))
     (printout t "wtf: " ?q.answer crlf)
     (if (eq ?q.answer 0) then
     	(modify ?wm (true $?t four-on-the-floor))
-        (modify ?wm (false $?f breakbeat percussion-none))
+        ;(modify ?wm (false $?f breakbeat percussion-none))
         (update-membership four-on-the-floor 25)
     else (if (eq ?q.answer 1) then
 	    (modify ?wm (true $?t breakbeat))
-	    (modify ?wm (false $?f four-on-the-floor percussion-none))
+	    ;(modify ?wm (false $?f four-on-the-floor percussion-none))
 	    (update-membership breakbeat 25)
     else (if (eq ?q.answer 2) then
         (modify ?wm (true $?t percussion-none))
-	    (modify ?wm (false $?f four-on-the-floor breakbeat))
+	    ;(modify ?wm (false $?f four-on-the-floor breakbeat))
 	    (update-membership percussion-none 25)    
     	)))
     (modify ?wm (unknown (complement$ (create$ four-on-the-floor breakbeat percussion-none) (create$ $?ua four-on-the-floor $?ub))))
@@ -1660,19 +1678,19 @@ Buildup Breakdown - heavy emphasis on tension and release through anticipation o
     (printout t "wtf: " ?q.answer crlf)
     (if (eq ?q.answer 0) then
 		(modify ?wm (true $?t verse-chorus))
-        (modify ?wm (false $?f repetitive minimalist buildup-breakdown))
+        ;(modify ?wm (false $?f repetitive minimalist buildup-breakdown))
         (update-membership verse-chorus 10)
     else (if (eq ?q.answer 1) then
         (modify ?wm (true $?t repetitive))
-        (modify ?wm (false $?f verse-chorus minimalist buildup-breakdown))
+        ;(modify ?wm (false $?f verse-chorus minimalist buildup-breakdown))
 		(update-membership repetitive 10)
 	else (if (eq ?q.answer 2) then
         (modify ?wm (true $?t minimalist))
-        (modify ?wm (false $?f verse-chorus repetitive buildup-breakdown))
+        ;(modify ?wm (false $?f verse-chorus repetitive buildup-breakdown))
         (update-membership minimalist 10)
     else (if (eq ?q.answer 3) then
         (modify ?wm (true $?t buildup-breakdown))
-        (modify ?wm (false $?f verse-chorus repetitive minimalist))
+        ;(modify ?wm (false $?f verse-chorus repetitive minimalist))
         (update-membership buildup-breakdown 10)
      	))))
     (modify ?wm (unknown (complement$ (create$ verse-chorus repetitive minimalist buildup-breakdown) (create$ $?a verse-chorus $?b))))
