@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import java.net.*?>
 <?import java.util.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -23,30 +24,56 @@
         </Menu>
       </menus>
     </MenuBar>
-    <Button id="button1" fx:id="submitButton" defaultButton="true" layoutX="530.0" layoutY="670.0" onAction="#submitButtonAction" prefHeight="47.0" prefWidth="140.0" text="Continue...">
+    <Button id="button1" fx:id="submitButton" defaultButton="true" layoutX="530.0" layoutY="715.0" onAction="#submitButtonAction" prefHeight="47.0" prefWidth="140.0" text="Continue...">
       <font>
         <Font name="System Bold Italic" size="20.0" />
       </font>
     </Button>
-    <Label fx:id="questionBox" layoutX="20.0" layoutY="50.0" prefHeight="286.0" prefWidth="1166.0" wrapText="true">
+    <Label fx:id="questionBox" alignment="TOP_LEFT" layoutX="64.0" layoutY="51.0" prefHeight="100.0" prefWidth="1122.0" text="Is there an obvious tempo?nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn" wrapText="true">
       <font>
         <Font size="35.0" />
       </font>
     </Label>
-    <Separator fx:id="separatorHorizontal1" layoutX="15.0" layoutY="348.0" prefHeight="4.0" prefWidth="1171.0" />
-    <RadioButton fx:id="radioButton1" layoutX="186.0" layoutY="390.0" prefHeight="50.0" prefWidth="750.0" text="radioButton1">
+    <Separator fx:id="separatorHorizontal1" layoutX="15.0" layoutY="409.0" prefHeight="4.0" prefWidth="1171.0" />
+    <RadioButton fx:id="radioButton1" layoutX="186.0" layoutY="435.0" prefHeight="50.0" prefWidth="750.0" text="radioButton1">
       <font>
-        <Font size="20.0" fx:id="x1" />
+        <Font size="23.0" fx:id="x2" />
       </font>
       <toggleGroup>
         <ToggleGroup fx:id="radioButtonOptions" />
       </toggleGroup>
     </RadioButton>
-    <RadioButton fx:id="radioButton2" font="$x1" layoutX="186.0" layoutY="440.0" prefHeight="50.0" prefWidth="750.0" text="radioButton2" toggleGroup="$radioButtonOptions" />
-    <RadioButton fx:id="radioButton3" font="$x1" layoutX="186.0" layoutY="490.0" prefHeight="50.0" prefWidth="750.0" text="radioButton3" toggleGroup="$radioButtonOptions" />
-    <RadioButton fx:id="radioButton4" font="$x1" layoutX="186.0" layoutY="540.0" prefHeight="50.0" prefWidth="750.0" text="radioButton4" toggleGroup="$radioButtonOptions" />
-    <RadioButton fx:id="radioButton5" font="$x1" layoutX="186.0" layoutY="590.0" prefHeight="50.0" prefWidth="750.0" text="radioButton5" toggleGroup="$radioButtonOptions" />
-    <Button fx:id="backButton" layoutX="470.0" layoutY="669.0" prefHeight="48.0" prefWidth="48.0" />
-    <Button fx:id="forwardButton" layoutX="682.0" layoutY="669.0" prefHeight="48.0" prefWidth="48.0" />
+    <RadioButton fx:id="radioButton2" font="$x2" layoutX="186.0" layoutY="490.0" prefHeight="50.0" prefWidth="750.0" text="radioButton2" toggleGroup="$radioButtonOptions" />
+    <RadioButton fx:id="radioButton3" font="$x2" layoutX="186.0" layoutY="540.0" prefHeight="50.0" prefWidth="750.0" text="radioButton3" toggleGroup="$radioButtonOptions" />
+    <RadioButton fx:id="radioButton4" font="$x2" layoutX="186.0" layoutY="590.0" prefHeight="50.0" prefWidth="750.0" text="radioButton4" toggleGroup="$radioButtonOptions" />
+    <RadioButton fx:id="radioButton5" font="$x2" layoutX="186.0" layoutY="640.0" prefHeight="50.0" prefWidth="750.0" text="radioButton5" toggleGroup="$radioButtonOptions" />
+    <Button fx:id="backButton" layoutX="470.0" layoutY="714.0" prefHeight="48.0" prefWidth="48.0" />
+    <Button fx:id="forwardButton" layoutX="682.0" layoutY="714.0" prefHeight="48.0" prefWidth="48.0" />
+    <TextArea id="textArea" editable="false" focusTraversable="false" layoutX="78.0" layoutY="151.0" prefHeight="230.0" prefWidth="1094.0" styleClass="textArea" text="Description 1&#10;&#10;Description 2&#10;&#10;Description 3&#10;&#10;Description 4&#10;&#10;Description 5" wrapText="true">
+      <stylesheets>
+        <URL value="file:/C:/Users/Jon%20Martin/Google%20Drive/Workspaces/workspace/MIFTIWAC3/resources/files/styles.css" />
+      </stylesheets>
+    </TextArea>
+    <ToggleButton fx:id="mediaToggleButton" focusTraversable="false" layoutX="130.0" layoutY="445.0" prefHeight="32.0" prefWidth="32.0" styleClass="mediaToggleButton">
+      <stylesheets>
+        <URL value="file:/C:/Users/Jon%20Martin/Google%20Drive/Workspaces/workspace/MIFTIWAC3/resources/files/styles.css" />
+      </stylesheets>
+    </ToggleButton>
+    <ToggleButton id="mediaToggleButton" focusTraversable="false" layoutX="20.0" layoutY="60.0" prefHeight="32.0" prefWidth="32.0" styleClass="mediaToggleButton">
+      <stylesheets>
+        <URL value="file:/C:/Users/Jon%20Martin/Google%20Drive/Workspaces/workspace/MIFTIWAC3/resources/files/styles.css" />
+      </stylesheets>
+    </ToggleButton>
+    <Button id="button2" layoutX="530.0" layoutY="472.0" minHeight="32.0" prefHeight="40.0" prefWidth="140.0" text="BPM Counter" textAlignment="CENTER">
+      <font>
+        <Font name="System Italic" size="20.0" />
+      </font>
+    </Button>
+    <TextField id="textField1" layoutX="496.0" layoutY="554.0" prefHeight="47.0" prefWidth="208.0" text="TextField" />
+    <Label id="label1" layoutX="283.0" layoutY="432.0" prefHeight="26.0" prefWidth="635.0" text="*If you are not sure what the BPM is, click 'BPM Counter' for assistance.*">
+      <font>
+        <Font size="20.0" fx:id="x1" />
+      </font>
+    </Label>
   </children>
 </AnchorPane>

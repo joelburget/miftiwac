@@ -15,7 +15,7 @@
 
 (deftemplate attributes
 	(multislot true (allowed-values 	soulful funky jazzy warm ambient cold uplifting 
-	            						dystopian hypnotic aggressive angry happy sad abrasive cheesy danceable 
+	            						dystopian hypnotic aggressive  happy sad abrasive cheesy danceable 
 	            						four-on-the-floor breakbeat percussion-none sampled-breaks drum-machine live-drummer 
 	            						verse-chorus buildup-breakdown repetitive minimalist 
 	            						obvious-tempo syncopated intricate-rhythms groovy-feel 
@@ -26,7 +26,7 @@
 	            						vocals-rap-style vocals-melodic vocals-unpitched vocals-english))
 	
 	(multislot false (allowed-values 	soulful funky jazzy warm ambient cold uplifting 
-	            						dystopian hypnotic aggressive angry happy sad abrasive cheesy danceable 
+	            						dystopian hypnotic aggressive  happy sad abrasive cheesy danceable 
 	            						four-on-the-floor breakbeat percussion-none sampled-breaks drum-machine live-drummer 
 	            						verse-chorus buildup-breakdown repetitive minimalist 
 	            						obvious-tempo syncopated intricate-rhythms groovy-feel 
@@ -37,7 +37,7 @@
 	            						vocals-rap-style vocals-melodic vocals-unpitched vocals-english))
 	
 	(multislot unknown (allowed-values 	soulful funky jazzy warm ambient cold uplifting 
-	            						dystopian hypnotic aggressive angry happy sad abrasive cheesy danceable 
+	            						dystopian hypnotic aggressive  happy sad abrasive cheesy danceable 
 	            						four-on-the-floor breakbeat percussion-none sampled-breaks drum-machine live-drummer 
 	            						verse-chorus buildup-breakdown repetitive minimalist 
 	            						obvious-tempo syncopated intricate-rhythms groovy-feel 
@@ -48,7 +48,7 @@
 	            						vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
 	        
 	        		   (default 		soulful funky jazzy warm ambient cold uplifting 
-	            						dystopian hypnotic aggressive angry happy sad abrasive cheesy danceable 
+	            						dystopian hypnotic aggressive  happy sad abrasive cheesy danceable 
 	            						four-on-the-floor breakbeat percussion-none sampled-breaks drum-machine live-drummer 
 	            						verse-chorus buildup-breakdown repetitive minimalist 
 	            						obvious-tempo syncopated intricate-rhythms groovy-feel 
@@ -76,12 +76,13 @@
     extends subgenre
     (slot bpm (type INTEGER) (default 0))
     (slot toggle (allowed-values true false) (default false))
-    (slot threshold (type INTEGER) (default 50))
+    (slot threshold (type INTEGER) (default 60))
+    (slot neg-threshold (type INTEGER) (default 30))
 )
 
 (deftemplate question-template
     (slot reference-attribute    (allowed-values soulful funky jazzy warm ambient cold uplifting 
-            						dystopian hypnotic aggressive angry happy sad abrasive cheesy danceable 
+            						dystopian hypnotic aggressive  happy sad abrasive cheesy danceable 
             						four-on-the-floor breakbeat percussion-none sampled-breaks drum-machine live-drummer 
             						verse-chorus buildup-breakdown repetitive minimalist 
             						obvious-tempo syncopated intricate-rhythms groovy-feel 
@@ -705,7 +706,7 @@
     (unknown))
     
     ;-------------------- speedcore --------------------
-    (subgenre (name hardcore)(subgenre-name speedcore)(subgenre-min-bpm 225)(subgenre-max-bpm 1000)
+    (subgenre (name hardcore)(subgenre-name speedcore)(subgenre-min-bpm 225)(subgenre-max-bpm 10000)
     (true 
 			obvious-tempo cold dystopian aggressive abrasive four-on-the-floor 
             drum-machine repetitive sparse-instrumentation rhythmic-timbre digital)
@@ -899,21 +900,21 @@
      ) 
     
      (question-template (reference-attribute four-on-the-floor)
-        (membership-value 25)
+        (membership-value 15)
         (question-text "four-on-the-floor")
         (explanation-text "four-on-the-floor")
         (question-type 0)
      ) 
     
      (question-template (reference-attribute breakbeat)
-        (membership-value 25)
+        (membership-value 15)
         (question-text "breakbeat")
         (explanation-text "breakbeat")
         (question-type 0)
      ) 
      
      (question-template (reference-attribute percussion-none)
-     	(membership-value 25)
+     	(membership-value 15)
      	(question-text "percussion-none")
      	(explanation-text "percussion-none")
      	(question-type 0)
@@ -1022,8 +1023,8 @@
     
      (question-template (reference-attribute vocals-heavily-effected)
         (membership-value 5)
-        (question-text "vocals-heavily-effected")
-        (explanation-text "vocals-heavily-effected")
+        (question-text "Are the vocals heavily effected?  Do they not sound like a natural human voice?")
+        (explanation-text "Some genres of electronic music favor electronically modulated vocals to add interest.")
         (question-type 0)
      ) 
     
@@ -1087,13 +1088,6 @@
         (membership-value 5)
         (question-text "Does the song feel aggressive?")
         (explanation-text "Aggressive music is fast and hard-hitting.  It inspires feelings of aggression.")
-        (question-type 0)
-     )
-    
-    (question-template (reference-attribute angry)
-        (membership-value 5)
-        (question-text "Does the song have an angry feel?")
-        (explanation-text "Does the song evoke feelings of anger when you listen to it?")
         (question-type 0)
      )
     
@@ -1189,7 +1183,7 @@
      )
     
     (question-template (reference-attribute three-oh-three)
-        (membership-value 20)
+        (membership-value 15)
         (question-text "Does this song use the Roland TB-303 synthesizer?")
         (explanation-text "The 303 is a famous synthesizer that is responsible for the acid-style sound featured in many types of acid music.")
         (question-type 0)
@@ -1204,7 +1198,7 @@
     
     (question-template (reference-attribute thin)
         (membership-value 5)
-        (question-text "Is the range of frequency that this song occupies small?  Does it sound monophoinic?  Does it have a closed-down (as opposed to open) feeling?")
+        (question-text "Is the range of frequency that this song occupies small?  Does it sound monophoinic?  Does it have a closed-down feeling?")
         (explanation-text "Differences in the mixing skills of the producer and the producers intention can result in music that sounds closed-down and thin, as opposed to wide and open feeling.")
         (question-type 0)
      )
@@ -1233,16 +1227,16 @@
 ;-----------------------------------------------------------------------------
 (defquery true-set-from-slot
     (declare (variables ?slot))
-    ?subgenre <- (subgenre (true $?a ?slot $?b))
+    ?subgenre <- (subgenre {subgenre-name != no-ad} (true $?a ?slot $?b))
 )
 
 (defquery false-set-from-slot
     (declare (variables ?slot))
-    ?subgenre <- (subgenre (false $?a ?slot $?b))
+    ?subgenre <- (subgenre {subgenre-name != no-ad} (false $?a ?slot $?b))
 )
 
 (defquery get-subgenres
-    ?subgenre <- (subgenre)
+    ?subgenre <- (subgenre {subgenre-name != no-ad})
 )
 
 (defquery get-question-from-attr
@@ -1252,11 +1246,11 @@
 
 (defquery bpm-inside-search
     (declare (variables ?bpm))
-    ?subgenre <- (subgenre {(subgenre-min-bpm > -1 && subgenre-max-bpm > -1) && (subgenre-min-bpm <= ?bpm && subgenre-max-bpm >= ?bpm)}))
+    ?subgenre <- (subgenre {subgenre-name != no-ad} {(subgenre-min-bpm > -1 && subgenre-max-bpm > -1) && (subgenre-min-bpm <= ?bpm && subgenre-max-bpm >= ?bpm)}))
 
 (defquery bpm-outside-search
     (declare (variables ?bpm))
-    ?subgenre <- (subgenre {(subgenre-min-bpm > -1 && subgenre-max-bpm > -1) && (subgenre-min-bpm > ?bpm || subgenre-max-bpm < ?bpm)}))
+    ?subgenre <- (subgenre {subgenre-name != no-ad} {(subgenre-min-bpm > -1 && subgenre-max-bpm > -1) && (subgenre-min-bpm > ?bpm || subgenre-max-bpm < ?bpm)}))
 
 (defquery above-threshold
     (declare (variables ?threshold))
@@ -1345,6 +1339,16 @@
     (return ?explanation-string)
 )
 
+(deffunction get-highest-membership ()
+    (bind ?result (run-query* get-subgenres))
+    (bind ?max -100)
+    (while (?result next)
+        (bind ?subg (?result getObject subgenre))
+        (if (> ?subg.membership-value ?max) then
+            (bind ?max ?subg.membership-value))
+        )
+    (return ?max)
+    )
 ;-----------------------------------------------------------------------------
 ; Rules
 ;-----------------------------------------------------------------------------
@@ -1360,19 +1364,22 @@
     ?m <- (qa-toggle (mode ?mm))
     (test (eq ?mm question))
     ?wm <- (working-memory (unknown $?list))
+    (test (> (length$ $?list) 0))
     =>
     (bind $?counts (create$))
     (foreach ?attr $?list 
 		(bind ?result (run-query* get-subgenres))
-        (bind ?count 0)
+        (bind ?truecount 0)
+        (bind ?falsecount 0)
     	(while (?result next)
         	(bind ?sg (?result getObject subgenre))
         	(if (subsetp (create$ ?attr) ?sg.true) then
-        	    (++ ?count)
+        	    (++ ?truecount)
        	 	else (if (subsetp (create$ ?attr) ?sg.false) then
-       	    	(-- ?count)))
+       	    	(++ ?falsecount)))
         	)
-		(bind $?counts (create$ $?counts (abs ?count)))
+        (printout t "Attr t/f split: " ?attr ", " ?truecount ", " ?falsecount crlf)
+		(bind $?counts (create$ $?counts (abs (- ?truecount ?falsecount))))
 	)
     
     ;(printout t $?list crlf)
@@ -1398,6 +1405,17 @@
     (if (eq ?wm.toggle true) then (modify ?wm (toggle false))
         else (modify ?wm (toggle true))
     )
+)
+
+(defrule no-solution
+    (declare (salience 50))
+	?wm <- (working-memory (unknown $?list))
+    (test (= (length$ $?list) 0))
+    =>
+    (printout t "No-Solution rule match OMG OMG OMG OMG!!!")
+    (modify ?q (type 3))
+    (modify ?q (answerTexts "No_Genre" "No_Subgenre" "We were unable to find a matching result given your input.  Sorry, please try again."))
+    (question-ready)
 )
 
 (defrule next-question-answer
@@ -1437,11 +1455,17 @@
 	)
 )
 
+/*(defrule lower-membership-threshold
+    (declare (salience 99))
+    ?wm <- (working-memory (threshold ?thresh))
+     =>
+    )*/
+
 (defrule penalty-membership-threshold
     (declare (salience 98))
-    ?wm <- (working-memory (threshold ?thresh))
+    ?wm <- (working-memory (threshold ?thresh) (neg-threshold ?neg-thresh))
     ?sg <- (subgenre (subgenre-name ?sgname)(membership-value ?membership))
-    (test (> (- ?thresh ?membership) 50))
+    (test (> (- (get-highest-membership) ?membership) ?neg-thresh))
     (test (not(eq ?sgname no-ad)))
     =>
     (printout t "Eliminated subgenre " ?sgname " with membership value " ?membership crlf)
@@ -1471,7 +1495,6 @@
     ?qt <- (question-template (reference-attribute obvious-tempo) (membership-value ?mv))
     =>
     (update ?q.OBJECT)
-    (printout t "Answer: " ?q.answer crlf)
 	(if (int-to-bool ?q.answer) then
         (modify ?wm (true $?t obvious-tempo))
         (modify ?wm (unknown $?ua $?ub))
@@ -1508,7 +1531,7 @@
 	=>
     (update ?q.OBJECT)
     (modify ?wm (bpm ?q.answer))
-    (update-membership-bpm ?wm.bpm 20)
+    (update-membership-bpm ?wm.bpm 15)
     (modify ?m (mode question))
 )
 
@@ -1521,7 +1544,9 @@
 	=>
     (modify ?q (type 2))
     (modify ?q (questionText "Which of the following two options best describes the kick (bass) drum in the song?"))
-    (modify ?q (explanation "Four on the floor features a constant (pounding) kick drum on every downbeat.  Breakbeat has a  (broken beat) kick that is not constant, but falls on different beats.  If there are no drums, choose no percussion present."))    
+    (modify ?q (explanation "Four on the floor features a constant (pounding) kick drum on every downbeat.
+Breakbeat has a  (broken beat) kick that is not constant, but falls on different beats.
+If there are no drums, choose no percussion present."))
     (modify ?q (answerTexts "Four on the Floor" "Breakbeat" "No Percussion Present"))
     (question-ready)
     (modify ?m (mode answer))
@@ -1535,21 +1560,20 @@
     (test (not (eq ?bpm 0)))
 	=>
     (update ?q.OBJECT)
+    (printout t "wtf: " ?q.answer crlf)
     (if (eq ?q.answer 0) then
     	(modify ?wm (true $?t four-on-the-floor))
         (modify ?wm (false $?f breakbeat percussion-none))
         (update-membership four-on-the-floor 25)
-    else 
-    (if (eq ?q.answer 1) then
+    else (if (eq ?q.answer 1) then
 	    (modify ?wm (true $?t breakbeat))
 	    (modify ?wm (false $?f four-on-the-floor percussion-none))
 	    (update-membership breakbeat 25)
-    else
+    else (if (eq ?q.answer 2) then
         (modify ?wm (true $?t percussion-none))
 	    (modify ?wm (false $?f four-on-the-floor breakbeat))
 	    (update-membership percussion-none 25)    
-    	)
-    )
+    	)))
     (modify ?wm (unknown (complement$ (create$ four-on-the-floor breakbeat percussion-none) (create$ $?ua four-on-the-floor $?ub))))
 	(modify ?m (mode question))
 )
@@ -1578,6 +1602,7 @@ Buildup Breakdown - heavy emphasis on tension and release through anticipation o
     ?wm <- (working-memory (true $?t) (false $?f) (unknown $?a verse-chorus $?b))
     =>
     (update ?q.OBJECT)
+    (printout t "wtf: " ?q.answer crlf)
     (if (eq ?q.answer 0) then
 		(modify ?wm (true $?t verse-chorus))
         (modify ?wm (false $?f repetitive minimalist buildup-breakdown))
