@@ -422,11 +422,14 @@ Dubstep
 Breakbeat
 -fx-background-image: url('file:resources/pictures/breakbeat.jpg')
 "Tightly coiled productions with overwhelming bass lines and reverberant drum patterns, clipped samples, and occasional vocals" - Allmusic.
-Digital Mystikz
-Skream
-DJ Hatcha
-DJ Joe Nice
-Mary Anne Hobbs
+Skrillex
+Rusko
+Knife Party
+Caspa
+Datsik
+Excision
+Bassnectar
+Zeds Dead
 ----------------------------
 ----------------------------
 Hip-Hop
