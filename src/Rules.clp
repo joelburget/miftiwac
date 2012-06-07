@@ -1488,13 +1488,13 @@
     (modify ?q (answerTexts "No_Genre" "No_Subgenre" "We were unable to find a matching result given your input.  Sorry, please try again."))
     (question-ready)
 )
-
+/*
 (defrule one-solution-left
     (declare (salience 100))
     ?wm <- (working-memory (unknown $?list))
     =>
     )
-
+*/
 (defrule next-question-answer
     (declare (salience 69))
     ?m <- (qa-toggle (mode ?mm))
