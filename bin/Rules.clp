@@ -76,8 +76,11 @@
     extends subgenre
     (slot bpm (type INTEGER) (default 0))
     (slot toggle (allowed-values true false) (default false))
-    (slot threshold (type INTEGER) (default 60))
-    (slot neg-threshold (type INTEGER) (default 30))
+    (slot bpm-points (type INTEGER) (default 15))
+    (slot threshold-def (type INTEGER) (default 75))
+    (slot threshold (type INTEGER) (default 75))
+    (slot neg-threshold (type INTEGER) (default 25))
+    (slot threshold-inc (type INTEGER) (default 5))
 )
 
 (deftemplate question-template
@@ -96,6 +99,16 @@
     (slot explanation-text (type STRING))
     (slot question-type (type INTEGER) (allowed-values 0 1 2 3))
     (multislot answers (type STRING))
+    (multislot removals (type STRING) (allowed-values soulful funky jazzy warm ambient cold uplifting 
+            						dystopian hypnotic aggressive  happy sad abrasive cheesy danceable 
+            						four-on-the-floor breakbeat percussion-none sampled-breaks drum-machine live-drummer 
+            						verse-chorus buildup-breakdown repetitive minimalist 
+            						obvious-tempo syncopated intricate-rhythms groovy-feel 
+            						band-not-electronic sparse-instrumentation turntablism three-oh-three 
+            						digital thin rhythmic-timbre 
+            						vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
+            						vocals-heavily-effected  vocals-breathy vocals-diva 
+            						vocals-rap-style vocals-melodic vocals-unpitched vocals-english))
 )
 
 ;-----------------------------------------------------------------------------
@@ -113,7 +126,7 @@
           	vocals-present vocals-male vocals-female vocals-studio-recorded band-not-electronic
           	vocals-melodic vocals-english)
     (false 
-            jazzy ambient uplifting dystopian hypnotic aggressive  happy sad abrasive cheesy 
+            cold jazzy ambient uplifting dystopian hypnotic aggressive  happy sad abrasive cheesy 
             breakbeat percussion-none sampled-breaks drum-machine buildup-breakdown repetitive minimalist 
             intricate-rhythms rhythmic-timbre turntablism three-oh-three digital thin sparse-instrumentation 
             vocals-sampled vocals-heavily-effected  vocals-breathy vocals-diva vocals-rap-style vocals-unpitched)
@@ -163,12 +176,12 @@
     (subgenre (name house)(subgenre-name new-york)(subgenre-min-bpm 110)(subgenre-max-bpm 124)
     (true 
 			obvious-tempo soulful funky jazzy warm danceable four-on-the-floor drum-machine syncopated groovy-feel 
-            digital  vocals-present vocals-studio-recorded vocals-male vocals-female vocals-melodic vocals-english)
+            digital  vocals-present vocals-studio-recorded vocals-male vocals-female vocals-melodic vocals-english repetitive)
     (false 
 			ambient cold uplifting 
            	dystopian hypnotic aggressive  happy sad abrasive cheesy 
            	breakbeat percussion-none sampled-breaks live-drummer 
-           	verse-chorus band-not-electronic buildup-breakdown repetitive minimalist 
+           	band-not-electronic
            	intricate-rhythms sparse-instrumentation turntablism three-oh-three 
            	thin vocals-sampled rhythmic-timbre
            	vocals-heavily-effected vocals-breathy vocals-diva 
@@ -178,10 +191,10 @@
     ;-------------------- acid --------------------
     (subgenre (name house)(subgenre-name acid)(subgenre-min-bpm 118)(subgenre-max-bpm 124)
     (true 
-			obvious-tempo cold dystopian abrasive danceable four-on-the-floor drum-machine three-oh-three rhythmic-timbre sparse-instrumentation digital thin )
+			repetitive obvious-tempo cold dystopian abrasive danceable four-on-the-floor drum-machine three-oh-three rhythmic-timbre sparse-instrumentation digital thin )
     (false 
 			soulful funky jazzy warm ambient uplifting hypnotic aggressive  happy sad cheesy  
-           	breakbeat percussion-none sampled-breaks live-drummer verse-chorus buildup-breakdown repetitive minimalist 
+           	breakbeat percussion-none sampled-breaks live-drummer 
            	syncopated intricate-rhythms groovy-feel band-not-electronic turntablism 
            	vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
            	vocals-heavily-effected  vocals-breathy vocals-diva 
@@ -242,7 +255,7 @@
     (unknown))
 
     ;-------------------- anthem --------------------
-    (subgenre (name house)(subgenre-name anthem)(subgenre-min-bpm 120)(subgenre-max-bpm 136)
+    (subgenre (name house)(subgenre-name anthem-house)(subgenre-min-bpm 120)(subgenre-max-bpm 136)
     (true 
 			obvious-tempo cold danceable four-on-the-floor drum-machine verse-chorus 
             syncopated groovy-feel digital vocals-sampled vocals-present vocals-male)
@@ -381,7 +394,7 @@
     (unknown))
     
     ;-------------------- anthem --------------------
-    (subgenre (name trance)(subgenre-name anthem)(subgenre-min-bpm 136)(subgenre-max-bpm 144)
+    (subgenre (name trance)(subgenre-name anthem-trance)(subgenre-min-bpm 136)(subgenre-max-bpm 144)
     (true 
 			obvious-tempo uplifting danceable four-on-the-floor drum-machine digital buildup-breakdown )
     (false 
@@ -418,13 +431,13 @@
     ;-------------------- epic --------------------
     (subgenre (name trance)(subgenre-name epic)(subgenre-min-bpm 136)(subgenre-max-bpm 144)
     (true 
-			obvious-tempo cold uplifting danceable four-on-the-floor drum-machine digital vocals-present 
+			verse-chorus obvious-tempo cold uplifting danceable four-on-the-floor drum-machine digital vocals-present 
             buildup-breakdown vocals-studio-recorded vocals-female vocals-heavily-effected vocals-melodic vocals-english)
     (false 
 			soulful funky jazzy warm ambient 
            	dystopian hypnotic aggressive  happy sad abrasive cheesy 
             breakbeat percussion-none sampled-breaks live-drummer 
-           	verse-chorus  repetitive minimalist 
+           	repetitive minimalist 
            	syncopated intricate-rhythms groovy-feel 
            	band-not-electronic sparse-instrumentation turntablism three-oh-three 
            	thin rhythmic-timbre 
@@ -579,7 +592,7 @@
     (false 
 			soulful funky jazzy ambient cold uplifting 
            	dystopian hypnotic happy sad abrasive cheesy  
-           	four-on-the-floor percussion-none drum-machine live-drummer 
+           	four-on-the-floor percussion-none drum-machine  live-drummer 
            	buildup-breakdown repetitive minimalist 
            	band-not-electronic sparse-instrumentation turntablism three-oh-three 
            	digital thin rhythmic-timbre vocals-studio-recorded 
@@ -770,7 +783,7 @@
     (unknown))
     
     ;-------------------- musique concrete/tape music --------------------
-    (subgenre (name downtempo)(subgenre-name musique-concrete)(subgenre-min-bpm 0)(subgenre-max-bpm 0)
+    (subgenre (name downtempo)(subgenre-name musique-concrete)(subgenre-min-bpm -10)(subgenre-max-bpm -10)
     (true 
 			abrasive percussion-none minimalist sparse-instrumentation rhythmic-timbre )
     (false 
@@ -834,7 +847,7 @@
     (unknown))
     
     ;-------------------- minimalism --------------------
-    (subgenre (name downtempo)(subgenre-name minimalism)(subgenre-min-bpm 0)(subgenre-max-bpm 0)
+    (subgenre (name downtempo)(subgenre-name minimalism)(subgenre-min-bpm -10)(subgenre-max-bpm -10)
     (true 
 			ambient cold hypnotic percussion-none minimalist band-not-electronic )
     (false 
@@ -851,7 +864,7 @@
     (unknown))
     
     ;-------------------- ambient --------------------
-    (subgenre (name downtempo)(subgenre-name ambient)(subgenre-min-bpm 0)(subgenre-max-bpm 0)
+    (subgenre (name downtempo)(subgenre-name ambient)(subgenre-min-bpm -10)(subgenre-max-bpm -10)
     (true 
 			ambient cold hypnotic percussion-none minimalist digital )
     (false 
@@ -869,7 +882,7 @@
 )
 
 (deffacts question-base
-    ;placeholder for hardcoded questions, this is used in the explanation system
+    ;placeholder for hardcoded questiodns, this is used in the explanation system
     
      (question-template (reference-attribute verse-chorus)
         (membership-value 10)
@@ -941,6 +954,7 @@
         (question-text "Are the vocals present in the song performed by a male?")
         (explanation-text "If this song contains vocals by a male, or if you think the genre that the song belongs to can have vocals sung by a male, answer yes.")
         (question-type 0)
+        (removals vocals-female)
      )
     
      (question-template (reference-attribute vocals-female)
@@ -948,6 +962,7 @@
         (question-text "Are the vocals present in the song performed by a female?")
         (explanation-text "If this song contains vocals by a female, or if you think the genre that the song belongs to can have vocals sung by a female, answer yes.")
         (question-type 0)
+        (removals vocals-male)
      )
 
     
@@ -984,6 +999,7 @@
         (question-text "Are the vocals unpitched?")
         (explanation-text "If the vocals aren't sung with particular musical notes, then they can be considered to be unpitched.")
         (question-type 0)
+        (removals vocals-melodic)
      )
     
      (question-template (reference-attribute vocals-melodic)
@@ -991,6 +1007,7 @@
         (question-text "Are the vocals melodic in nature?")
         (explanation-text "If the main theme of the song, usually the catchiest part, is sung then the vocals are melodic.")
         (question-type 0)
+        (removals vocals-unpitched)
      )
     
      (question-template (reference-attribute vocals-rap-style)
@@ -1005,6 +1022,7 @@
         (question-text "Does the song go out of its way to inspire feelings of happiness?")
         (explanation-text "Happy music is usually major and upbeat.  The question refers to music that's purposefully and intentionally happy sounding, more so than the average piece of music. ")
         (question-type 0)
+        (removals sad)
      ) 
     
     (question-template (reference-attribute soulful)
@@ -1047,6 +1065,7 @@
         (question-text "Does the song have a warm feel?")
         (explanation-text "Warm music is natural, human and comforting sounding.  It may produce feelings of nostalgia.")
         (question-type 0)
+        (removals cold)
      )
     
     (question-template (reference-attribute ambient)
@@ -1061,6 +1080,7 @@
         (question-text "Does the song have a cold feel?")
         (explanation-text "Cold music is unemotional and not comforting.  It will often sound inhuman and machine-made.")
         (question-type 0)
+        (removals warm)
      )
     
     (question-template (reference-attribute uplifting)
@@ -1096,6 +1116,7 @@
         (question-text "Does the song have a sad feel?")
         (explanation-text "Does the song evoke sad feelings when you listen to it?")
         (question-type 0)
+        (removals happy)
      )
     
     (question-template (reference-attribute abrasive)
@@ -1322,19 +1343,69 @@
 )
 
 (deffunction explanation-system (?sg ?wm)
-	(bind $?attr-to-exp (intersection$ ?sg.true ?wm.true))
+	(bind $?true-attr-to-exp (intersection$ ?sg.true ?wm.true))
+    (bind $?false-attr-to-exp (intersection$ ?sg.false ?wm.false))
     (bind ?explanation-string "")
-    ;hard-code explanations here
-    (bind ?explanation-string (str-cat ?explanation-string "You indicated that the music had a tempo of " ?wm.bpm " bpm.  This contributed " (round (* 100 (/ 20 ?sg.membership-value))) "% to the final decision.
-"))
-    (foreach ?attr $?attr-to-exp
+    
+    ;determine if is in bpm range
+    (bind ?in-range FALSE)
+    (bind ?result (run-query* bpm-inside-search ?wm.bpm))
+    (while (?result next)
+		(bind ?subg (?result getObject subgenre))
+        (if (eq ?sg.subgenre-name ?subg.subgenre-name) then
+            (bind ?in-range TRUE)
+            )
+        )
+    
+    ;sum total points
+    (bind ?total-points 0)
+    (foreach ?attr $?true-attr-to-exp
+        (bind ?result (run-query* attribute-question ?attr))
+        (while (?result next)
+            (bind ?qt (?result getObject question-template))
+            (bind ?attr-mem-value ?qt.membership-value)
+            (bind ?total-points (+ ?total-points ?qt.membership-value))
+            )
+        )
+    
+    (foreach ?attr $?false-attr-to-exp
+        (bind ?result (run-query* attribute-question ?attr))
+        (while (?result next)
+            (bind ?qt (?result getObject question-template))
+            (bind ?attr-mem-value ?qt.membership-value)
+            (bind ?total-points (+ ?total-points ?qt.membership-value))
+            )
+        )
+    
+    ;if bpm was in range, add points
+    (if ?in-range then (bind ?total-points (+ ?total-points ?wm.bpm-points)))
+    
+    ;if bpm was correct, explain it
+    (if ?in-range then (bind ?explanation-string (str-cat ?explanation-string "You indicated that the music had a tempo of " ?wm.bpm " bpm.  This contributed " (round (* 100 (/ 20 ?total-points))) "% to the final decision.
+")))
+    
+    ;(printout t "Total points: " ?total-points crlf)
+    
+    ;now explain each true attribute
+    (foreach ?attr $?true-attr-to-exp
         (bind ?attr-mem-value 0)
         (bind ?result (run-query* attribute-question ?attr))
         (while (?result next)
             (bind ?qt (?result getObject question-template))
             (bind ?attr-mem-value ?qt.membership-value)
             )
-        (bind ?explanation-string (str-cat ?explanation-string "You indicated that the music has the characteristic " ?attr " which contributed " (round (* 100 (/ ?attr-mem-value ?sg.membership-value))) "% to the final decision.
+        (bind ?explanation-string (str-cat ?explanation-string "You indicated that the music possessed the characteristic " ?attr " which contributed " (round (* 100 (/ ?attr-mem-value ?total-points))) "% to the final decision.
+")))
+    
+    ;now explain each false attribute
+    (foreach ?attr $?false-attr-to-exp
+        (bind ?attr-mem-value 0)
+        (bind ?result (run-query* attribute-question ?attr))
+        (while (?result next)
+            (bind ?qt (?result getObject question-template))
+            (bind ?attr-mem-value ?qt.membership-value)
+            )
+        (bind ?explanation-string (str-cat ?explanation-string "You indicated that the music lacked the characteristic " ?attr " which contributed " (round (* 100 (/ ?attr-mem-value ?total-points))) "% to the final decision.
 ")))
     (return ?explanation-string)
 )
@@ -1378,7 +1449,7 @@
        	 	else (if (subsetp (create$ ?attr) ?sg.false) then
        	    	(++ ?falsecount)))
         	)
-        (printout t "Attr t/f split: " ?attr ", " ?truecount ", " ?falsecount crlf)
+        ;(printout t "Attr t/f split: " ?attr ", " ?truecount ", " ?falsecount crlf)
 		(bind $?counts (create$ $?counts (abs (- ?truecount ?falsecount))))
 	)
     
@@ -1408,7 +1479,7 @@
 )
 
 (defrule no-solution
-    (declare (salience 50))
+    (declare (salience 100))
 	?wm <- (working-memory (unknown $?list))
     (test (= (length$ $?list) 0))
     =>
@@ -1417,6 +1488,12 @@
     (modify ?q (answerTexts "No_Genre" "No_Subgenre" "We were unable to find a matching result given your input.  Sorry, please try again."))
     (question-ready)
 )
+
+(defrule one-solution-left
+    (declare (salience 100))
+    ?wm <- (working-memory (unknown $?list))
+    =>
+    )
 
 (defrule next-question-answer
     (declare (salience 69))
@@ -1427,7 +1504,7 @@
 	(update ?q.OBJECT)
 	(if (int-to-bool ?q.answer) then
 	    (modify ?wm (true (union$ ?wm.true (create$ ?m.attr))))
-	    (modify ?wm (unknown (complement$ (create$ ?m.attr) ?wm.unknown)))
+	    (modify ?wm (unknown (complement$ (create$ ?m.attr ?*nqt*.removals) ?wm.unknown)))
 	    (update-membership ?m.attr ?*nqt*.membership-value)
 	 else
 	    (modify ?wm (false (union$ ?wm.false (create$ ?m.attr))))
@@ -1436,7 +1513,7 @@
 	     )
     (modify ?m (mode question))
     )
-    
+
 (defrule membership-threshold
     (declare (salience 100))
     ?wm <- (working-memory (threshold ?thresh))
@@ -1446,20 +1523,27 @@
     (bind ?resnum (count-query-results above-threshold ?thresh))
     (printout t "Resnum: " ?resnum crlf)
     (if (> ?resnum 1) then
-        (modify ?wm (threshold (+ ?wm.threshold 5)))
+        (modify ?wm (threshold (+ ?wm.threshold ?wm.threshold-inc)))
         (printout t "New threshold: " ?wm.threshold crlf)
     else
         (modify ?q (type 3))
         (modify ?q (answerTexts ?sg.name ?sg.subgenre-name (explanation-system ?sg ?wm)))
+        (printout t "Answer is: " ?sg.subgenre-name crlf)
         (question-ready)
 	)
 )
 
-/*(defrule lower-membership-threshold
+(defrule lower-membership-threshold
     (declare (salience 99))
     ?wm <- (working-memory (threshold ?thresh))
      =>
-    )*/
+    (bind ?resnum (count-query-results above-threshold ?thresh))
+    (printout t "Resnum: " ?resnum crlf)
+    (if (and (< ?resnum 1) (> ?wm.threshold (+ ?wm.threshold-def 0)) (> ?wm.threshold (+ (get-highest-membership) ?wm.threshold-inc))) then
+        (modify ?wm (threshold (- ?wm.threshold ?wm.threshold-inc)))
+        (printout t "New threshold: " ?wm.threshold crlf)
+        )
+    )
 
 (defrule penalty-membership-threshold
     (declare (salience 98))
@@ -1502,7 +1586,9 @@
      else
         (modify ?wm (false $?f obvious-tempo))
         (modify ?wm (unknown $?ua $?ub))
-        (update-membership obvious-tempo (- 0 ?mv))
+        (modify ?wm (threshold (/ ?wm.threshold 3)))
+        (modify ?wm (threshold (/ ?wm.threshold-def 3)))
+        (modify ?wm (neg-threshold (/ ?wm.neg-threshold 3)))
         (update-membership obvious-tempo (- 0 ?mv))
      )
     (modify ?m (mode question))
@@ -1531,7 +1617,7 @@
 	=>
     (update ?q.OBJECT)
     (modify ?wm (bpm ?q.answer))
-    (update-membership-bpm ?wm.bpm 15)
+    (update-membership-bpm ?wm.bpm ?wm.bpm-points)
     (modify ?m (mode question))
 )
 
@@ -1558,21 +1644,24 @@ If there are no drums, choose no percussion present."))
     (test (eq ?mm answer))
     ?wm <- (working-memory (bpm ?bpm) (true $?t) (false $?f) (unknown $?ua four-on-the-floor $?ub))
     (test (not (eq ?bpm 0)))
+    ?nqt1 <- (question-template (reference-attribute four-on-the-floor))
+    ?nqt2 <- (question-template (reference-attribute breakbeat))
+    ?nqt3 <- (question-template (reference-attribute percussion-none))
 	=>
     (update ?q.OBJECT)
     (printout t "wtf: " ?q.answer crlf)
     (if (eq ?q.answer 0) then
     	(modify ?wm (true $?t four-on-the-floor))
-        (modify ?wm (false $?f breakbeat percussion-none))
-        (update-membership four-on-the-floor 25)
+        ;(modify ?wm (false $?f breakbeat percussion-none))
+        (update-membership four-on-the-floor ?nqt1.membership-value)
     else (if (eq ?q.answer 1) then
 	    (modify ?wm (true $?t breakbeat))
-	    (modify ?wm (false $?f four-on-the-floor percussion-none))
-	    (update-membership breakbeat 25)
+	    ;(modify ?wm (false $?f four-on-the-floor percussion-none))
+	    (update-membership breakbeat ?nqt2.membership-value)
     else (if (eq ?q.answer 2) then
         (modify ?wm (true $?t percussion-none))
-	    (modify ?wm (false $?f four-on-the-floor breakbeat))
-	    (update-membership percussion-none 25)    
+	    ;(modify ?wm (false $?f four-on-the-floor breakbeat))
+	    (update-membership percussion-none ?nqt3.membership-value)    
     	)))
     (modify ?wm (unknown (complement$ (create$ four-on-the-floor breakbeat percussion-none) (create$ $?ua four-on-the-floor $?ub))))
 	(modify ?m (mode question))
@@ -1582,7 +1671,8 @@ If there are no drums, choose no percussion present."))
 	(declare (salience 84))
     ?m <- (qa-toggle (mode ?mm))
     (test (eq ?mm question))
-    ?wm <- (working-memory (true $?t) (false $?f) (unknown $?a verse-chorus $?b))
+    ?wm <- (working-memory (true $?t) (false $?f) (unknown $?a verse-chorus $?b) (bpm ?bpm))
+    (test (not (eq ?bpm 0)))
     =>
     (modify ?q (type 2))
     (modify ?q (questionText "Which of the following best describes the song structure?"))
@@ -1599,26 +1689,31 @@ Buildup Breakdown - heavy emphasis on tension and release through anticipation o
 	(declare (salience 84))
     ?m <- (qa-toggle (mode ?mm))
     (test (eq ?mm answer))
-    ?wm <- (working-memory (true $?t) (false $?f) (unknown $?a verse-chorus $?b))
+    ?wm <- (working-memory (true $?t) (false $?f) (unknown $?a verse-chorus $?b)  (bpm ?bpm))
+    (test (not (eq ?bpm 0)))
+    ?nqt1 <- (question-template (reference-attribute verse-chorus))
+    ?nqt2 <- (question-template (reference-attribute repetitive))
+    ?nqt3 <- (question-template (reference-attribute minimalist))
+    ?nqt4 <- (question-template (reference-attribute buildup-breakdown))
     =>
     (update ?q.OBJECT)
     (printout t "wtf: " ?q.answer crlf)
     (if (eq ?q.answer 0) then
 		(modify ?wm (true $?t verse-chorus))
-        (modify ?wm (false $?f repetitive minimalist buildup-breakdown))
-        (update-membership verse-chorus 10)
+        ;(modify ?wm (false $?f repetitive minimalist buildup-breakdown))
+        (update-membership verse-chorus ?nqt1.membership-value)
     else (if (eq ?q.answer 1) then
         (modify ?wm (true $?t repetitive))
-        (modify ?wm (false $?f verse-chorus minimalist buildup-breakdown))
-		(update-membership repetitive 10)
+        ;(modify ?wm (false $?f verse-chorus minimalist buildup-breakdown))
+		(update-membership repetitive ?nqt2.membership-value)
 	else (if (eq ?q.answer 2) then
         (modify ?wm (true $?t minimalist))
-        (modify ?wm (false $?f verse-chorus repetitive buildup-breakdown))
-        (update-membership minimalist 10)
+        ;(modify ?wm (false $?f verse-chorus repetitive buildup-breakdown))
+        (update-membership minimalist ?nqt3.membership-value)
     else (if (eq ?q.answer 3) then
         (modify ?wm (true $?t buildup-breakdown))
-        (modify ?wm (false $?f verse-chorus repetitive minimalist))
-        (update-membership buildup-breakdown 10)
+        ;(modify ?wm (false $?f verse-chorus repetitive minimalist))
+        (update-membership buildup-breakdown ?nqt4.membership-value)
      	))))
     (modify ?wm (unknown (complement$ (create$ verse-chorus repetitive minimalist buildup-breakdown) (create$ $?a verse-chorus $?b))))
     (modify ?m (mode question))
@@ -1628,7 +1723,8 @@ Buildup Breakdown - heavy emphasis on tension and release through anticipation o
     (declare (salience 82))
     ?m <- (qa-toggle (mode ?mm))
     (test (eq ?mm question))
-    ?wm <- (working-memory (true $?t) (false $?f) (unknown $?a vocals-present $?b))
+    ?wm <- (working-memory (true $?t) (false $?f) (unknown $?a vocals-present $?b)  (bpm ?bpm))
+    (test (not (eq ?bpm 0)))
     =>
 	(modify ?q (type 0))
     (modify ?q (questionText "Are there vocals present in the song?"))
@@ -1641,7 +1737,9 @@ Buildup Breakdown - heavy emphasis on tension and release through anticipation o
     (declare (salience 82))
     ?m <- (qa-toggle (mode ?mm))
     (test (eq ?mm answer))
-    ?wm <- (working-memory (true $?t) (false $?f) (unknown $?a vocals-present $?b))
+    ?wm <- (working-memory (true $?t) (false $?f) (unknown $?a vocals-present $?b) (bpm ?bpm))
+    (test (not (eq ?bpm 0)))
+    ?nqt <- (question-template (reference-attribute vocals-present))
     =>
     (update ?q.OBJECT)
     (if (int-to-bool ?q.answer) then
@@ -1649,15 +1747,15 @@ Buildup Breakdown - heavy emphasis on tension and release through anticipation o
         (modify ?wm (unknown $?a $?b))
         (update-membership vocals-present 5)
      else
-        (modify ?wm (false $?f vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
-            				   vocals-heavily-effected  vocals-breathy vocals-diva 
-            				   vocals-rap-style vocals-melodic vocals-unpitched vocals-english))
+        ;(modify ?wm (false $?f vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
+        ;    				   vocals-heavily-effected  vocals-breathy vocals-diva 
+        ;    				   vocals-rap-style vocals-melodic vocals-unpitched vocals-english))
         (modify ?wm (unknown (complement$ (create$ 
                         							vocals-present vocals-studio-recorded vocals-sampled vocals-male vocals-female 
             										vocals-heavily-effected vocals-breathy vocals-diva 
             										vocals-rap-style vocals-melodic vocals-unpitched vocals-english)
                     					  (create$ $?a vocals-present $?b))))
-        (update-membership vocals-present -10)
+        (update-membership vocals-present ?nqt.membership-value)
     )
     (modify ?m (mode question))
 )

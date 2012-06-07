@@ -38,7 +38,7 @@
               </textFill>
             </Label>
             <Separator id="separatorHorizontal" layoutY="97.0" prefHeight="4.0" prefWidth="491.0" styleClass="separatorHorizontal" AnchorPane.leftAnchor="331.0" AnchorPane.rightAnchor="14.0" />
-            <Label fx:id="genreNameLabel" focusTraversable="true" layoutY="4.0" prefHeight="34.0" prefWidth="139.0" AnchorPane.leftAnchor="331.0" AnchorPane.rightAnchor="366.0">
+            <Label fx:id="genreNameLabel" focusTraversable="true" layoutY="4.0" prefHeight="34.0" AnchorPane.leftAnchor="331.0" AnchorPane.rightAnchor="366.0">
               <font>
                 <Font name="System Bold" size="25.0" />
               </font>
@@ -51,7 +51,7 @@
             <TextArea id="textArea" fx:id="reasoningTextArea" editable="false" prefHeight="399.0" prefWidth="836.0" styleClass="textArea" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
             <Label id="descriptionLabel" font="$x1" layoutX="28.0" layoutY="335.0" prefHeight="30.0" prefWidth="144.00009999999747" text="REASONING" textFill="$x2" />
             <Separator id="separatorHorizontal" layoutY="365.0" prefHeight="4.0" prefWidth="807.0" styleClass="separatorHorizontal" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="14.0" />
-            <Label fx:id="subGenreNameLabel" focusTraversable="true" layoutX="360.0" layoutY="38.0" prefHeight="34.0" prefWidth="182.0">
+            <Label fx:id="subGenreNameLabel" focusTraversable="true" layoutX="360.0" layoutY="38.0" prefHeight="34.0">
               <font>
                 <Font name="System Italic" size="25.0" fx:id="x3" />
               </font>
@@ -70,8 +70,8 @@
     </SplitPane>
   </children>
   <stylesheets>
-	<URL value="file:resources/files/styles.css" />
+    <URL value="file:resources/files/styles.css" />
     <!--URL value="file:/C:/Users/Idle_Thought/Google%20Drive/Workspaces/workspace/MIFTIWAC/resources/files/styles.css" /-->
-    <!--URL value="file:/C:/Users/Jon%20Martin/Google%20Drive/Workspaces/workspace/MIFTIWAC/resources/files/styles.css" /-->
+    <!--URL value="file:/C:/Users/Jon%20Martin/Google%20Drive/Workspaces/workspace/MIFTIWAC3/resources/files/styles.css" /-->
   </stylesheets>
 </AnchorPane>
