@@ -738,7 +738,7 @@ public class Dynamic_page implements Initializable {
 				tempQuestion = MIFTIWAC.questionText.get(0);
 				//System.out.println("Should display to the question box: " + tempQuestion);
 				if(mediaResources.containsKey(tempQuestion)){
-					mediaToggles[0].setVisible(true);
+					//mediaToggles[0].setVisible(true);
 					audioClips[0] = new AudioClip(mediaResources.get(tempQuestion));
 				}
 				questionBox.setText(tempQuestion);
@@ -758,7 +758,7 @@ public class Dynamic_page implements Initializable {
 				tempQuestion = MIFTIWAC.questionText.get(0);
 				//System.out.println("Should display to the question box: " + tempQuestion);
 				if(mediaResources.containsKey(tempQuestion)){
-					mediaToggles[0].setVisible(true);
+					//mediaToggles[0].setVisible(true);
 					audioClips[0] = new AudioClip(mediaResources.get(tempQuestion));
 				}
 				if(tempQuestion.compareToIgnoreCase("What is the BPM (Beats Per Minute)?") == 0){
@@ -781,7 +781,7 @@ public class Dynamic_page implements Initializable {
 				tempQuestion = MIFTIWAC.questionText.get(0);
 				//System.out.println("Should display to the question box: " + tempQuestion);
 				if(mediaResources.containsKey(tempQuestion)){
-					mediaToggles[0].setVisible(true);
+					//mediaToggles[0].setVisible(true);
 					audioClips[0] = new AudioClip(mediaResources.get(tempQuestion));
 				}
 				questionBox.setText(tempQuestion);
@@ -790,7 +790,7 @@ public class Dynamic_page implements Initializable {
 						radioButtons[(i - 1)].setVisible(true);
 						radioButtons[(i - 1)].setText(MIFTIWAC.questionText.get(i));
 						if(mediaResources.containsKey(MIFTIWAC.questionText.get(i))){
-							mediaToggles[i].setVisible(true);
+							//mediaToggles[i].setVisible(true);
 							audioClips[i] = new AudioClip(mediaResources.get(MIFTIWAC.questionText.get(i)));
 						}
 					}
